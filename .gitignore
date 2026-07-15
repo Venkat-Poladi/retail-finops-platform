@@ -1,0 +1,36 @@
+# Python environment
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# Environment variables and credentials
+.env
+*.pem
+*.key
+service-account*.json
+
+# Testing and coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+
+# Excel temporary files
+~$*.xlsx
+~$*.xlsm
+
+# Generated outputs
+output/*
+!output/.gitkeep
