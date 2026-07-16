@@ -1,0 +1,5 @@
+payer_account_id,usage_account_id,usage_account_name,account_purpose,default_environment
+111111111111,111111111112,retail-production,Customer-facing production workloads,prod
+111111111111,111111111113,data-production,Analytics and data workloads,prod
+111111111111,111111111114,shared-services,Central platform and shared services,prod
+111111111111,111111111115,retail-nonproduction,Development and testing workloads,nonprod

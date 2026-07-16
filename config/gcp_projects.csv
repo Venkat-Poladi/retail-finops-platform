@@ -1,0 +1,5 @@
+billing_account_id,project_id,project_name,project_purpose,default_environment
+01A1B2-3C4D5E-6F7A8B,retail-prod-001,Retail Production,Customer-facing production workloads,prod
+01A1B2-3C4D5E-6F7A8B,data-platform-001,Data Platform,Analytics and data workloads,prod
+01A1B2-3C4D5E-6F7A8B,shared-services-001,Shared Services,Central platform and shared services,prod
+01A1B2-3C4D5E-6F7A8B,retail-nonprod-001,Retail Nonproduction,Development and testing workloads,nonprod

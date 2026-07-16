@@ -1,0 +1,12 @@
+workload_id,application_name,department_name,cost_center,environment,owner_team,is_shared,criticality,business_driver
+checkout-prod,Checkout,Digital Commerce,CC100,prod,Commerce Platform,false,Critical,transactions
+checkout-nonprod,Checkout,Digital Commerce,CC100,nonprod,Commerce Platform,false,Medium,transactions
+storefront-prod,Storefront,Digital Commerce,CC100,prod,Web Experience,false,Critical,traffic
+storefront-nonprod,Storefront,Digital Commerce,CC100,nonprod,Web Experience,false,Medium,traffic
+analytics-prod,Analytics Platform,Data and Analytics,CC200,prod,Data Platform,false,High,queries
+analytics-nonprod,Analytics Platform,Data and Analytics,CC200,nonprod,Data Platform,false,Medium,queries
+support-prod,Customer Support,Customer Operations,CC300,prod,Support Engineering,false,High,support_requests
+support-nonprod,Customer Support,Customer Operations,CC300,nonprod,Support Engineering,false,Medium,support_requests
+recommendations-prod,Recommendations,Digital Commerce,CC100,prod,Personalization,false,High,ai_requests
+shared-platform-prod,Shared Platform,Shared Technology,CC900,prod,Cloud Platform,true,High,traffic
+shared-platform-nonprod,Shared Platform,Shared Technology,CC900,nonprod,Cloud Platform,true,Medium,traffic

@@ -1,0 +1,17 @@
+provider_name,service_code,service_name,service_category,usage_unit,business_driver,is_shared_candidate,default_charge_behavior
+AWS,AmazonEC2,Amazon Elastic Compute Cloud,Compute,instance_hours,traffic,false,usage
+AWS,AWSLambda,AWS Lambda,Serverless,requests,api_requests,false,usage
+AWS,AmazonRDS,Amazon Relational Database Service,Database,db_hours,transactions,false,usage
+AWS,AmazonS3,Amazon Simple Storage Service,Storage,gb_month,transactions,false,usage
+AWS,AmazonCloudWatch,Amazon CloudWatch,Observability,gb_ingested,traffic,true,usage
+AWS,AmazonVPC,Amazon Virtual Private Cloud,Network,gb_transferred,traffic,true,usage
+AWS,AmazonBedrock,AWS Bedrock,AI,requests,ai_requests,false,usage
+AWS,AWSMarketplace,AWS Marketplace,Marketplace,units,none,false,fee
+GCP,ComputeEngine,Compute Engine,Compute,instance_hours,traffic,false,usage
+GCP,CloudRun,Cloud Run,Serverless,requests,api_requests,false,usage
+GCP,CloudSQL,Cloud SQL,Database,db_hours,transactions,false,usage
+GCP,CloudStorage,Cloud Storage,Storage,gb_month,transactions,false,usage
+GCP,CloudLogging,Cloud Logging,Observability,gb_ingested,traffic,true,usage
+GCP,NetworkServices,Network Services,Network,gb_transferred,traffic,true,usage
+GCP,VertexAI,Vertex AI,AI,requests,ai_requests,false,usage
+GCP,GCPMarketplace,GCP Marketplace,Marketplace,units,none,false,fee
