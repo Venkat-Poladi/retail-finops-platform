@@ -1,0 +1,7 @@
+profile_id,provider_name,profile_name,commitment_type,service_category,coverage_pct,utilization_pct,discount_pct
+aws-sp-balanced,AWS,balanced,SavingsPlan,Compute,0.82,0.92,0.24
+aws-sp-under,AWS,under_committed,SavingsPlan,Compute,0.45,0.96,0.20
+aws-ri-over,AWS,over_committed,ReservedInstance,Database,0.95,0.68,0.31
+gcp-flex-balanced,GCP,balanced,FlexibleCUD,Compute,0.80,0.90,0.23
+gcp-compute-under,GCP,under_committed,ComputeCUD,Compute,0.43,0.97,0.21
+gcp-resource-over,GCP,over_committed,ResourceCUD,Database,0.94,0.67,0.30

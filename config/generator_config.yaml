@@ -1,0 +1,42 @@
+project:
+  name: "Retail Co. FinOps Cost Management Platform"
+  seed: 42
+  billing_currency: "USD"
+  output_timezone: "UTC"
+
+generation_period:
+  start_date: "2025-07-01"
+  end_date: "2026-06-30"
+
+data_quality:
+  missing_business_tags_pct: 0.08
+  late_arriving_records_pct: 0.01
+
+  duplicate_record_count:
+    aws: 2
+    gcp: 2
+
+  invalid_record_count:
+    aws: 1
+    gcp: 1
+
+business_patterns:
+  monthly_growth_pct: 0.018
+  random_variation_sigma: 0.12
+
+  production_weekend_factor: 0.92
+  nonproduction_weekend_factor: 0.35
+
+  monthly_seasonality:
+    "01": 0.85
+    "02": 0.90
+    "03": 0.95
+    "04": 0.98
+    "05": 1.00
+    "06": 1.02
+    "07": 1.05
+    "08": 1.08
+    "09": 1.12
+    "10": 1.20
+    "11": 1.35
+    "12": 1.55

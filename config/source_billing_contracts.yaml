@@ -1,0 +1,88 @@
+aws:
+  source_name: "AWS CUR or Data Export"
+
+  billing_hierarchy:
+    billing_account_field: "bill_payer_account_id"
+    usage_account_field: "line_item_usage_account_id"
+
+  source_shape:
+    structure: "flat_wide"
+    nested_fields: false
+
+  charge_classification:
+    primary_field: "line_item_line_item_type"
+    expected_values:
+      - "Usage"
+      - "Fee"
+      - "Refund"
+      - "Credit"
+      - "RIFee"
+      - "DiscountedUsage"
+      - "SavingsPlanCoveredUsage"
+      - "SavingsPlanRecurringFee"
+      - "SavingsPlanNegation"
+
+  credits:
+    representation: "separate_line_item"
+    requires_unnest: false
+
+  metadata:
+    resource_metadata_type: "resource_tags"
+    billing_visibility_rule: "cost_allocation_tag_activation_required"
+
+  commitments:
+    supported_types:
+      - "SavingsPlan"
+      - "ReservedInstance"
+
+    modeling_note: >
+      Savings Plans and Reserved Instances are commitment instruments with
+      provider-specific mechanics. They will be normalized into common
+      commitment and pricing fields only after source-level processing.
+
+gcp:
+  source_name: "GCP BigQuery Billing Export"
+
+  billing_hierarchy:
+    billing_account_field: "billing_account_id"
+    project_field: "project.id"
+
+  source_shape:
+    structure: "nested_repeated"
+    nested_fields: true
+
+  charge_classification:
+    primary_field: "cost_type"
+    expected_values:
+      - "regular"
+      - "tax"
+      - "adjustment"
+      - "rounding_error"
+
+  credits:
+    representation: "nested_repeated_array"
+    source_field: "credits"
+    requires_unnest: true
+    multiple_credits_per_usage_row: true
+
+  metadata:
+    resource_metadata_type: "labels"
+    source_field: "labels"
+    requires_unnest: true
+    billing_visibility_rule: "labels_exported_when_applied"
+
+  commitments:
+    supported_types:
+      - "ComputeCUD"
+      - "ResourceCUD"
+      - "FlexibleCUD"
+
+    modeling_note: >
+      Committed Use Discounts are normalized at the common pricing layer,
+      while their source-specific application and allocation mechanics remain
+      provider-specific.
+
+  staging_warning: >
+    Credits and labels are separate repeated arrays. Unnesting both arrays in
+    the same query without pre-aggregation may multiply rows and duplicate
+    costs.
