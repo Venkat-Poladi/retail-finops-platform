@@ -1,0 +1,49 @@
+schema_reference_date: '2026-07-15'
+
+aws:
+  source_model: AWS Cost and Usage Report / Data Exports realistic subset
+  native_bill_fields_added:
+    - bill_bill_type
+    - bill_billing_entity
+    - bill_invoice_id
+    - bill_invoicing_entity
+  project_extensions:
+    - x_payer_account_name
+  intentionally_not_claimed:
+    - complete AWS CUR schema replication
+    - bill_payer_account_name as a native AWS field
+    - every dynamic product, cost-category, discount, or split-line-item column
+
+gcp:
+  source_model: Google Cloud Detailed Billing Export realistic subset
+  repeated_record_fields:
+    system_labels:
+      - key
+      - value
+    tags:
+      - key
+      - value
+      - inherited
+      - namespace
+  fields_added:
+    - transaction_type
+    - seller_name
+    - subscription.instance_id
+    - cost_at_effective_price_default
+    - cost_at_list_consumption_model
+  existing_nested_fields_preserved:
+    - project
+    - service
+    - sku
+    - usage
+    - price
+    - invoice
+    - labels
+    - credits
+    - resource
+    - adjustment_info
+    - consumption_model
+
+focus:
+  target_version: '1.4'
+  claim: FOCUS-aligned normalization, not provider-certified conformance
