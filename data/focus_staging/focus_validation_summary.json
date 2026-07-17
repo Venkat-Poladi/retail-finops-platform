@@ -1,0 +1,71 @@
+{
+  "aws_normalized_independently": true,
+  "charge_category_counts": {
+    "Adjustment": 2,
+    "Credit": 1133,
+    "Purchase": 96,
+    "Tax": 12,
+    "Usage": 36140
+  },
+  "gcp_credit_handling": "One child FOCUS credit row per nested GCP credit. Labels are extracted without cross-joining the credit array.",
+  "gcp_normalized_independently": true,
+  "normalization_approach": "SQL_FIRST_DUCKDB_LOCAL",
+  "overall_status": "PASS",
+  "provider_focus_row_counts": {
+    "AWS": 18668,
+    "GCP": 18715
+  },
+  "providers_unioned_after_conformance": true,
+  "reconciliation_controls": [
+    {
+      "control_name": "NET_COST",
+      "normalized_value": 186268.598544,
+      "provider_name": "ALL_CLOUD",
+      "source_value": 186268.598544,
+      "status": "PASS",
+      "tolerance": 0.186269,
+      "variance": 0.0
+    },
+    {
+      "control_name": "BILLED_COST",
+      "normalized_value": 96427.338147,
+      "provider_name": "AWS",
+      "source_value": 96427.338147,
+      "status": "PASS",
+      "tolerance": 0.096427,
+      "variance": -0.0
+    },
+    {
+      "control_name": "NET_COST",
+      "normalized_value": 89841.260397,
+      "provider_name": "GCP",
+      "source_value": 89841.260397,
+      "status": "PASS",
+      "tolerance": 0.089841,
+      "variance": 0.0
+    }
+  ],
+  "row_controls": [
+    {
+      "actual_value": 18668,
+      "control_name": "AWS_SOURCE_TO_FOCUS_ROWS",
+      "expected_value": 18668,
+      "status": "PASS"
+    },
+    {
+      "actual_value": 1131,
+      "control_name": "GCP_CREDIT_ROWS",
+      "expected_value": 1131,
+      "status": "PASS"
+    },
+    {
+      "actual_value": 17584,
+      "control_name": "GCP_PARENT_ROWS",
+      "expected_value": 17584,
+      "status": "PASS"
+    }
+  ],
+  "schema_note": "This is the project FOCUS-aligned staging schema, not a claim of complete certification against every optional FOCUS field.",
+  "source_rows_combined_before_conformance": false,
+  "total_focus_rows": 37383
+}
