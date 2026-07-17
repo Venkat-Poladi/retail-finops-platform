@@ -1,0 +1,54 @@
+{
+  "schema_reference_date": "2026-07-15",
+  "generated_at_utc": "2026-07-17T01:56:00Z",
+  "overall_status": "PASS",
+  "financial_values_changed": false,
+  "providers": {
+    "AWS": {
+      "provider": "AWS",
+      "source_file": "data\\synthetic_enterprise_usage\\aws\\aws_billing.csv",
+      "row_count_before": 18668,
+      "row_count_after": 18668,
+      "row_count_variance": 0,
+      "billed_cost_before": 97244.906695,
+      "billed_cost_after": 97244.906695,
+      "billed_cost_variance": 0.0,
+      "sha256_before": "bd533b87dcceca8f2f838583a0863c323807ec58108013081f597c1fa891f549",
+      "sha256_after": "bed8948f6d83a236e64522de5b1a1a0a0ea3bae8c0f4890b92361d5251ee87cf",
+      "native_fields_added": [
+        "bill_bill_type",
+        "bill_billing_entity",
+        "bill_invoice_id",
+        "bill_invoicing_entity"
+      ],
+      "extension_fields_added": [
+        "x_payer_account_name"
+      ],
+      "status": "PASS"
+    },
+    "GCP": {
+      "provider": "GCP",
+      "source_file": "data\\synthetic_enterprise_usage\\gcp\\gcp_billing.jsonl",
+      "row_count_before": 17584,
+      "row_count_after": 17584,
+      "row_count_variance": 0,
+      "net_cost_before": 90790.34388,
+      "net_cost_after": 90790.34388,
+      "net_cost_variance": 0.0,
+      "sha256_before": "dbc2f53886b1c3cd6298bc20d5817ba1c3b1c81f82369257e5040a2a59f1243f",
+      "sha256_after": "4927524842fc974c1d85bf5a086a9e878adbdef7bb150e5846fcdf2c6b1d9e00",
+      "nested_fields_corrected": [
+        "system_labels",
+        "tags"
+      ],
+      "fields_added": [
+        "transaction_type",
+        "seller_name",
+        "subscription",
+        "cost_at_effective_price_default",
+        "cost_at_list_consumption_model"
+      ],
+      "status": "PASS"
+    }
+  }
+}
