@@ -1,0 +1,12 @@
+workload_id,project_id,region,scale_factor,service_codes
+checkout-prod,retail-prod-001,us-central1,1.15,ComputeEngine|CloudRun|CloudSQL|CloudStorage|CloudLogging|NetworkServices
+checkout-nonprod,retail-nonprod-001,us-central1,0.27,ComputeEngine|CloudRun|CloudSQL|CloudStorage|CloudLogging
+storefront-prod,retail-prod-001,us-central1,1.30,ComputeEngine|CloudRun|CloudStorage|CloudLogging|NetworkServices
+storefront-nonprod,retail-nonprod-001,us-central1,0.29,ComputeEngine|CloudRun|CloudStorage|CloudLogging
+analytics-prod,data-platform-001,us-central1,1.08,ComputeEngine|CloudSQL|CloudStorage|CloudLogging|NetworkServices
+analytics-nonprod,retail-nonprod-001,us-central1,0.24,ComputeEngine|CloudSQL|CloudStorage|CloudLogging
+support-prod,retail-prod-001,us-central1,0.72,CloudRun|CloudSQL|CloudStorage|CloudLogging
+support-nonprod,retail-nonprod-001,us-central1,0.17,CloudRun|CloudSQL|CloudStorage|CloudLogging
+recommendations-prod,data-platform-001,us-central1,0.88,CloudRun|VertexAI|CloudStorage|CloudLogging
+shared-platform-prod,shared-services-001,us-central1,1.00,ComputeEngine|CloudStorage|CloudLogging|NetworkServices|GCPMarketplace
+shared-platform-nonprod,retail-nonprod-001,us-central1,0.21,ComputeEngine|CloudStorage|CloudLogging

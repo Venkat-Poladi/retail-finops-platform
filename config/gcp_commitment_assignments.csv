@@ -1,0 +1,4 @@
+workload_id,service_code,profile_id
+checkout-prod,ComputeEngine,gcp-flex-balanced
+storefront-prod,ComputeEngine,gcp-compute-under
+analytics-prod,CloudSQL,gcp-resource-over
