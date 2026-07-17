@@ -1,0 +1,194 @@
+{
+  "checks": [
+    {
+      "actual": [],
+      "check_id": "aws.required_columns",
+      "expected": "All required AWS source columns",
+      "message": "AWS source schema retains required CUR-style fields.",
+      "status": "PASS"
+    },
+    {
+      "actual": 0,
+      "check_id": "aws.parseable_dates",
+      "expected": 0,
+      "message": "AWS usage and availability dates must be parseable.",
+      "status": "PASS"
+    },
+    {
+      "actual": {
+        "distinct_dates": 365,
+        "end": "2026-06-30",
+        "start": "2025-07-01"
+      },
+      "check_id": "aws.complete_date_range",
+      "expected": {
+        "distinct_dates": 365,
+        "end": "2026-06-30",
+        "start": "2025-07-01"
+      },
+      "message": "AWS source covers the complete configured period.",
+      "status": "PASS"
+    },
+    {
+      "actual": {
+        "payer_account_ids": [
+          "111111111111"
+        ],
+        "usage_account_ids": [
+          "111111111112",
+          "111111111113",
+          "111111111114",
+          "111111111115"
+        ]
+      },
+      "check_id": "aws.account_hierarchy",
+      "expected": {
+        "allowed_usage_account_ids": [
+          "111111111112",
+          "111111111113",
+          "111111111114",
+          "111111111115"
+        ],
+        "payer_account_ids": [
+          "111111111111"
+        ]
+      },
+      "message": "Payer and linked usage accounts remain separate.",
+      "status": "PASS"
+    },
+    {
+      "actual": [
+        "Credit",
+        "DiscountedUsage",
+        "Fee",
+        "RIFee",
+        "Refund",
+        "SavingsPlanCoveredUsage",
+        "SavingsPlanRecurringFee",
+        "Usage"
+      ],
+      "check_id": "aws.allowed_line_item_types",
+      "expected": [
+        "Credit",
+        "DiscountedUsage",
+        "Fee",
+        "RIFee",
+        "Refund",
+        "SavingsPlanCoveredUsage",
+        "SavingsPlanRecurringFee",
+        "Usage"
+      ],
+      "message": "AWS line-item types use the provider-native vocabulary.",
+      "status": "PASS"
+    },
+    {
+      "actual": [
+        "USD"
+      ],
+      "check_id": "aws.currency",
+      "expected": "USD",
+      "message": "All AWS monetary rows use the configured currency.",
+      "status": "PASS"
+    },
+    {
+      "actual": [
+        "true"
+      ],
+      "check_id": "aws.synthetic_flag",
+      "expected": [
+        "true"
+      ],
+      "message": "Every generated AWS row is explicitly marked synthetic.",
+      "status": "PASS"
+    },
+    {
+      "actual": 2,
+      "check_id": "aws.expected_duplicate_ids",
+      "expected": 2,
+      "message": "Deliberate duplicate AWS source identifiers were detected.",
+      "status": "EXPECTED_EXCEPTION"
+    },
+    {
+      "actual": 1489,
+      "check_id": "aws.expected_missing_tags",
+      "expected": 1489,
+      "message": "Missing AWS billing tags remain visible and traceable.",
+      "status": "EXPECTED_EXCEPTION"
+    },
+    {
+      "actual": 1,
+      "check_id": "aws.expected_invalid_usage",
+      "expected": 1,
+      "message": "Deliberate negative-usage records were detected, not removed.",
+      "status": "EXPECTED_EXCEPTION"
+    },
+    {
+      "actual": 187,
+      "check_id": "aws.expected_late_arrivals",
+      "expected": 187,
+      "message": "Late-arriving AWS billing records were detected and retained.",
+      "status": "EXPECTED_EXCEPTION"
+    },
+    {
+      "actual": [
+        {
+          "line_item_line_item_type": "Credit",
+          "line_item_unblended_cost": -1500.0
+        },
+        {
+          "line_item_line_item_type": "Refund",
+          "line_item_unblended_cost": -825.0
+        }
+      ],
+      "check_id": "aws.credit_refund_sign",
+      "expected": "Credit and Refund costs are negative",
+      "message": "AWS credits and refunds remain separate negative-cost rows.",
+      "status": "PASS"
+    },
+    {
+      "actual": 18668,
+      "check_id": "aws.generator_row_count_reconciliation",
+      "expected": 18668,
+      "message": "AWS source row count matches its generator control total.",
+      "status": "PASS"
+    },
+    {
+      "actual": 68998.904743,
+      "check_id": "aws.public_cost_reconciliation",
+      "expected": 68998.904743,
+      "message": "AWS public on-demand cost matches the generator summary.",
+      "status": "PASS"
+    },
+    {
+      "actual": 96427.338147,
+      "check_id": "aws.billed_cost_reconciliation",
+      "expected": 96427.338147,
+      "message": "AWS billed cost matches the generator summary.",
+      "status": "PASS"
+    },
+    {
+      "actual": 3,
+      "check_id": "aws.injected_anomaly_traceability",
+      "expected": 3,
+      "message": "Injected AWS business anomalies remain traceable but are not treated as data-quality failures.",
+      "status": "PASS"
+    }
+  ],
+  "control_totals": {
+    "billed_cost": 96427.338147,
+    "injected_anomaly_rows": 3,
+    "public_on_demand_cost": 68998.904743,
+    "row_count": 18668
+  },
+  "exception_counts": {
+    "duplicate_record_rows": 4,
+    "duplicated_record_ids": 2,
+    "invalid_rows": 1,
+    "late_arriving_rows": 187,
+    "missing_tag_rows": 1489
+  },
+  "overall_status": "PASS_WITH_EXPECTED_EXCEPTIONS",
+  "provider": "AWS",
+  "source_file": "C:\\Users\\kalya\\Documents\\retail-finops-platform\\data\\synthetic_enterprise_usage\\aws\\aws_billing.csv",
+  "source_format": "csv"
+}

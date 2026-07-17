@@ -1,0 +1,3 @@
+provider_name,source_format,row_count,primary_cost_total,nested_credit_total,net_cost_total,duplicated_record_ids,missing_metadata_rows,late_arriving_rows,invalid_rows,injected_anomaly_rows,overall_status
+AWS,csv,18668,96427.338147,0.0,96427.338147,2,1489,187,1,3,PASS_WITH_EXPECTED_EXCEPTIONS
+GCP,newline_delimited_json,17584,92839.258481,-2997.998084,89841.260397,2,1404,176,1,3,PASS_WITH_EXPECTED_EXCEPTIONS

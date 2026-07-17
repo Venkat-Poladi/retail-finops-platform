@@ -1,0 +1,210 @@
+{
+  "checks": [
+    {
+      "actual": [],
+      "check_id": "gcp.required_top_level_fields",
+      "expected": "All required GCP source fields",
+      "message": "GCP source retains required nested Billing Export fields.",
+      "status": "PASS"
+    },
+    {
+      "actual": 0,
+      "check_id": "gcp.parseable_dates",
+      "expected": 0,
+      "message": "GCP usage and availability dates must be parseable.",
+      "status": "PASS"
+    },
+    {
+      "actual": {
+        "distinct_dates": 365,
+        "end": "2026-06-30",
+        "start": "2025-07-01"
+      },
+      "check_id": "gcp.complete_date_range",
+      "expected": {
+        "distinct_dates": 365,
+        "end": "2026-06-30",
+        "start": "2025-07-01"
+      },
+      "message": "GCP source covers the complete configured period.",
+      "status": "PASS"
+    },
+    {
+      "actual": {
+        "billing_account_ids": [
+          "01A1B2-3C4D5E-6F7A8B"
+        ],
+        "project_ids": [
+          "data-platform-001",
+          "retail-nonprod-001",
+          "retail-prod-001",
+          "shared-services-001"
+        ]
+      },
+      "check_id": "gcp.billing_account_project_hierarchy",
+      "expected": {
+        "allowed_project_ids": [
+          "data-platform-001",
+          "retail-nonprod-001",
+          "retail-prod-001",
+          "shared-services-001"
+        ],
+        "billing_account_ids": [
+          "01A1B2-3C4D5E-6F7A8B"
+        ]
+      },
+      "message": "GCP billing accounts and projects remain separate hierarchy levels.",
+      "status": "PASS"
+    },
+    {
+      "actual": "Valid",
+      "check_id": "gcp.nested_source_shape",
+      "expected": "Nested structs with repeated labels and credits",
+      "message": "GCP nested and repeated structures remain unflattened.",
+      "status": "PASS"
+    },
+    {
+      "actual": [
+        "adjustment",
+        "regular",
+        "rounding_error",
+        "tax"
+      ],
+      "check_id": "gcp.allowed_cost_types",
+      "expected": [
+        "adjustment",
+        "regular",
+        "rounding_error",
+        "tax"
+      ],
+      "message": "GCP cost_type remains separate from nested credit classification.",
+      "status": "PASS"
+    },
+    {
+      "actual": [
+        "USD"
+      ],
+      "check_id": "gcp.currency",
+      "expected": "USD",
+      "message": "All GCP monetary records use the configured currency.",
+      "status": "PASS"
+    },
+    {
+      "actual": [
+        true
+      ],
+      "check_id": "gcp.synthetic_flag",
+      "expected": [
+        true
+      ],
+      "message": "Every generated GCP row is explicitly marked synthetic.",
+      "status": "PASS"
+    },
+    {
+      "actual": 2,
+      "check_id": "gcp.expected_duplicate_ids",
+      "expected": 2,
+      "message": "Deliberate duplicate GCP source identifiers were detected.",
+      "status": "EXPECTED_EXCEPTION"
+    },
+    {
+      "actual": 1404,
+      "check_id": "gcp.expected_missing_labels",
+      "expected": 1404,
+      "message": "Missing GCP billing labels remain visible and traceable.",
+      "status": "EXPECTED_EXCEPTION"
+    },
+    {
+      "actual": 1,
+      "check_id": "gcp.expected_invalid_usage",
+      "expected": 1,
+      "message": "Deliberate negative-usage GCP records were detected, not removed.",
+      "status": "EXPECTED_EXCEPTION"
+    },
+    {
+      "actual": 176,
+      "check_id": "gcp.expected_late_arrivals",
+      "expected": 176,
+      "message": "Late-arriving GCP billing records were detected and retained.",
+      "status": "EXPECTED_EXCEPTION"
+    },
+    {
+      "actual": "Valid",
+      "check_id": "gcp.credit_sign",
+      "expected": "Every nested credit amount is zero or negative",
+      "message": "Nested GCP credits reduce cost rather than increase it.",
+      "status": "PASS"
+    },
+    {
+      "actual": 36,
+      "check_id": "gcp.multiple_credit_rows",
+      "expected": 36,
+      "message": "Rows carrying stacked GCP credits remain traceable.",
+      "status": "PASS"
+    },
+    {
+      "actual": {
+        "required_action": "Unnest or aggregate labels and credits separately during FOCUS staging.",
+        "rows_with_both_labels_and_credits": 1005
+      },
+      "check_id": "gcp.cross_unnest_risk",
+      "expected": "Labels and credits remain separate repeated arrays",
+      "message": "Potential row multiplication is documented before SQL normalization.",
+      "status": "PASS"
+    },
+    {
+      "actual": 17584,
+      "check_id": "gcp.generator_row_count_reconciliation",
+      "expected": 17584,
+      "message": "GCP source row count matches its generator control total.",
+      "status": "PASS"
+    },
+    {
+      "actual": 92839.258481,
+      "check_id": "gcp.cost_before_credits_reconciliation",
+      "expected": 92839.258481,
+      "message": "GCP cost before credits matches the generator summary.",
+      "status": "PASS"
+    },
+    {
+      "actual": -2997.998084,
+      "check_id": "gcp.credit_total_reconciliation",
+      "expected": -2997.998084,
+      "message": "Nested GCP credits match the generator summary.",
+      "status": "PASS"
+    },
+    {
+      "actual": 89841.260397,
+      "check_id": "gcp.net_cost_reconciliation",
+      "expected": 89841.260397,
+      "message": "GCP net cost equals cost plus nested credits.",
+      "status": "PASS"
+    },
+    {
+      "actual": 3,
+      "check_id": "gcp.injected_anomaly_traceability",
+      "expected": 3,
+      "message": "Injected GCP business anomalies remain traceable but are not treated as data-quality failures.",
+      "status": "PASS"
+    }
+  ],
+  "control_totals": {
+    "cost_before_credits": 92839.258481,
+    "credit_amount": -2997.998084,
+    "injected_anomaly_rows": 3,
+    "net_cost": 89841.260397,
+    "row_count": 17584,
+    "rows_with_multiple_credits": 36
+  },
+  "exception_counts": {
+    "duplicate_record_rows": 4,
+    "duplicated_record_ids": 2,
+    "invalid_rows": 1,
+    "late_arriving_rows": 176,
+    "missing_label_rows": 1404
+  },
+  "overall_status": "PASS_WITH_EXPECTED_EXCEPTIONS",
+  "provider": "GCP",
+  "source_file": "C:\\Users\\kalya\\Documents\\retail-finops-platform\\data\\synthetic_enterprise_usage\\gcp\\gcp_billing.jsonl",
+  "source_format": "newline_delimited_json"
+}

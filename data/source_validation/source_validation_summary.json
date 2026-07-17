@@ -1,0 +1,19 @@
+{
+  "all_cloud_net_cost_control": 186268.598544,
+  "billing_rows_were_combined": false,
+  "note": "The all-cloud amount is a financial control total only. AWS and GCP source billing rows remain separate and are not unioned in Milestone 5.",
+  "overall_status": "PASS_WITH_EXPECTED_EXCEPTIONS",
+  "provider_count": 2,
+  "provider_net_cost_controls": {
+    "AWS": 96427.338147,
+    "GCP": 89841.260397
+  },
+  "provider_row_counts": {
+    "AWS": 18668,
+    "GCP": 17584
+  },
+  "provider_statuses": {
+    "AWS": "PASS_WITH_EXPECTED_EXCEPTIONS",
+    "GCP": "PASS_WITH_EXPECTED_EXCEPTIONS"
+  }
+}
