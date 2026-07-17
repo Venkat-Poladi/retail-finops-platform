@@ -1,0 +1,9 @@
+service_code,product_name,usage_type,operation,pricing_unit,list_rate,base_daily_usage,resource_prefix
+AmazonEC2,Amazon Elastic Compute Cloud,BoxUsage:m6i.large,RunInstances,Hrs,0.096,24,i
+AWSLambda,AWS Lambda,Request,Invoke,Requests,0.0000002,350000,function
+AmazonRDS,Amazon Relational Database Service,InstanceUsage:db.m6g.large,CreateDBInstance,Hrs,0.152,24,db
+AmazonS3,Amazon Simple Storage Service,TimedStorage-ByteHrs,StandardStorage,GB-Mo,0.023,95,bucket
+AmazonCloudWatch,Amazon CloudWatch,DataProcessing-Bytes,PutLogEvents,GB,0.50,18,log-group
+AmazonVPC,Amazon Virtual Private Cloud,DataTransfer-Out-Bytes,DataTransfer,GB,0.09,120,eni
+AmazonBedrock,AWS Bedrock,ModelInference,InvokeModel,Requests,0.0004,8500,model
+AWSMarketplace,AWS Marketplace,SubscriptionFee,Purchase,Units,2500,1,marketplace-product

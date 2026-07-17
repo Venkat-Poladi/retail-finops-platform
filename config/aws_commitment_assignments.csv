@@ -1,0 +1,4 @@
+workload_id,service_code,profile_id
+checkout-prod,AmazonEC2,aws-sp-balanced
+storefront-prod,AmazonEC2,aws-sp-under
+analytics-prod,AmazonRDS,aws-ri-over
