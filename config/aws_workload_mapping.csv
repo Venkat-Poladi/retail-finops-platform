@@ -1,0 +1,12 @@
+workload_id,usage_account_id,region,scale_factor,service_codes
+checkout-prod,111111111112,us-east-1,1.20,AmazonEC2|AWSLambda|AmazonRDS|AmazonS3|AmazonCloudWatch|AmazonVPC
+checkout-nonprod,111111111115,us-east-1,0.28,AmazonEC2|AWSLambda|AmazonRDS|AmazonS3|AmazonCloudWatch
+storefront-prod,111111111112,us-east-1,1.35,AmazonEC2|AWSLambda|AmazonS3|AmazonCloudWatch|AmazonVPC
+storefront-nonprod,111111111115,us-east-1,0.30,AmazonEC2|AWSLambda|AmazonS3|AmazonCloudWatch
+analytics-prod,111111111113,us-east-1,1.10,AmazonEC2|AmazonRDS|AmazonS3|AmazonCloudWatch|AmazonVPC
+analytics-nonprod,111111111115,us-east-1,0.25,AmazonEC2|AmazonRDS|AmazonS3|AmazonCloudWatch
+support-prod,111111111112,us-east-1,0.75,AWSLambda|AmazonRDS|AmazonS3|AmazonCloudWatch
+support-nonprod,111111111115,us-east-1,0.18,AWSLambda|AmazonRDS|AmazonS3|AmazonCloudWatch
+recommendations-prod,111111111113,us-east-1,0.90,AWSLambda|AmazonBedrock|AmazonS3|AmazonCloudWatch
+shared-platform-prod,111111111114,us-east-1,1.00,AmazonEC2|AmazonS3|AmazonCloudWatch|AmazonVPC
+shared-platform-nonprod,111111111115,us-east-1,0.22,AmazonEC2|AmazonS3|AmazonCloudWatch

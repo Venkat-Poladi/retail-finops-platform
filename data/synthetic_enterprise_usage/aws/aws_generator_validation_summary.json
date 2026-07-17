@@ -1,0 +1,31 @@
+{
+  "aws_billing_sha256": "c5b29e7e29a01526128b4506d7891e844ea0ab0818f8fa5d80571dfad328f144",
+  "commitment_profiles": [
+    "aws-ri-over",
+    "aws-sp-balanced",
+    "aws-sp-under"
+  ],
+  "distinct_usage_dates": 365,
+  "duplicated_line_item_ids": 2,
+  "end_date": "2026-06-30",
+  "injected_anomaly_rows": 3,
+  "invalid_rows": 1,
+  "late_arriving_rows": 187,
+  "line_item_type_counts": {
+    "Credit": 1,
+    "DiscountedUsage": 365,
+    "Fee": 12,
+    "RIFee": 12,
+    "Refund": 1,
+    "SavingsPlanCoveredUsage": 731,
+    "SavingsPlanRecurringFee": 24,
+    "Usage": 17522
+  },
+  "missing_tag_rows": 1489,
+  "provider": "AWS",
+  "row_count": 18668,
+  "seed": 42,
+  "start_date": "2025-07-01",
+  "total_billed_cost": 96427.338147,
+  "total_public_on_demand_cost": 68998.904743
+}
