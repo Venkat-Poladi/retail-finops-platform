@@ -1,0 +1,3 @@
+provider_name,total_focus_rows,duplicate_rows,invalid_rows,unallocated_rows,late_arriving_rows,valid_canonical_rows,total_billed_cost,valid_canonical_billed_cost
+AWS,18668,4,1,1491,187,18665,96427.338147,96410.114697
+GCP,18715,4,1,1511,189,18712,89841.260397,89833.194175
