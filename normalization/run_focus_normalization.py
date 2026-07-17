@@ -32,7 +32,14 @@ def _export_table(
     output_file: Path,
 ) -> None:
     """Export a DuckDB table to CSV with a header."""
+
     output_file.parent.mkdir(parents=True, exist_ok=True)
+
+    # DuckDB cannot reliably replace an existing CSV on Windows.
+    # Remove the previous output before exporting the new result.
+    if output_file.exists():
+        output_file.unlink()
+
     connection.execute(
         f"COPY {table_name} TO '{_sql_literal(output_file)}' "
         "(HEADER, DELIMITER ',')"
