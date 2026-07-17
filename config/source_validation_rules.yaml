@@ -1,0 +1,103 @@
+common:
+  billing_currency: "USD"
+  reconciliation_tolerance:
+    absolute: 0.01
+    relative: 0.000001
+  expected_date_start: "2025-07-01"
+  expected_date_end: "2026-06-30"
+  expected_distinct_usage_dates: 365
+
+aws:
+  source_format: "csv"
+  record_id_field: "line_item_line_item_id"
+  usage_date_field: "line_item_usage_start_date"
+  required_columns:
+    - bill_payer_account_id
+    - bill_billing_period_start_date
+    - bill_billing_period_end_date
+    - line_item_usage_account_id
+    - line_item_line_item_id
+    - line_item_usage_start_date
+    - line_item_usage_end_date
+    - line_item_line_item_type
+    - line_item_product_code
+    - line_item_usage_amount
+    - pricing_public_on_demand_cost
+    - line_item_unblended_cost
+    - line_item_currency_code
+    - is_synthetic
+    - is_late_arriving
+    - record_available_date
+    - data_quality_status
+    - injected_scenario
+  allowed_line_item_types:
+    - Usage
+    - Fee
+    - Refund
+    - Credit
+    - RIFee
+    - DiscountedUsage
+    - SavingsPlanCoveredUsage
+    - SavingsPlanRecurringFee
+  usage_line_item_types:
+    - Usage
+    - DiscountedUsage
+    - SavingsPlanCoveredUsage
+  negative_cost_line_item_types:
+    - Credit
+    - Refund
+  business_tag_columns:
+    - resource_tags_user_application
+    - resource_tags_user_department
+    - resource_tags_user_environment
+    - resource_tags_user_cost_center
+    - resource_tags_user_owner
+
+  allowed_data_quality_statuses:
+    - VALID
+    - MISSING_TAGS
+    - INVALID_NEGATIVE_USAGE
+
+gcp:
+  source_format: "newline_delimited_json"
+  record_id_field: "source_record_id"
+  usage_date_field: "usage_start_time"
+  required_top_level_fields:
+    - source_record_id
+    - billing_account_id
+    - service
+    - sku
+    - usage_start_time
+    - usage_end_time
+    - project
+    - location
+    - resource
+    - labels
+    - cost
+    - cost_at_list
+    - currency
+    - usage
+    - credits
+    - invoice
+    - cost_type
+    - price
+    - is_synthetic
+    - is_late_arriving
+    - record_available_date
+    - data_quality_status
+    - injected_scenario
+  allowed_cost_types:
+    - regular
+    - tax
+    - adjustment
+    - rounding_error
+  allowed_data_quality_statuses:
+    - VALID
+    - MISSING_LABELS
+    - INVALID_NEGATIVE_USAGE
+  required_label_keys:
+    - application
+    - department
+    - environment
+    - cost_center
+    - owner
