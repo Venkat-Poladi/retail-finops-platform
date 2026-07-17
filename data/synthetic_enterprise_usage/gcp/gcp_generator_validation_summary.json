@@ -1,0 +1,49 @@
+{
+  "commitment_profiles": [
+    "gcp-compute-under",
+    "gcp-flex-balanced",
+    "gcp-resource-over"
+  ],
+  "cost_type_counts": {
+    "adjustment": 1,
+    "regular": 17570,
+    "rounding_error": 1,
+    "tax": 12
+  },
+  "date_range": {
+    "end": "2026-06-30",
+    "start": "2025-07-01"
+  },
+  "distinct_usage_dates": 365,
+  "duplicated_source_record_ids": 2,
+  "injected_anomaly_rows": 3,
+  "invalid_rows": 1,
+  "late_arriving_rows": 176,
+  "missing_label_rows": 1404,
+  "modeled_unused_commitment_cost": 617.888877,
+  "nested_field_controls": {
+    "credits_are_repeated": true,
+    "cross_unnest_warning": "Pre-aggregate or unnest labels and credits separately to avoid multiplying billing rows.",
+    "labels_are_repeated": true,
+    "project_is_struct": true,
+    "usage_is_struct": true
+  },
+  "provider": "GCP",
+  "row_count": 17584,
+  "rows_with_multiple_credits": 36,
+  "service_counts": {
+    "Cloud Logging": 4015,
+    "Cloud Run": 2555,
+    "Cloud SQL": 2202,
+    "Cloud Storage": 4017,
+    "Compute Engine": 2944,
+    "Google Cloud Billing": 14,
+    "Google Cloud Marketplace": 12,
+    "Network Services": 1460,
+    "Vertex AI": 365
+  },
+  "source_format": "newline_delimited_json",
+  "total_cost_before_credits": 92839.258481,
+  "total_credit_amount": -2997.998084,
+  "total_net_cost": 89841.260397
+}
