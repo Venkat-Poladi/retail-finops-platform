@@ -29,7 +29,49 @@ CREATE OR REPLACE TABLE
 
 AS
 
-WITH provider_accuracy AS (
+/*
+Forecast accuracy definition:
+
+1. Evaluate only finalized one-month-ahead forecasts.
+2. Aggregate detailed forecast rows before calculating percentage error.
+3. Provider MAPE:
+       average monthly provider absolute percentage error.
+4. ALL_CLOUD MAPE:
+       average monthly all-cloud absolute percentage error.
+5. Do not calculate ALL_CLOUD MAPE by averaging provider MAPEs.
+*/
+
+WITH actualized_provider_observation AS (
+    SELECT
+        provider_name,
+        forecast_version_month,
+        target_month,
+        forecast_horizon_months,
+
+        CAST(
+            SUM(forecast_cost)
+            AS NUMERIC
+        ) AS forecast_cost,
+
+        CAST(
+            SUM(actual_cost)
+            AS NUMERIC
+        ) AS actual_cost
+
+    FROM
+        `__PROJECT_ID__.retail_finops_mart.fct_forecast_version`
+
+    WHERE actual_cost IS NOT NULL
+      AND forecast_horizon_months = 1
+
+    GROUP BY
+        provider_name,
+        forecast_version_month,
+        target_month,
+        forecast_horizon_months
+),
+
+provider_accuracy AS (
     SELECT
         provider_name,
 
@@ -42,11 +84,10 @@ WITH provider_accuracy AS (
             AVG(
                 CASE
                     WHEN actual_cost != 0
-                    THEN
-                        SAFE_DIVIDE(
-                            ABS(forecast_cost - actual_cost),
-                            ABS(actual_cost)
-                        )
+                    THEN SAFE_DIVIDE(
+                        ABS(forecast_cost - actual_cost),
+                        ABS(actual_cost)
+                    )
                 END
             )
             AS NUMERIC
@@ -75,67 +116,92 @@ WITH provider_accuracy AS (
             AS NUMERIC
         ) AS total_forecast_error
 
-    FROM
-        `__PROJECT_ID__.retail_finops_mart.fct_forecast_version`
+    FROM actualized_provider_observation
 
     GROUP BY provider_name
+),
+
+all_cloud_observation AS (
+    SELECT
+        forecast_version_month,
+        target_month,
+        forecast_horizon_months,
+
+        CAST(
+            SUM(forecast_cost)
+            AS NUMERIC
+        ) AS forecast_cost,
+
+        CAST(
+            SUM(actual_cost)
+            AS NUMERIC
+        ) AS actual_cost
+
+    FROM actualized_provider_observation
+
+    GROUP BY
+        forecast_version_month,
+        target_month,
+        forecast_horizon_months
 ),
 
 all_cloud_accuracy AS (
     SELECT
         'ALL_CLOUD' AS provider_name,
 
-        SUM(forecast_observation_count)
-            AS forecast_observation_count,
+        COUNT(*) AS forecast_observation_count,
 
-        SUM(mape_observation_count)
+        COUNTIF(actual_cost != 0)
             AS mape_observation_count,
 
         CAST(
-            SAFE_DIVIDE(
-                SUM(forecast_mape * mape_observation_count),
-                SUM(mape_observation_count)
+            AVG(
+                CASE
+                    WHEN actual_cost != 0
+                    THEN SAFE_DIVIDE(
+                        ABS(forecast_cost - actual_cost),
+                        ABS(actual_cost)
+                    )
+                END
             )
             AS NUMERIC
         ) AS forecast_mape,
 
         CAST(
             SAFE_DIVIDE(
-                SUM(total_forecast_error),
-                SUM(total_actual_cost)
+                SUM(forecast_cost - actual_cost),
+                SUM(actual_cost)
             )
             AS NUMERIC
         ) AS forecast_bias_pct,
 
         CAST(
-            SUM(total_forecast_cost)
+            SUM(forecast_cost)
             AS NUMERIC
         ) AS total_forecast_cost,
 
         CAST(
-            SUM(total_actual_cost)
+            SUM(actual_cost)
             AS NUMERIC
         ) AS total_actual_cost,
 
         CAST(
-            SUM(total_forecast_error)
+            SUM(forecast_cost - actual_cost)
             AS NUMERIC
         ) AS total_forecast_error
 
-    FROM provider_accuracy
+    FROM all_cloud_observation
 ),
 
 combined_accuracy AS (
     SELECT
         *
-
     FROM provider_accuracy
 
     UNION ALL
 
     SELECT
         *
-
     FROM all_cloud_accuracy
 )
 
@@ -162,7 +228,6 @@ SELECT
         AS data_refresh_timestamp
 
 FROM combined_accuracy;
-
 
 CREATE OR REPLACE TABLE
     `__PROJECT_ID__.retail_finops_mart.mart_budget_variance`
