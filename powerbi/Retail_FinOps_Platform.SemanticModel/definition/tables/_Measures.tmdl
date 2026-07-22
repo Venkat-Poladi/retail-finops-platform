@@ -1037,60 +1037,129 @@ table _Measures
 
 	measure 'Executive Commentary' =
 
-			VAR BudgetVariancePct =
-			    [Budget Variance %]
 
-			VAR ForecastVariancePct =
-			    [Forecast Variance %]
-
-			VAR AllocationCoverage =
-			    [Allocation Coverage %]
-
-			VAR BudgetComment =
-			    SWITCH(
-			        TRUE(),
-
-			        ISBLANK(BudgetVariancePct),
-			            "Budget performance is unavailable.",
-
-			        BudgetVariancePct > 0.05,
-			            "Actual spend is "
-			                & FORMAT(BudgetVariancePct, "0.0%")
-			                & " above the approved budget.",
-
-			        BudgetVariancePct > 0,
-			            "Actual spend is slightly above the approved budget by "
-			                & FORMAT(BudgetVariancePct, "0.0%")
-			                & ".",
-
-			        BudgetVariancePct < -0.05,
-			            "Actual spend is "
-			                & FORMAT(ABS(BudgetVariancePct), "0.0%")
-			                & " below the approved budget.",
-
-			        "Actual spend is broadly in line with the approved budget."
+			VAR PortfolioSpend =
+			    CALCULATE(
+			        [Total Actual Cost],
+			        REMOVEFILTERS('dim_date')
 			    )
 
-			VAR ForecastComment =
-			    SWITCH(
-			        TRUE(),
+			VAR DepartmentPerformance =
+			    FILTER(
+			        ADDCOLUMNS(
+			            VALUES(
+			                'dim_department'[department_name]
+			            ),
+			            "__Overrun",
+			                CALCULATE(
+			                    [Total Actual Cost]
+			                        - [Total Approved Budget],
+			                    REMOVEFILTERS('dim_date')
+			                )
+			        ),
+			        [__Overrun] > 0
+			    )
 
-			        ISBLANK(ForecastVariancePct),
-			            " Latest forecast performance is unavailable.",
+			VAR TopDepartmentRow =
+			    TOPN(
+			        1,
+			        DepartmentPerformance,
+			        [__Overrun], DESC,
+			        'dim_department'[department_name], ASC
+			    )
 
-			        ABS(ForecastVariancePct) <= 0.05,
-			            " The latest forecast is within the ±5% tolerance at "
-			                & FORMAT(ABS(ForecastVariancePct), "0.0%")
-			                & " from actual spend.",
+			VAR TopDepartment =
+			    MAXX(
+			        TopDepartmentRow,
+			        'dim_department'[department_name]
+			    )
 
-			        ForecastVariancePct > 0,
-			            " The latest forecast understated actual spend by "
-			                & FORMAT(ForecastVariancePct, "0.0%")
-			                & ".",
+			VAR TopDepartmentOverrun =
+			    MAXX(
+			        TopDepartmentRow,
+			        [__Overrun]
+			    )
 
-			        " The latest forecast overstated actual spend by "
-			            & FORMAT(ABS(ForecastVariancePct), "0.0%")
+			VAR ApplicationSpend =
+			    FILTER(
+			        ADDCOLUMNS(
+			            VALUES(
+			                'dim_application'[application_name]
+			            ),
+			            "__Spend",
+			                CALCULATE(
+			                    [Total Actual Cost],
+			                    REMOVEFILTERS('dim_date')
+			                )
+			        ),
+			        [__Spend] > 0
+			    )
+
+			VAR TopTwoApplications =
+			    TOPN(
+			        2,
+			        ApplicationSpend,
+			        [__Spend], DESC,
+			        'dim_application'[application_name], ASC
+			    )
+
+			VAR TopApplicationsText =
+			    CONCATENATEX(
+			        TopTwoApplications,
+			        'dim_application'[application_name],
+			        " and ",
+			        [__Spend], DESC
+			    )
+
+			VAR TopApplicationsSpend =
+			    SUMX(
+			        TopTwoApplications,
+			        [__Spend]
+			    )
+
+			VAR TopApplicationsShare =
+			    DIVIDE(
+			        TopApplicationsSpend,
+			        PortfolioSpend,
+			        BLANK()
+			    )
+
+			VAR AllocationCoverage =
+			    CALCULATE(
+			        [Allocation Coverage %],
+			        REMOVEFILTERS('dim_date')
+			    )
+
+			VAR AllocationGap =
+			    MAX(
+			        0,
+			        0.95 - AllocationCoverage
+			    )
+
+			VAR DepartmentComment =
+			    IF(
+			        ISBLANK(TopDepartment),
+			        "No department is currently above its approved budget.",
+			        TopDepartment
+			            & " has the largest budget overrun at "
+			            & FORMAT(
+			                TopDepartmentOverrun / 1000,
+			                "$0.0K"
+			            )
 			            & "."
+			    )
+
+			VAR ApplicationComment =
+			    IF(
+			        ISBLANK(TopApplicationsText),
+			        "Application spend information is unavailable.",
+			        TopApplicationsText
+			            & " account for "
+			            & FORMAT(
+			                TopApplicationsShare,
+			                "0.0%"
+			            )
+			            & " of total spend; prioritize these workloads for review."
 			    )
 
 			VAR AllocationComment =
@@ -1098,29 +1167,58 @@ table _Measures
 			        TRUE(),
 
 			        ISBLANK(AllocationCoverage),
-			            " Allocation coverage is unavailable.",
+			            "Allocation coverage is unavailable.",
 
 			        AllocationCoverage >= 0.95,
-			            " Allocation coverage is "
+			            "Allocation coverage is "
 			                & FORMAT(AllocationCoverage, "0.0%")
 			                & ", meeting the 95% target.",
 
-			        AllocationCoverage >= 0.90,
-			            " Allocation coverage is "
-			                & FORMAT(AllocationCoverage, "0.0%")
-			                & ", "
-			                & FORMAT(0.95 - AllocationCoverage, "0.0%")
-			                & " below the 95% target.",
-
-			        " Allocation coverage is only "
+			        "Allocation coverage is "
 			            & FORMAT(AllocationCoverage, "0.0%")
-			            & " and requires immediate remediation."
+			            & "; close the "
+			            & FORMAT(AllocationGap, "0.0%")
+			            & " gap to the 95% target."
 			    )
 
 			RETURN
-			    BudgetComment
-			        & ForecastComment
-			        & AllocationComment
+			    IF(
+			        ISBLANK(PortfolioSpend),
+			        BLANK(),
+			        UNICHAR(8226)
+			            & " "
+			            & TopDepartment
+			            & ": largest budget overrun : "
+			            & FORMAT(
+			                TopDepartmentOverrun / 1000,
+			                "$0.0K"
+			            )
+			            & UNICHAR(10)
+
+			            & UNICHAR(8226)
+			            & " "
+			            & TopApplicationsText
+			            & ": "
+			            & FORMAT(
+			                TopApplicationsShare,
+			                "0.0%"
+			            )
+			            & " of total spend : prioritize review"
+			            & UNICHAR(10)
+
+			            & UNICHAR(8226)
+			            & " Allocation coverage: "
+			            & FORMAT(
+			                AllocationCoverage,
+			                "0.0%"
+			            )
+			            & " : close the "
+			            & FORMAT(
+			                AllocationGap * 100,
+			                "0.0"
+			            )
+			            & "-point gap to the 95% target"
+			    )
 		displayFolder: Executive
 		lineageTag: 088c9d5e-aa4c-4864-8ddb-4a3fcc35e313
 
