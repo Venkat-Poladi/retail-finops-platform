@@ -1,0 +1,458 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "58b2841eb750a0b40ddb",
+  "position": {
+    "x": 21.305591677503251,
+    "y": 224.67714859912519,
+    "z": 19000,
+    "height": 249.85648421799266,
+    "width": 1237.6611892658707,
+    "tabOrder": 20000
+  },
+  "visual": {
+    "visualType": "barChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "mart_optimization"
+                    }
+                  },
+                  "Property": "Optimization Action Short"
+                }
+              },
+              "queryRef": "mart_optimization.Optimization Action Short",
+              "nativeQueryRef": "Optimization Action Short",
+              "active": true
+            }
+          ]
+        },
+        "Tooltips": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "mart_optimization"
+                        }
+                      },
+                      "Property": "recommendation"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(mart_optimization.recommendation)",
+              "nativeQueryRef": "Recommendation",
+              "displayName": "Recommendation"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "mart_optimization"
+                        }
+                      },
+                      "Property": "recommendation_category"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(mart_optimization.recommendation_category)",
+              "nativeQueryRef": "Recommendation_Category",
+              "displayName": "Recommendation_Category"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "mart_optimization"
+                        }
+                      },
+                      "Property": "owner"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(mart_optimization.owner)",
+              "nativeQueryRef": "Owner_Name",
+              "displayName": "Owner_Name"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "mart_optimization"
+                        }
+                      },
+                      "Property": "savings_stage"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(mart_optimization.savings_stage)",
+              "nativeQueryRef": "Savings_stage",
+              "displayName": "Savings_stage"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "mart_optimization"
+                        }
+                      },
+                      "Property": "target_date"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(mart_optimization.target_date)",
+              "nativeQueryRef": "Target_date",
+              "displayName": "Target_date"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "mart_optimization"
+                        }
+                      },
+                      "Property": "confidence"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(mart_optimization.confidence)",
+              "nativeQueryRef": "Confidence",
+              "displayName": "Confidence"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "mart_optimization"
+                        }
+                      },
+                      "Property": "effort"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(mart_optimization.effort)",
+              "nativeQueryRef": "Effort",
+              "displayName": "Effort"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "mart_optimization"
+                        }
+                      },
+                      "Property": "risk"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(mart_optimization.risk)",
+              "nativeQueryRef": "Risk",
+              "displayName": "Risk"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Optimization Net Monthly Savings"
+                }
+              },
+              "queryRef": "_Measures.Optimization Net Monthly Savings",
+              "nativeQueryRef": "Optimization Net Monthly Savings"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Measures"
+                  }
+                },
+                "Property": "Optimization Net Monthly Savings"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dataPoint": [
+        {
+          "properties": {},
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#2F75B5'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "categoryAxis": [
+        {
+          "properties": {
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "valueAxis": [
+        {
+          "properties": {
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Highest-value optimization actions'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Segoe UI Semibold'', wf_segoe-ui_semibold, helvetica, arial, sans-serif'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "ad05d8f409c50c50b7ac",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "mart_optimization"
+              }
+            },
+            "Property": "Optimization Action Label"
+          }
+        },
+        "type": "TopN",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "subquery",
+              "Expression": {
+                "Subquery": {
+                  "Query": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "m",
+                        "Entity": "mart_optimization",
+                        "Type": 0
+                      },
+                      {
+                        "Name": "_",
+                        "Entity": "_Measures",
+                        "Type": 0
+                      }
+                    ],
+                    "Select": [
+                      {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Source": "m"
+                            }
+                          },
+                          "Property": "Optimization Action Label"
+                        },
+                        "Name": "field"
+                      }
+                    ],
+                    "OrderBy": [
+                      {
+                        "Direction": 2,
+                        "Expression": {
+                          "Measure": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "_"
+                              }
+                            },
+                            "Property": "Optimization Net Monthly Savings"
+                          }
+                        }
+                      }
+                    ],
+                    "Top": 8
+                  }
+                }
+              },
+              "Type": 2
+            },
+            {
+              "Name": "m",
+              "Entity": "mart_optimization",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "m"
+                          }
+                        },
+                        "Property": "Optimization Action Label"
+                      }
+                    }
+                  ],
+                  "Table": {
+                    "SourceRef": {
+                      "Source": "subquery"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      }
+    ]
+  }
+}

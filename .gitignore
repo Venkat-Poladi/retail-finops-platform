@@ -34,3 +34,8 @@ Thumbs.db
 # Generated outputs
 output/*
 !output/.gitkeep
+# Power BI local and temporary files
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
+*.bak
+~$*

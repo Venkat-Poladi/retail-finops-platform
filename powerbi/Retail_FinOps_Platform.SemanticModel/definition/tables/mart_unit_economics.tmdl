@@ -1,0 +1,352 @@
+table mart_unit_economics
+	lineageTag: 9ff98a27-50cc-4533-a602-31a39adb7e1e
+
+	column unit_economics_id
+		dataType: string
+		lineageTag: f70f9e8b-f4ed-41e9-8f36-76c590d97c84
+		summarizeBy: none
+		sourceColumn: unit_economics_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column unit_economics_month
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: eba320fe-2f1a-4ece-ab1f-aa67ce397439
+		summarizeBy: none
+		sourceColumn: unit_economics_month
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column provider_name
+		dataType: string
+		lineageTag: 14cdb000-4a84-4d6f-9353-e34ae4caa73f
+		summarizeBy: none
+		sourceColumn: provider_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column application_name
+		dataType: string
+		lineageTag: 32db25fd-1519-4448-b7c8-3bb56733ae2b
+		summarizeBy: none
+		sourceColumn: application_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column department_name
+		dataType: string
+		lineageTag: 262df5a2-f062-4350-a05f-080199b45e14
+		summarizeBy: none
+		sourceColumn: department_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column cost_center
+		dataType: string
+		lineageTag: 2da2bbf3-42ab-454d-bef9-40fb4594c926
+		summarizeBy: none
+		sourceColumn: cost_center
+
+		annotation SummarizationSetBy = Automatic
+
+	column owner_name
+		dataType: string
+		lineageTag: 9c54bcab-440b-47c6-aa9b-34eb73ced427
+		summarizeBy: none
+		sourceColumn: owner_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column billing_currency
+		dataType: string
+		lineageTag: b4fcbde0-8f16-4631-9574-05acd7ffec79
+		summarizeBy: none
+		sourceColumn: billing_currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column allocation_row_count
+		dataType: int64
+		formatString: 0
+		lineageTag: e8227a2a-87ed-4b89-91a7-e84bb8eded41
+		summarizeBy: sum
+		sourceColumn: allocation_row_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_record_count
+		dataType: int64
+		formatString: 0
+		lineageTag: 2d08ec28-05e3-4e7a-9732-5592bb10146a
+		summarizeBy: sum
+		sourceColumn: source_record_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_allocated_cost
+		dataType: double
+		lineageTag: 58678cbf-e01a-4a29-9d78-7dc2e0867f6e
+		summarizeBy: sum
+		sourceColumn: total_allocated_cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column production_cost
+		dataType: double
+		lineageTag: 18545cd0-ac13-4888-a5f6-e8218b436f26
+		summarizeBy: sum
+		sourceColumn: production_cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nonproduction_cost
+		dataType: double
+		lineageTag: 6a363f39-e0aa-4a4f-a06b-69e7d4b479c0
+		summarizeBy: sum
+		sourceColumn: nonproduction_cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column direct_cost
+		dataType: double
+		lineageTag: ea58530c-5764-4987-9109-a5f8275aef39
+		summarizeBy: sum
+		sourceColumn: direct_cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column shared_allocated_cost
+		dataType: double
+		lineageTag: 9643f93f-77d8-4816-8aba-303fd043d91b
+		summarizeBy: sum
+		sourceColumn: shared_allocated_cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column unallocated_cost
+		dataType: double
+		lineageTag: 1d21145c-f72e-4baa-a76f-66af5ada26e0
+		summarizeBy: sum
+		sourceColumn: unallocated_cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column activity_day_count
+		dataType: int64
+		formatString: 0
+		lineageTag: 9269b9eb-74d7-4bfc-8e87-0083cf9f4a13
+		summarizeBy: sum
+		sourceColumn: activity_day_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column traffic
+		dataType: double
+		lineageTag: 4bb8090a-5c59-4ea9-a6de-6898a56253c6
+		summarizeBy: sum
+		sourceColumn: traffic
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column transactions
+		dataType: double
+		lineageTag: a391fb2f-0d14-4c42-aa3d-cd36df4bb80c
+		summarizeBy: sum
+		sourceColumn: transactions
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column queries
+		dataType: double
+		lineageTag: 10e57770-0a3c-4286-9f43-a105d3ed107b
+		summarizeBy: sum
+		sourceColumn: queries
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column support_requests
+		dataType: double
+		lineageTag: 70b86c60-ea44-4572-8814-e63aa6d4ce72
+		summarizeBy: sum
+		sourceColumn: support_requests
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ai_requests
+		dataType: double
+		lineageTag: 8872f95a-e3e0-4dcb-ba7d-539160fd5504
+		summarizeBy: sum
+		sourceColumn: ai_requests
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column api_requests
+		dataType: double
+		lineageTag: 8ff49da8-85f3-42ac-a75f-fa850a168fa0
+		summarizeBy: sum
+		sourceColumn: api_requests
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column average_daily_active_customers
+		dataType: double
+		lineageTag: 7296b65a-4430-4a2d-aa5b-4a4d6aaae31d
+		summarizeBy: sum
+		sourceColumn: average_daily_active_customers
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column peak_daily_active_customers
+		dataType: double
+		lineageTag: d8c29eb7-328a-4bd8-b2f5-5c06bb37b585
+		summarizeBy: sum
+		sourceColumn: peak_daily_active_customers
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column revenue
+		dataType: double
+		lineageTag: ea742154-9911-4097-bdfd-4c9676312dca
+		summarizeBy: sum
+		sourceColumn: revenue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cost_per_transaction
+		dataType: double
+		lineageTag: 09d7e286-d103-47aa-bbf7-4b0198592825
+		summarizeBy: sum
+		sourceColumn: cost_per_transaction
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cost_per_active_customer
+		dataType: double
+		lineageTag: 746263ad-9e89-4908-a095-67b6b0065817
+		summarizeBy: sum
+		sourceColumn: cost_per_active_customer
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cost_per_api_request
+		dataType: double
+		lineageTag: ee94f633-181a-4b41-8c70-236f8107f716
+		summarizeBy: sum
+		sourceColumn: cost_per_api_request
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column infrastructure_cost_pct_of_revenue
+		dataType: double
+		lineageTag: 141aa9b4-b9ed-4be3-8061-3852d6d1ff60
+		summarizeBy: sum
+		sourceColumn: infrastructure_cost_pct_of_revenue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column has_business_activity
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 640514fd-6379-4b78-ab93-7b61794c6dbd
+		summarizeBy: none
+		sourceColumn: has_business_activity
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_synthetic_activity
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: b2653d94-fcc6-4b27-8386-425233057f91
+		summarizeBy: none
+		sourceColumn: is_synthetic_activity
+
+		annotation SummarizationSetBy = Automatic
+
+	column active_customer_basis
+		dataType: string
+		lineageTag: 2c67329a-ef54-403c-996a-2d42a6455f1b
+		summarizeBy: none
+		sourceColumn: active_customer_basis
+
+		annotation SummarizationSetBy = Automatic
+
+	column business_activity_scope
+		dataType: string
+		lineageTag: 868e5103-1e21-4b5c-a12f-37cf39d934cf
+		summarizeBy: none
+		sourceColumn: business_activity_scope
+
+		annotation SummarizationSetBy = Automatic
+
+	column data_quality_status
+		dataType: string
+		lineageTag: dfc21f3b-9db4-4d43-8493-c1abe6adea61
+		summarizeBy: none
+		sourceColumn: data_quality_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column data_refresh_timestamp
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 4f8b95f8-75f5-4588-90e2-4e023dea6407
+		summarizeBy: none
+		sourceColumn: data_refresh_timestamp
+
+		annotation SummarizationSetBy = Automatic
+
+	partition mart_unit_economics = m
+		mode: import
+		source =
+				let
+				    Source = GoogleBigQuery.Database([Implementation="2.0"]),
+				    #"finops-learning-lab_Database" = Source{[Name="finops-learning-lab",Kind="Database"]}[Data],
+				    retail_finops_mart_Schema = #"finops-learning-lab_Database"{[Name="retail_finops_mart",Kind="Schema"]}[Data],
+				    mart_unit_economics_Table = retail_finops_mart_Schema{[Name="mart_unit_economics",Kind="Table"]}[Data]
+				in
+				    mart_unit_economics_Table
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table

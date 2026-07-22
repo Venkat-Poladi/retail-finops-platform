@@ -1,0 +1,42 @@
+table dim_environment
+	lineageTag: 8c78d31e-4a3c-4972-a248-1cb6496c469b
+
+	column environment_key
+		dataType: string
+		lineageTag: a5c79370-c008-4273-b635-0d4027f4176f
+		summarizeBy: none
+		sourceColumn: environment_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column environment_name
+		dataType: string
+		lineageTag: abcd9d18-9591-4f75-8286-a3a1768b7dce
+		summarizeBy: none
+		sourceColumn: environment_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_unknown
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: c3174110-785b-4669-a84a-9022fa7ea5fc
+		summarizeBy: none
+		sourceColumn: is_unknown
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_environment = m
+		mode: import
+		source =
+				let
+				    Source = GoogleBigQuery.Database([Implementation="2.0"]),
+				    #"finops-learning-lab_Database" = Source{[Name="finops-learning-lab",Kind="Database"]}[Data],
+				    retail_finops_core_Schema = #"finops-learning-lab_Database"{[Name="retail_finops_core",Kind="Schema"]}[Data],
+				    dim_environment_Table = retail_finops_core_Schema{[Name="dim_environment",Kind="Table"]}[Data]
+				in
+				    dim_environment_Table
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table

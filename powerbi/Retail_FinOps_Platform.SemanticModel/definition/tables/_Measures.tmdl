@@ -1,0 +1,2425 @@
+table _Measures
+	lineageTag: 81278fa2-52d3-4f3e-84a3-be7b291210dc
+
+	measure 'Total Actual Cost' =
+
+			SUM(
+			    'mart_monthly_actuals'[actual_cost]
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Spend
+		lineageTag: e7961322-eb15-49c9-8b6c-2a9c46dfd6a7
+
+	measure 'Total Approved Budget' =
+
+			SUM('mart_budget'[approved_budget_cost])
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Budget
+		lineageTag: 18eb53c5-f09e-4453-8aaa-512ad1ee5735
+
+	measure 'Budget Variance' =
+
+			[Total Actual Cost] - [Total Approved Budget]
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Budget
+		lineageTag: ca14a831-a98e-45db-a2fc-54286eb17ae6
+
+	measure 'Budget Variance %' =
+
+			DIVIDE(
+			    [Budget Variance],
+			    [Total Approved Budget]
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Budget
+		lineageTag: 190d56cf-e1ef-4b45-99b1-43c5bbb70f54
+
+	measure 'Total Unallocated Cost' =
+
+			SUM(
+			    'mart_monthly_actuals'[unallocated_cost]
+			)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: Allocation
+		lineageTag: bf7961ed-e999-4951-85ba-21f5734fd4a5
+
+	measure 'Total Positive Usage Cost' =
+
+			SUM(
+			    'mart_monthly_actuals'[positive_usage_cost]
+			)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: Allocation
+		lineageTag: b22b84a2-fd6c-4b0a-97aa-afbc22b82d43
+
+	measure 'Unallocated Cost %' =
+
+			DIVIDE(
+			    [Total Unallocated Cost],
+			    [Total Positive Usage Cost],
+			    0
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Allocation
+		lineageTag: 4afa7291-0343-4234-8779-d88cff613fee
+
+	measure 'Total Allocated Cost' =
+
+			[Total Positive Usage Cost] - [Total Unallocated Cost]
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: Allocation
+		lineageTag: 0bf79fdd-8240-4b00-b875-60ce190320c1
+
+	measure 'Allocation Coverage %' =
+
+			DIVIDE(
+			    [Total Allocated Cost],
+			    [Total Positive Usage Cost],
+			    0
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Allocation
+		lineageTag: 3f23fb2f-d4f1-4574-88ca-c53b2315cf07
+
+	measure 'Total Direct Cost' =
+
+			SUM(
+			    'mart_monthly_actuals'[direct_cost]
+			)
+		displayFolder: Allocation
+		lineageTag: a699ffa0-00f8-4b8b-b654-2cd31b71989d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Shared Allocated Cost' =
+
+			SUM(
+			    'mart_monthly_actuals'[shared_allocated_cost]
+			)
+		displayFolder: Allocation
+		lineageTag: bdbf066f-a519-4690-99cb-9a60430b2b22
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Late Arriving Cost' =
+
+			SUM(
+			    'mart_monthly_actuals'[late_arriving_cost]
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Controls
+		lineageTag: 0629bca6-5c99-4162-9028-465600017dbc
+
+	measure 'Recommendation Count' =
+
+			DISTINCTCOUNT(
+			    'mart_optimization'[recommendation_id]
+			)
+		formatString: 0
+		displayFolder: Savings
+		lineageTag: dbfa51a0-a023-4ff2-95ad-f6cc2002d17c
+
+	measure 'Net Monthly Savings Identified' =
+
+			SUM(
+			    'mart_optimization'[net_monthly_savings]
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Savings
+		lineageTag: 40a1ce4b-3fdc-4363-99af-c1e407c3364c
+
+	measure 'Annualized Savings Identified' =
+
+			SUM(
+			    'mart_optimization'[annualized_savings]
+			)
+		displayFolder: Savings
+		lineageTag: 7136fd99-dc3e-488b-b55a-d78d8f4aa9aa
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Realized Savings' =
+
+			SUM(
+			    'mart_optimization'[realized_savings]
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Savings
+		lineageTag: 9c7a5084-77c3-44ef-bdbe-cadbae0cf993
+
+	measure 'Anomaly Count' =
+
+			DISTINCTCOUNT(
+			    'fct_cost_anomaly'[anomaly_id]
+			)
+		formatString: 0
+		displayFolder: Controls
+		lineageTag: 3832399c-dcdf-4aed-b7de-208c0a887331
+
+	measure 'Anomaly Actual Cost' =
+
+			SUM(
+			    'fct_cost_anomaly'[actual_cost]
+			)
+		displayFolder: Controls
+		lineageTag: 5ab7f534-be4e-4805-8bbb-9045744ede7e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Anomaly Variance' =
+
+			SUM(
+			    'fct_cost_anomaly'[absolute_variance]
+			)
+		displayFolder: Controls
+		lineageTag: a99dc8ec-2574-46d4-8d0f-5287e7a9acc0
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average Anomaly Variance %' =
+
+			AVERAGE(
+			    'fct_cost_anomaly'[relative_variance]
+			)
+		displayFolder: Controls
+		lineageTag: 787d9fb9-0888-4e24-9798-e17f4b5cdcb6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Commitment Eligible Cost' =
+
+			SUM(
+			    'mart_commitment_discount_analysis'[monthly_commitment_eligible_cost]
+			)
+		displayFolder: Savings
+		lineageTag: 4cf8cd29-9eac-44bb-a944-07d52948326e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Commitment Covered Cost' =
+
+			SUM(
+			    'mart_commitment_discount_analysis'[monthly_commitment_covered_cost]
+			)
+		displayFolder: Savings
+		lineageTag: 5e2039a4-81aa-4c5a-9927-585fd69f86b6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Commitment Coverage %' =
+
+			DIVIDE(
+			    [Commitment Covered Cost],
+			    [Commitment Eligible Cost],
+			    0
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Savings
+		lineageTag: 0f517c68-4b0d-4489-930f-05535c35e732
+
+	measure 'Underutilized Commitment Cost' =
+
+			SUM(
+			    'mart_commitment_discount_analysis'[monthly_underutilized_commitment_cost]
+			)
+		displayFolder: Savings
+		lineageTag: ea334ad5-cb07-4ac4-91fb-4ad16f51275d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Gross Monthly Savings' =
+
+			SUM(
+			    'mart_optimization'[gross_savings]
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Savings
+		lineageTag: 6dadeabb-fdb0-4682-8000-fdbdb37607e2
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Overlap Adjustment' =
+
+			SUM(
+			    'mart_optimization'[overlap_adjustment]
+			)
+		formatString: 0.00
+		displayFolder: Savings
+		lineageTag: 8f3ad6ec-f900-4a9f-9d32-249e888410a8
+
+	measure 'Identified Savings' =
+
+			CALCULATE(
+			    [Net Monthly Savings Identified],
+			    KEEPFILTERS(
+			        'mart_optimization'[savings_stage]
+			            IN {
+			                "Identified",
+			                "Approved",
+			                "Implemented",
+			                "Realized"
+			            }
+			    )
+			)
+		displayFolder: Savings
+		lineageTag: c259d980-fb50-4131-9598-02349340fbf9
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Approved Savings' =
+
+			CALCULATE(
+			    [Net Monthly Savings Identified],
+			    KEEPFILTERS(
+			        'mart_optimization'[savings_stage]
+			            IN {
+			                "Approved",
+			                "Implemented",
+			                "Realized"
+			            }
+			    )
+			)
+		displayFolder: Savings
+		lineageTag: 4633946e-a53b-4cc9-bdf4-b3dcee29d29f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Implemented Savings' =
+
+			CALCULATE(
+			    [Net Monthly Savings Identified],
+			    KEEPFILTERS(
+			        'mart_optimization'[savings_stage]
+			            IN {
+			                "Implemented",
+			                "Realized"
+			            }
+			    )
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Savings
+		lineageTag: f3b492d5-7e31-4e3b-aa5f-2d05396d28e5
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Realized Savings %' =
+
+			DIVIDE(
+			    [Realized Savings],
+			    [Identified Savings],
+			    0
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Savings
+		lineageTag: 01e51b25-5c35-4a13-8e14-e0e6babb6e1d
+
+	measure 'High-Priority Recommendation Count' =
+
+			CALCULATE(
+			    [Recommendation Count],
+			    KEEPFILTERS(
+			        'mart_optimization'[priority] = "HIGH"
+			    )
+			)
+		formatString: 0
+		displayFolder: Savings
+		lineageTag: fdc45978-97bf-486f-bd75-34bc03926a74
+
+	measure 'Savings Realization Rate %' =
+
+			DIVIDE(
+			    [Realized Savings],
+			    [Implemented Savings],
+			    0
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Savings
+		lineageTag: d229b60d-d302-42c1-868d-6540cb323c8f
+
+	measure 'Uncovered Eligible Cost' =
+
+			MAX(
+			    0,
+			    [Commitment Eligible Cost]
+			        - [Commitment Covered Cost]
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Savings
+		lineageTag: 6db6b6b2-c473-4718-b19e-f120e3823148
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Commitment Purchase Cost' =
+
+			SUM(
+			    'mart_commitment_discount_analysis'[monthly_commitment_purchase_cost]
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Savings
+		lineageTag: 3e5556a6-ba44-4790-9350-1066f075f676
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Monthly On-Demand Cost' =
+
+			SUM(
+			    'mart_commitment_discount_analysis'[monthly_on_demand_cost]
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Savings
+		lineageTag: e54c3f6b-4187-46db-95ee-f719b6ed0a74
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Commitment Waste %' =
+
+			DIVIDE(
+			    [Underutilized Commitment Cost],
+			    [Commitment Purchase Cost],
+			    0
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Savings
+		lineageTag: a3a9ece7-0758-45fe-9015-3a4e51d4401f
+
+	measure 'Commitment Utilization %' =
+
+			DIVIDE(
+			    [Commitment Purchase Cost]
+			        - [Underutilized Commitment Cost],
+			    [Commitment Purchase Cost],
+			    0
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Savings
+		lineageTag: e456c19f-09f9-438b-a8db-4568281833f9
+
+	measure 'Total Business Activity Units' =
+
+			CALCULATE(
+			    SUM(
+			        'mart_unit_economics'[transactions]
+			    ),
+			    'mart_unit_economics'[provider_name] = "ALL_CLOUD"
+			)
+		displayFolder: Unit Economics
+		lineageTag: 208d9dc2-19f9-48ae-9baa-b107c4e00d96
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Cost per Business Unit' =
+
+			VAR PortfolioCost =
+			    CALCULATE(
+			        SUM(
+			            'mart_unit_economics'[total_allocated_cost]
+			        ),
+			        'mart_unit_economics'[provider_name] = "ALL_CLOUD"
+			    )
+			RETURN
+			    DIVIDE(
+			        PortfolioCost,
+			        [Total Business Activity Units],
+			        0
+			    )
+		formatString: \$#,0.0000;(\$#,0.0000);\$#,0.0000
+		displayFolder: Unit Economics
+		lineageTag: 0ca3af7d-bace-4ea8-afe1-de59f5784f01
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Cost per Transaction' =
+
+			DIVIDE (
+			    [Unit Economics Cost],
+			    [Total Transactions]
+			)
+		formatString: \$#,0.0000;(\$#,0.0000);\$#,0.0000
+		displayFolder: Unit Economics
+		lineageTag: 6876c2e1-262d-4a9f-86eb-f38732477195
+
+	measure 'Cost per Customer' =
+
+			VAR PortfolioCost =
+			    CALCULATE(
+			        SUM(
+			            'mart_unit_economics'[total_allocated_cost]
+			        ),
+			        'mart_unit_economics'[provider_name] = "ALL_CLOUD"
+			    )
+			VAR ActiveCustomerMonths =
+			    CALCULATE(
+			        SUM(
+			            'mart_unit_economics'[average_daily_active_customers]
+			        ),
+			        'mart_unit_economics'[provider_name] = "ALL_CLOUD"
+			    )
+			RETURN
+			    DIVIDE(
+			        PortfolioCost,
+			        ActiveCustomerMonths,
+			        0
+			    )
+		formatString: 0.0000
+		displayFolder: Unit Economics
+		lineageTag: 00a733b0-5b68-4c9e-ad49-e8aa5a4bbac8
+
+	measure 'Unit Cost Month-over-Month Change %' =
+
+			VAR CurrentUnitCost =
+			    [Cost per Transaction]
+			VAR PreviousUnitCost =
+			    CALCULATE(
+			        [Cost per Transaction],
+			        DATEADD(
+			            'dim_date'[full_date],
+			            -1,
+			            MONTH
+			        )
+			    )
+			RETURN
+			    DIVIDE(
+			        CurrentUnitCost - PreviousUnitCost,
+			        PreviousUnitCost,
+			        0
+			    )
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Unit Economics
+		lineageTag: 1112b064-7218-45ba-98b1-41483a9b307c
+
+	measure 'Business Activity Growth %' =
+
+			VAR CurrentActivity =
+			    [Total Business Activity Units]
+			VAR PrevActivity =
+			    CALCULATE(
+			        [Total Business Activity Units],
+			        DATEADD(
+			            'dim_date'[full_date],
+			            -1,
+			            MONTH
+			        )
+			    )
+			RETURN
+			    IF(
+			        ISBLANK(CurrentActivity)
+			            || ISBLANK(PrevActivity)
+			            || PrevActivity = 0,
+			        BLANK(),
+			        DIVIDE(
+			            CurrentActivity - PrevActivity,
+			            PrevActivity
+			        )
+			    )
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Unit Economics
+		lineageTag: 9454c858-ff68-4574-931d-96306e0c1466
+
+	measure 'Unit Economics Efficiency Change %' =
+
+			VAR CurrentUnitCost =
+			    [Cost per Transaction]
+			VAR PreviousUnitCost =
+			    CALCULATE(
+			        [Cost per Transaction],
+			        DATEADD(
+			            'dim_date'[full_date],
+			            -1,
+			            MONTH
+			        )
+			    )
+			RETURN
+			    DIVIDE(
+			        PreviousUnitCost - CurrentUnitCost,
+			        PreviousUnitCost,
+			        0
+			    )
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Unit Economics
+		lineageTag: dd424f48-a0aa-47ef-8925-e0f352c711cc
+
+	measure 'Cost Growth %' =
+
+			VAR CurrentCost =
+			    [Total Actual Cost]
+			VAR PrevCost =
+			    CALCULATE(
+			        [Total Actual Cost],
+			        DATEADD(
+			            'dim_date'[full_date],
+			            -1,
+			            MONTH
+			        )
+			    )
+			RETURN
+			    IF(
+			        ISBLANK(CurrentCost)
+			            || ISBLANK(PrevCost)
+			            || PrevCost = 0,
+			        BLANK(),
+			        DIVIDE(
+			            CurrentCost - PrevCost,
+			            PrevCost
+			        )
+			    )
+		formatString: 0.0
+		displayFolder: Savings
+		lineageTag: 130d4f7f-9b5d-41e8-8ab3-9c0ea3aff36f
+
+	measure 'Month-over-Month Cost Change' =
+
+			VAR PreviousMonthCost =
+			    CALCULATE(
+			        [Total Actual Cost],
+			        DATEADD(
+			            'dim_date'[full_date],
+			            -1,
+			            MONTH
+			        )
+			    )
+			RETURN
+			    [Total Actual Cost] - PreviousMonthCost
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Spend
+		lineageTag: 7babb7e9-d57d-4a9b-ba07-0ea86e5c6044
+
+	measure 'Month-over-Month Cost Change %' =
+
+			VAR PreviousMonthCost =
+			    CALCULATE(
+			        [Total Actual Cost],
+			        DATEADD(
+			            'dim_date'[full_date],
+			            -1,
+			            MONTH
+			        )
+			    )
+			RETURN
+			    DIVIDE(
+			        [Total Actual Cost] - PreviousMonthCost,
+			        PreviousMonthCost,
+			        0
+			    )
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Spend
+		lineageTag: 1c7d967f-b5e8-4e75-9f3d-460855dc3585
+
+	measure 'Year-to-Date Actual Cost' =
+
+			TOTALYTD(
+			    [Total Actual Cost],
+			    'dim_date'[full_date]
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Unit Economics
+		lineageTag: 90382a33-a151-4ea4-b91b-124474e45a2c
+
+	measure 'Total Forecast Cost' =
+
+			VAR VersionToUse =
+			    [Forecast Version Date]
+			RETURN
+			    IF(
+			        ISBLANK(VersionToUse),
+			        BLANK(),
+			        CALCULATE(
+			            SUM(
+			                'fct_forecast_version'[forecast_cost]
+			            ),
+			            REMOVEFILTERS(
+			                'fct_forecast_version'[forecast_version_month]
+			            ),
+			            'fct_forecast_version'[forecast_version_month]
+			                = VersionToUse
+			        )
+			    )
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Forecast
+		lineageTag: a6a3f295-52ae-4ea1-af81-79e9a6a7f777
+
+	measure 'Forecast Variance' =
+
+			VAR ActualCost =
+			    [Forecast Actual Cost]
+			VAR ForecastCost =
+			    [Forecast Cost - Actualized Periods]
+			RETURN
+			    IF(
+			        ISBLANK(ActualCost)
+			            || ISBLANK(ForecastCost),
+			        BLANK(),
+			        ActualCost - ForecastCost
+			    )
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Forecast
+		lineageTag: b6e3cbaa-b707-41ce-8c08-8dc1ecb3c9e7
+
+	measure 'Forecast Variance %' =
+
+			DIVIDE(
+			    [Forecast Variance],
+			    [Forecast Actual Cost],
+			    BLANK()
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Forecast
+		lineageTag: 87fa7d95-b31b-4345-af21-2b4f3671427d
+
+	measure 'Forecast Accuracy %' =
+
+			VAR ActualCost =
+			    ABS(
+			        [Forecast Actual Cost]
+			    )
+			VAR AccuracyPct =
+			    1
+			        - DIVIDE(
+			            [Absolute Forecast Error],
+			            ActualCost,
+			            BLANK()
+			        )
+			RETURN
+			    IF(
+			        ISBLANK(ActualCost)
+			            || ActualCost = 0,
+			        BLANK(),
+			        MIN(
+			            1,
+			            MAX(
+			                0,
+			                AccuracyPct
+			            )
+			        )
+			    )
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Forecast
+		lineageTag: 5871681b-fef7-4bc6-8182-2aff3bf2ae02
+
+	measure 'Absolute Forecast Error' =
+
+			VAR VersionToUse =
+			    [Forecast Version Date]
+			RETURN
+			    IF(
+			        ISBLANK(VersionToUse),
+			        BLANK(),
+			        CALCULATE(
+			            SUMX(
+			                FILTER(
+			                    'fct_forecast_version',
+			                    NOT ISBLANK(
+			                        'fct_forecast_version'[actual_cost]
+			                    )
+			                        &&
+			                    NOT ISBLANK(
+			                        'fct_forecast_version'[forecast_cost]
+			                    )
+			                ),
+			                ABS(
+			                    'fct_forecast_version'[actual_cost]
+			                        -
+			                    'fct_forecast_version'[forecast_cost]
+			                )
+			            ),
+			            REMOVEFILTERS(
+			                'fct_forecast_version'[forecast_version_month]
+			            ),
+			            'fct_forecast_version'[forecast_version_month]
+			                = VersionToUse
+			        )
+			    )
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Forecast
+		lineageTag: 2df322d6-8cff-40da-99b6-417a4b92c3f2
+
+	measure 'Forecast Bias %' =
+
+			VAR ActualCost =
+			    [Forecast Actual Cost]
+			VAR ForecastCost =
+			    [Forecast Cost - Actualized Periods]
+			RETURN
+			    DIVIDE(
+			        ForecastCost - ActualCost,
+			        ActualCost,
+			        BLANK()
+			    )
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Forecast
+		lineageTag: e58d444e-9fd5-4061-ac81-9993ef12ab1f
+
+	measure 'Total Accrued Cost' =
+
+			SUM(
+			    'fct_cloud_accrual'[accrual_amount]
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Controls
+		lineageTag: ee13fb1d-66cc-4ba7-9d09-5fe11d78345b
+
+	measure 'Total Reversed Accrual Cost' =
+
+			ABS(
+			    SUM(
+			        'fct_accrual_reversal'[reversal_amount]
+			    )
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Controls
+		lineageTag: 03025247-e493-42aa-be4e-33d598830f42
+
+	measure 'Outstanding Accrual Balance' =
+
+			[Total Accrued Cost]
+			    - [Total Reversed Accrual Cost]
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Controls
+		lineageTag: 51091930-b1ba-4226-8d9c-91e7ec333349
+
+	measure 'Reclassification Amount' =
+
+			SUM(
+			    'fct_reclass_journal'[journal_amount]
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Controls
+		lineageTag: 14f05370-81a7-426b-9ee7-ae53cb237205
+
+	/// Controls
+	///
+	measure 'Chargeback Journal Amount' =
+
+			SUM(
+			    'fct_chargeback_journal'[journal_amount]
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Controls
+		lineageTag: f8945847-6fe0-4c32-a5bb-f16129c3eec4
+
+	/// Controls
+	measure 'Close Checklist Completion %' =
+
+			VAR TotalTasks =
+			    COUNTROWS(
+			        'mart_close_checklist'
+			    )
+			VAR CompletedTasks =
+			    CALCULATE(
+			        COUNTROWS(
+			            'mart_close_checklist'
+			        ),
+			        FILTER(
+			            'mart_close_checklist',
+			            UPPER(
+			                TRIM(
+			                    COALESCE(
+			                        'mart_close_checklist'[status],
+			                        ""
+			                    )
+			                )
+			            )
+			                IN {
+			                    "COMPLETE",
+			                    "COMPLETED"
+			                }
+			        )
+			    )
+			RETURN
+			    DIVIDE(
+			        CompletedTasks,
+			        TotalTasks,
+			        0
+			    )
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Controls
+		lineageTag: d2486761-8957-40f1-8483-36a2162b7682
+
+	measure 'Overdue Close Task Count' =
+
+			CALCULATE(
+			    COUNTROWS(
+			        'mart_close_checklist'
+			    ),
+			    FILTER(
+			        'mart_close_checklist',
+			        'mart_close_checklist'[due_date] < TODAY()
+			            &&
+			        NOT(
+			            UPPER(
+			                TRIM(
+			                    COALESCE(
+			                        'mart_close_checklist'[status],
+			                        ""
+			                    )
+			                )
+			            )
+			                IN {
+			                    "COMPLETE",
+			                    "COMPLETED"
+			                }
+			        )
+			    )
+			)
+		formatString: 0
+		displayFolder: Controls
+		lineageTag: a63d90ca-4aa5-451e-9bc1-ca6d130c2967
+
+	measure 'Open Close Task Count' =
+
+			CALCULATE(
+			    COUNTROWS(
+			        'mart_close_checklist'
+			    ),
+			    FILTER(
+			        'mart_close_checklist',
+			        NOT(
+			            UPPER(
+			                TRIM(
+			                    COALESCE(
+			                        'mart_close_checklist'[status],
+			                        ""
+			                    )
+			                )
+			            )
+			                IN {
+			                    "COMPLETE",
+			                    "COMPLETED"
+			                }
+			        )
+			    )
+			)
+		formatString: 0
+		displayFolder: Controls
+		lineageTag: aa287cc1-906d-4229-ba2d-bb0d708f0e1a
+
+	measure 'Remaining Budget' =
+
+			[Total Approved Budget]
+			    - [Total Actual Cost]
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Savings
+		lineageTag: 5d1b1075-b070-4d2a-99f6-3023988fe9cb
+
+	measure 'Budget Consumption %' =
+
+			DIVIDE(
+			    [Total Actual Cost],
+			    [Total Approved Budget],
+			    0
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Savings
+		lineageTag: 64fba703-89cc-45e2-853e-e19f5a50aa12
+
+	measure 'Savings as % of Spend' =
+
+			DIVIDE(
+			    [Realized Savings],
+			    [Total Actual Cost],
+			    0
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Savings
+		lineageTag: 9a0dea03-f2e0-4354-9e81-a47d1846dc04
+
+	measure 'Realized Savings as % of Identified Savings' =
+
+			[Realized Savings %]
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Savings
+		lineageTag: 2c49cb4a-858a-4bd5-888e-e65a42af35a1
+
+	measure 'Data Refresh Timestamp' =
+
+			MAX(
+			    'mart_monthly_actuals'[data_refresh_timestamp]
+			)
+		formatString: General Date
+		displayFolder: Controls
+		lineageTag: e78a4cc0-f193-41cd-932d-6527471f5319
+
+	measure 'Financial Data Quality Status' =
+
+			VAR InvalidFinancialRows =
+			    CALCULATE(
+			        COUNTROWS(
+			            'fct_cloud_cost'
+			        ),
+			        'fct_cloud_cost'[is_valid_for_financial_reporting]
+			            <> TRUE()
+			    )
+			VAR NonCanonicalRows =
+			    CALCULATE(
+			        COUNTROWS(
+			            'fct_cloud_cost'
+			        ),
+			        'fct_cloud_cost'[is_canonical_record]
+			            <> TRUE()
+			    )
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        ISBLANK(
+			            [Total Actual Cost]
+			        ),
+			            "Pending",
+			        InvalidFinancialRows > 0
+			            || NonCanonicalRows > 0,
+			            "Pass with Exceptions",
+			        "Pass"
+			    )
+		displayFolder: Controls
+		lineageTag: 50efc983-66ac-44a8-8be5-a07a7e57d833
+
+	measure 'Executive Trend Title' =
+
+			VAR VariancePct = [Budget Variance %]
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        ISBLANK(VariancePct),
+			            "Monthly cloud spend versus budget and forecast",
+			        VariancePct > 0,
+			            "Cloud spend exceeded budget by "
+			                & FORMAT(VariancePct, "0.0%"),
+			        VariancePct < 0,
+			            "Cloud spend was under budget by "
+			                & FORMAT(ABS(VariancePct), "0.0%"),
+			        "Cloud spend matched the approved budget"
+			    )
+		displayFolder: Dynamic Titles
+		lineageTag: c7ea5a29-44d9-40f3-bb09-07ac8c45aff5
+
+	measure 'Forecasted Budget' =
+
+			[Total Forecast Cost]
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 3cce98a2-978d-4cd9-8559-c4fee7cdebfe
+
+	measure 'Provider Spend Title' =
+
+			VAR ProviderTable =
+			    TOPN(
+			        1,
+			        ADDCOLUMNS(
+			            VALUES(dim_provider[provider_name]),
+			            "@ProviderCost", [Total Actual Cost]
+			        ),
+			        [@ProviderCost], DESC,
+			        dim_provider[provider_name], ASC
+			    )
+			VAR TopProvider =
+			    MAXX(
+			        ProviderTable,
+			        dim_provider[provider_name]
+			    )
+			VAR TopProviderCost =
+			    MAXX(
+			        ProviderTable,
+			        [@ProviderCost]
+			    )
+			VAR ProviderShare =
+			    DIVIDE(
+			        TopProviderCost,
+			        [Total Actual Cost]
+			    )
+			RETURN
+			    IF(
+			        ISBLANK(TopProviderCost),
+			        "Cloud spend by provider",
+			        TopProvider
+			            & " represented "
+			            & FORMAT(ProviderShare, "0.0%")
+			            & " of cloud spend"
+			    )
+		displayFolder: Spend
+		lineageTag: e9372b03-e25d-43b1-8577-c92cd2900e88
+
+	measure 'Executive Commentary' =
+
+			VAR BudgetVariancePct =
+			    [Budget Variance %]
+
+			VAR ForecastVariancePct =
+			    [Forecast Variance %]
+
+			VAR AllocationCoverage =
+			    [Allocation Coverage %]
+
+			VAR BudgetComment =
+			    SWITCH(
+			        TRUE(),
+
+			        ISBLANK(BudgetVariancePct),
+			            "Budget performance is unavailable.",
+
+			        BudgetVariancePct > 0.05,
+			            "Actual spend is "
+			                & FORMAT(BudgetVariancePct, "0.0%")
+			                & " above the approved budget.",
+
+			        BudgetVariancePct > 0,
+			            "Actual spend is slightly above the approved budget by "
+			                & FORMAT(BudgetVariancePct, "0.0%")
+			                & ".",
+
+			        BudgetVariancePct < -0.05,
+			            "Actual spend is "
+			                & FORMAT(ABS(BudgetVariancePct), "0.0%")
+			                & " below the approved budget.",
+
+			        "Actual spend is broadly in line with the approved budget."
+			    )
+
+			VAR ForecastComment =
+			    SWITCH(
+			        TRUE(),
+
+			        ISBLANK(ForecastVariancePct),
+			            " Latest forecast performance is unavailable.",
+
+			        ABS(ForecastVariancePct) <= 0.05,
+			            " The latest forecast is within the ±5% tolerance at "
+			                & FORMAT(ABS(ForecastVariancePct), "0.0%")
+			                & " from actual spend.",
+
+			        ForecastVariancePct > 0,
+			            " The latest forecast understated actual spend by "
+			                & FORMAT(ForecastVariancePct, "0.0%")
+			                & ".",
+
+			        " The latest forecast overstated actual spend by "
+			            & FORMAT(ABS(ForecastVariancePct), "0.0%")
+			            & "."
+			    )
+
+			VAR AllocationComment =
+			    SWITCH(
+			        TRUE(),
+
+			        ISBLANK(AllocationCoverage),
+			            " Allocation coverage is unavailable.",
+
+			        AllocationCoverage >= 0.95,
+			            " Allocation coverage is "
+			                & FORMAT(AllocationCoverage, "0.0%")
+			                & ", meeting the 95% target.",
+
+			        AllocationCoverage >= 0.90,
+			            " Allocation coverage is "
+			                & FORMAT(AllocationCoverage, "0.0%")
+			                & ", "
+			                & FORMAT(0.95 - AllocationCoverage, "0.0%")
+			                & " below the 95% target.",
+
+			        " Allocation coverage is only "
+			            & FORMAT(AllocationCoverage, "0.0%")
+			            & " and requires immediate remediation."
+			    )
+
+			RETURN
+			    BudgetComment
+			        & ForecastComment
+			        & AllocationComment
+		displayFolder: Executive
+		lineageTag: 088c9d5e-aa4c-4864-8ddb-4a3fcc35e313
+
+	measure 'Allocation Coverage Color' =
+
+			VAR Coverage = [Allocation Coverage %]
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        ISBLANK(Coverage), "#9E9E9E",
+			        Coverage >= 0.95, "#2E7D32",
+			        Coverage >= 0.90, "#F9A825",
+			        "#C62828"
+			    )
+		lineageTag: 9872840e-afa2-4fe9-b62c-b8d6e5ac9151
+
+	measure 'Budget Variance % Color' =
+
+			VAR VariancePct = [Budget Variance %]
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        ISBLANK(VariancePct), "#9E9E9E",
+			        VariancePct <= 0, "#2E7D32",
+			        VariancePct <= 0.10, "#F9A825",
+			        "#C62828"
+			    )
+		displayFolder: Budget
+		lineageTag: 1e4c84de-a4d4-444a-a684-9a39dc0dd3a4
+
+	measure 'Realized Savings Color' =
+
+			VAR Savings = [Realized Savings]
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        ISBLANK(Savings), "#9E9E9E",
+			        Savings > 0, "#2E7D32",
+			        Savings = 0, "#9E9E9E",
+			        "#C62828"
+			    )
+		lineageTag: 30d01ed3-cb29-4ed2-b910-9fff10cc90c0
+
+	measure 'actualForecast Variance Color' =
+
+			VAR VariancePct =
+			    ABS(
+			        [Forecast Variance %]
+			    )
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        ISBLANK(VariancePct), "#9E9E9E",
+			        VariancePct <= 0.05,  "#2E7D32",
+			        VariancePct <= 0.15,  "#F9A825",
+			        "#C62828"
+			    )
+		displayFolder: Forecast
+		lineageTag: 3dca8a2b-e6bd-4254-8e07-041a7fb6f2a2
+
+	measure 'Actual Cost - Latest Visible Month' =
+
+			VAR LatestMonthWithActual =
+			    MAXX(
+			        FILTER(
+			            ALLSELECTED('dim_date'[month_start_date]),
+			            NOT ISBLANK(
+			                CALCULATE([Total Actual Cost])
+			            )
+			        ),
+			        'dim_date'[month_start_date]
+			    )
+			RETURN
+			    IF(
+			        ISBLANK(LatestMonthWithActual),
+			        BLANK(),
+			        CALCULATE(
+			            [Total Actual Cost],
+			            REMOVEFILTERS('dim_date'),
+			            TREATAS(
+			                { LatestMonthWithActual },
+			                'dim_date'[month_start_date]
+			            )
+			        )
+			    )
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Forecast
+		lineageTag: 4e94e3ea-f430-4109-aa4f-a3ab99fd4ce4
+
+	measure 'Actual Cost - Previous Month' =
+
+			VAR LatestMonthWithActual =
+			    MAXX(
+			        FILTER(
+			            ALLSELECTED('dim_date'[month_start_date]),
+			            NOT ISBLANK(
+			                CALCULATE([Total Actual Cost])
+			            )
+			        ),
+			        'dim_date'[month_start_date]
+			    )
+			VAR PrevMonthStart =
+			    EDATE(LatestMonthWithActual, -1)
+			RETURN
+			    IF(
+			        ISBLANK(LatestMonthWithActual),
+			        BLANK(),
+			        CALCULATE(
+			            [Total Actual Cost],
+			            REMOVEFILTERS('dim_date'),
+			            TREATAS(
+			                { PrevMonthStart },
+			                'dim_date'[month_start_date]
+			            )
+			        )
+			    )
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Forecast
+		lineageTag: 2c8502b2-41f6-42d0-af60-f430e19f9b96
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Executive CommentaryActual Cost MoM Change %' =
+
+			VAR CurrentCost =
+			    [Actual Cost - Latest Visible Month]
+			VAR PrevCost =
+			    [Actual Cost - Previous Month]
+			RETURN
+			    IF(
+			        ISBLANK(PrevCost),
+			        BLANK(),
+			        DIVIDE(
+			            CurrentCost - PrevCost,
+			            PrevCost
+			        )
+			    )
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Spend
+		lineageTag: e1c75164-348a-4694-8803-1c3c8e1a9917
+
+	measure 'Actual Cost MoM Color' =
+
+			VAR ChangePct =
+			    [Executive CommentaryActual Cost MoM Change %]
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        ISBLANK(ChangePct), "#9E9E9E",
+			        ChangePct <= 0,     "#2E7D32",
+			        ChangePct <= 0.10,  "#F9A825",
+			        "#C62828"
+			    )
+		displayFolder: Spend
+		lineageTag: ea16f87b-a17b-418c-8907-e7f9e157c22a
+
+	measure 'Unallocated Cost Color' =
+
+			VAR UnallocatedPct =
+			    [Unallocated Cost %]
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        ISBLANK(UnallocatedPct), "#9E9E9E",
+			        UnallocatedPct <= 0.05,  "#2E7D32",
+			        UnallocatedPct <= 0.10,  "#F9A825",
+			        "#C62828"
+			    )
+		lineageTag: c1ad68d1-d5f2-450f-9c3e-41605663a77d
+
+	measure 'Variance Bridge Month' =
+
+			MAXX(
+			    FILTER(
+			        ALLSELECTED('mart_variance_drivers'[billing_month]),
+			        NOT ISBLANK(
+			            CALCULATE(
+			                SUM('mart_variance_drivers'[current_cost])
+			            )
+			        )
+			    ),
+			    'mart_variance_drivers'[billing_month]
+			)
+		formatString: yyyy-mm
+		lineageTag: ac193ea5-b532-4ae6-aef5-ebb560f64afb
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	measure 'Variance Prior Cost' =
+
+			VAR BridgeMonthValue =
+			    [Variance Bridge Month]
+			RETURN
+			    IF(
+			        ISBLANK(BridgeMonthValue),
+			        BLANK(),
+			        CALCULATE(
+			            SUM('mart_variance_drivers'[prior_cost]),
+			            REMOVEFILTERS('dim_date'),
+			            REMOVEFILTERS(
+			                'mart_variance_drivers'[billing_month]
+			            ),
+			            TREATAS(
+			                { BridgeMonthValue },
+			                'mart_variance_drivers'[billing_month]
+			            )
+			        )
+			    )
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 073e9aa7-9840-4349-a80f-07568c546198
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Variance Current Cost' =
+
+			VAR BridgeMonthValue =
+			    [Variance Bridge Month]
+			RETURN
+			    IF(
+			        ISBLANK(BridgeMonthValue),
+			        BLANK(),
+			        CALCULATE(
+			            SUM('mart_variance_drivers'[current_cost]),
+			            REMOVEFILTERS('dim_date'),
+			            REMOVEFILTERS(
+			                'mart_variance_drivers'[billing_month]
+			            ),
+			            TREATAS(
+			                { BridgeMonthValue },
+			                'mart_variance_drivers'[billing_month]
+			            )
+			        )
+			    )
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 69424fde-f786-48a5-b7c2-d4f88184cc2d
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Variance Usage' =
+
+			VAR BridgeMonthValue =
+			    [Variance Bridge Month]
+			RETURN
+			    IF(
+			        ISBLANK(BridgeMonthValue),
+			        BLANK(),
+			        CALCULATE(
+			            SUM('mart_variance_drivers'[usage_effect]),
+			            REMOVEFILTERS('dim_date'),
+			            REMOVEFILTERS(
+			                'mart_variance_drivers'[billing_month]
+			            ),
+			            TREATAS(
+			                { BridgeMonthValue },
+			                'mart_variance_drivers'[billing_month]
+			            )
+			        )
+			    )
+		lineageTag: 1c779582-49fd-47c3-806d-73d19a2ce5e5
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Variance Rate' =
+
+			VAR BridgeMonthValue =
+			    [Variance Bridge Month]
+			RETURN
+			    IF(
+			        ISBLANK(BridgeMonthValue),
+			        BLANK(),
+			        CALCULATE(
+			            SUM('mart_variance_drivers'[rate_effect]),
+			            REMOVEFILTERS('dim_date'),
+			            REMOVEFILTERS(
+			                'mart_variance_drivers'[billing_month]
+			            ),
+			            TREATAS(
+			                { BridgeMonthValue },
+			                'mart_variance_drivers'[billing_month]
+			            )
+			        )
+			    )
+		lineageTag: 27dd019c-51d9-4dc5-af9a-c26c6143edb4
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Variance Scope' =
+
+			VAR BridgeMonthValue =
+			    [Variance Bridge Month]
+			RETURN
+			    IF(
+			        ISBLANK(BridgeMonthValue),
+			        BLANK(),
+			        CALCULATE(
+			            SUM('mart_variance_drivers'[scope_effect]),
+			            REMOVEFILTERS('dim_date'),
+			            REMOVEFILTERS(
+			                'mart_variance_drivers'[billing_month]
+			            ),
+			            TREATAS(
+			                { BridgeMonthValue },
+			                'mart_variance_drivers'[billing_month]
+			            )
+			        )
+			    )
+		lineageTag: 5c638c13-9399-4030-becf-a1f2cb45c48d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Variance Other' =
+
+			VAR BridgeMonthValue =
+			    [Variance Bridge Month]
+			VAR OtherAmount =
+			    CALCULATE(
+			        SUM(
+			            'mart_variance_drivers'[decomposition_variance]
+			        ),
+			        REMOVEFILTERS('dim_date'),
+			        REMOVEFILTERS(
+			            'mart_variance_drivers'[billing_month]
+			        ),
+			        TREATAS(
+			            { BridgeMonthValue },
+			            'mart_variance_drivers'[billing_month]
+			        )
+			    )
+			RETURN
+			    IF(
+			        ISBLANK(BridgeMonthValue),
+			        BLANK(),
+			        IF(
+			            ABS(OtherAmount) < 0.01,
+			            BLANK(),
+			            OtherAmount
+			        )
+			    )
+		lineageTag: 591363dd-9466-4f56-b3de-199c6c413291
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Variance Total Cost Change' =
+
+			VAR BridgeMonthValue =
+			    [Variance Bridge Month]
+			RETURN
+			    IF(
+			        ISBLANK(BridgeMonthValue),
+			        BLANK(),
+			        CALCULATE(
+			            SUM('mart_variance_drivers'[total_cost_change]),
+			            REMOVEFILTERS('dim_date'),
+			            REMOVEFILTERS(
+			                'mart_variance_drivers'[billing_month]
+			            ),
+			            TREATAS(
+			                { BridgeMonthValue },
+			                'mart_variance_drivers'[billing_month]
+			            )
+			        )
+			    )
+		lineageTag: 641c9680-03d3-4988-a6b1-c5ad81641846
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Variance Waterfall Amount' =
+
+			VAR SelectedDriver =
+			    SELECTEDVALUE('Variance Driver'[Driver])
+			RETURN
+			    SWITCH(
+			        SelectedDriver,
+			        "Usage", [Variance Usage],
+			        "Rate",  [Variance Rate],
+			        "Scope", [Variance Scope],
+			        "Other", [Variance Other],
+			        BLANK()
+			    )
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 0feb18b2-7605-4d2d-acbc-4803e6e48d36
+
+	measure 'Variance Waterfall Title' =
+
+			VAR BridgeMonthValue =
+			    [Variance Bridge Month]
+			VAR ChangeAmount =
+			    [Variance Current Cost] - [Variance Prior Cost]
+			RETURN
+			    IF(
+			        ISBLANK(BridgeMonthValue),
+			        "Month-over-month cost drivers",
+			        "Cloud cost "
+			            & IF(ChangeAmount >= 0, "increased ", "decreased ")
+			            & FORMAT(ABS(ChangeAmount), "$#,##0")
+			            & " from "
+			            & FORMAT([Variance Prior Cost], "$#,##0")
+			            & " to "
+			            & FORMAT([Variance Current Cost], "$#,##0")
+			            & " in "
+			            & FORMAT(BridgeMonthValue, "MMM yyyy")
+			    )
+		lineageTag: bd3c9c69-ff60-4a14-a90e-d58fcfa33495
+
+	measure 'Service Actual Cost' =
+
+			SUM('fct_cloud_cost'[billed_cost])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: Spend
+		lineageTag: 74e8ac6e-a288-46d8-bbd2-467cb23bb7b6
+
+	measure 'Total Transactions' =
+
+			VAR SelectedProvider =
+			    SELECTEDVALUE ( 'dim_provider'[provider_name] )
+
+			VAR HasOneProvider =
+			    HASONEVALUE ( 'dim_provider'[provider_name] )
+
+			VAR IsSupportedProvider =
+			    SelectedProvider = "AWS"
+			        || SelectedProvider = "GCP"
+
+			VAR ProviderScope =
+			    IF (
+			        HasOneProvider && IsSupportedProvider,
+			        SelectedProvider,
+			        "ALL_CLOUD"
+			    )
+
+			RETURN
+			    IF (
+			        HasOneProvider && NOT ( IsSupportedProvider ),
+			        BLANK (),
+			        CALCULATE (
+			            SUM ( 'mart_unit_economics'[transactions] ),
+			            REMOVEFILTERS ( 'mart_unit_economics'[provider_name] ),
+			            TREATAS (
+			                { ProviderScope },
+			                'mart_unit_economics'[provider_name]
+			            )
+			        )
+			    )
+		lineageTag: 97f0c07c-3a39-42fe-873b-4b75a324446d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Transaction Growth Index' =
+
+			VAR FirstVisibleMonth =
+			    MINX(
+			        FILTER(
+			            ALLSELECTED('dim_date'[month_start_date]),
+			            NOT ISBLANK(
+			                CALCULATE([Total Transactions])
+			            )
+			        ),
+			        'dim_date'[month_start_date]
+			    )
+			VAR BaseTransactions =
+			    CALCULATE(
+			        [Total Transactions],
+			        REMOVEFILTERS('dim_date'),
+			        TREATAS(
+			            { FirstVisibleMonth },
+			            'dim_date'[month_start_date]
+			        )
+			    )
+			RETURN
+			    DIVIDE(
+			        [Total Transactions],
+			        BaseTransactions
+			    ) * 100
+		lineageTag: d6743e61-421b-40f9-ac60-ae2b358b922b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Forecast Version Date' =
+
+			VAR SelectedVersion =
+			    SELECTEDVALUE(
+			        'fct_forecast_version'[forecast_version_month]
+			    )
+			VAR LatestAvailableVersion =
+			    CALCULATE(
+			        MAX(
+			            'fct_forecast_version'[forecast_version_month]
+			        ),
+			        REMOVEFILTERS(
+			            'fct_forecast_version'[forecast_version_month]
+			        ),
+			        REMOVEFILTERS(
+			            'fct_forecast_version'[target_month]
+			        ),
+			        REMOVEFILTERS('dim_date')
+			    )
+			RETURN
+			    COALESCE(
+			        SelectedVersion,
+			        LatestAvailableVersion
+			    )
+		formatString: General Date
+		lineageTag: d9adcda7-7c5f-4fe8-bec5-42e2cbfbdc93
+
+	measure 'Latest Month Forecast' =
+
+			VAR VersionToUse =
+			    [Forecast Version Date]
+			VAR LatestTargetMonth =
+			    CALCULATE(
+			        MAX(
+			            'fct_forecast_version'[target_month]
+			        ),
+			        REMOVEFILTERS(
+			            'fct_forecast_version'[forecast_version_month]
+			        ),
+			        'fct_forecast_version'[forecast_version_month]
+			            = VersionToUse,
+			        FILTER(
+			            'fct_forecast_version',
+			            NOT ISBLANK(
+			                'fct_forecast_version'[forecast_cost]
+			            )
+			        )
+			    )
+			RETURN
+			    IF(
+			        ISBLANK(VersionToUse)
+			            || ISBLANK(LatestTargetMonth),
+			        BLANK(),
+			        CALCULATE(
+			            SUM(
+			                'fct_forecast_version'[forecast_cost]
+			            ),
+			            REMOVEFILTERS(
+			                'fct_forecast_version'[forecast_version_month]
+			            ),
+			            REMOVEFILTERS(
+			                'fct_forecast_version'[target_month]
+			            ),
+			            'fct_forecast_version'[forecast_version_month]
+			                = VersionToUse,
+			            'fct_forecast_version'[target_month]
+			                = LatestTargetMonth
+			        )
+			    )
+		displayFolder: Forecast
+		lineageTag: 4c23d5d7-6c77-4882-8036-3d087e9f2ad5
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Forecast Actual Cost' =
+
+			VAR VersionToUse =
+			    [Forecast Version Date]
+			RETURN
+			    IF(
+			        ISBLANK(VersionToUse),
+			        BLANK(),
+			        CALCULATE(
+			            SUM(
+			                'fct_forecast_version'[actual_cost]
+			            ),
+			            REMOVEFILTERS(
+			                'fct_forecast_version'[forecast_version_month]
+			            ),
+			            'fct_forecast_version'[forecast_version_month]
+			                = VersionToUse,
+			            KEEPFILTERS(
+			                FILTER(
+			                    'fct_forecast_version',
+			                    NOT ISBLANK(
+			                        'fct_forecast_version'[actual_cost]
+			                    )
+			                )
+			            )
+			        )
+			    )
+		lineageTag: 4a266e6e-ad37-4457-9499-ed83a3107617
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Forecast Cost - Actualized Periods' =
+
+			VAR VersionToUse =
+			    [Forecast Version Date]
+			RETURN
+			    IF(
+			        ISBLANK(VersionToUse),
+			        BLANK(),
+			        CALCULATE(
+			            SUM(
+			                'fct_forecast_version'[forecast_cost]
+			            ),
+			            REMOVEFILTERS(
+			                'fct_forecast_version'[forecast_version_month]
+			            ),
+			            'fct_forecast_version'[forecast_version_month]
+			                = VersionToUse,
+			            KEEPFILTERS(
+			                FILTER(
+			                    'fct_forecast_version',
+			                    NOT ISBLANK(
+			                        'fct_forecast_version'[actual_cost]
+			                    )
+			                )
+			            )
+			        )
+			    )
+		lineageTag: 85d3ea3a-acac-494c-911b-4e4446ef390a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Forecast Accuracy Color' =
+
+			VAR AccuracyPct =
+			    [Forecast Accuracy %]
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        ISBLANK(AccuracyPct), "#9E9E9E",
+			        AccuracyPct >= 0.90,  "#2E7D32",
+			        AccuracyPct >= 0.75,  "#F9A825",
+			        "#C62828"
+			    )
+		isHidden
+		displayFolder: Forecast
+		lineageTag: 248b039a-6de7-4d74-8382-6bdd04efe3a8
+
+		changedProperty = IsHidden
+
+	measure 'Remaining Budget Color' =
+
+			VAR RemainingAmount =
+			    [Remaining Budget]
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        ISBLANK(RemainingAmount), "#9E9E9E",
+			        RemainingAmount >= 0,     "#2E7D32",
+			        "#C62828"
+			    )
+		lineageTag: 451bd0ce-9ce1-48c5-a4f3-0f961eddc9f2
+
+	measure 'Budget Consumption Color' =
+
+			VAR ConsumptionPct =
+			    [Budget Consumption %]
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        ISBLANK(ConsumptionPct), "#9E9E9E",
+			        ConsumptionPct <= 1.00,  "#2E7D32",
+			        ConsumptionPct <= 1.10,  "#F9A825",
+			        "#C62828"
+			    )
+		displayFolder: Budget
+		lineageTag: bcda9410-d0e7-4088-add0-2a0d9637fdea
+
+	measure 'Application Budget Variance Color' =
+
+			VAR VariancePct =
+			    [Budget Variance %]
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        ISBLANK(VariancePct), "#9E9E9E",
+			        VariancePct <= 0,     "#2E7D32",
+			        VariancePct <= 0.10,  "#F9A825",
+			        "#C62828"
+			    )
+		displayFolder: Budget
+		lineageTag: ab2fd300-3b40-4ab3-97ba-5955b0662718
+
+	measure 'Actual Cost by Target Month' =
+
+			VAR VersionForMonth =
+			    CALCULATE(
+			        MAX(
+			            'fct_forecast_version'[forecast_version_month]
+			        ),
+			        REMOVEFILTERS(
+			            'fct_forecast_version'[forecast_version_month]
+			        )
+			    )
+			RETURN
+			    IF(
+			        NOT HASONEVALUE(
+			            'fct_forecast_version'[target_month]
+			        ),
+			        BLANK(),
+			        CALCULATE(
+			            SUM(
+			                'fct_forecast_version'[actual_cost]
+			            ),
+			            REMOVEFILTERS(
+			                'fct_forecast_version'[forecast_version_month]
+			            ),
+			            'fct_forecast_version'[forecast_version_month]
+			                = VersionForMonth
+			        )
+			    )
+		displayFolder: Forecast
+		lineageTag: 66e70055-01a0-4dfd-bc05-c61ddf5f6ac2
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Forecast Variance by Target Month' =
+
+			VAR ActualCost =
+			    [Actual Cost by Target Month]
+			VAR ForecastCost =
+			    [Forecast Cost by Target Month]
+			RETURN
+			    IF(
+			        ISBLANK(ActualCost)
+			            || ISBLANK(ForecastCost),
+			        BLANK(),
+			        ActualCost - ForecastCost
+			    )
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: Forecast
+		lineageTag: a8d1e259-d359-4dcf-ae70-2876f03c0493
+
+	measure 'Forecast Variance % by Target Month' =
+
+			DIVIDE(
+			    [Forecast Variance by Target Month],
+			    [Actual Cost by Target Month],
+			    BLANK()
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Forecast
+		lineageTag: 4c3dd068-a8cd-4cb1-a677-9de1c14513d1
+
+	measure 'Commitment Coverage Color' =
+
+			VAR CoveragePct =
+			    [Commitment Coverage %]
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        ISBLANK(CoveragePct), "#9E9E9E",
+			        CoveragePct >= 0.80,  "#2E7D32",
+			        CoveragePct >= 0.60,  "#F9A825",
+			        "#C62828"
+			    )
+		displayFolder: Optimization
+		lineageTag: cbef1380-03a8-4e27-a3e2-e782120203fa
+
+	measure 'Savings Lifecycle Amount' =
+
+			SWITCH(
+			    SELECTEDVALUE(
+			        'Savings Lifecycle Stage'[Stage]
+			    ),
+			    "Identified",  [Identified Savings],
+			    "Approved",    [Approved Savings],
+			    "Implemented", [Implemented Savings],
+			    "Realized",    [Realized Savings],
+			    BLANK()
+			)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 666810bf-dcb3-4221-b928-44e1ca0b2332
+
+	measure 'Commitment Metric Value' =
+
+			SWITCH(
+			    SELECTEDVALUE(
+			        'Commitment Metric'[Metric]
+			    ),
+			    "Coverage",    [Commitment Coverage %],
+			    "Utilization", [Commitment Utilization %],
+			    "Waste",       [Commitment Waste %],
+			    BLANK()
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Optimization
+		lineageTag: 77e59bc1-08d7-49ce-86dd-56c2a2815fbc
+
+	measure 'Optimization Net Monthly Savings' =
+
+			SUM(
+			    'mart_optimization'[net_monthly_savings]
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: cd2bb415-0c1c-413b-b800-34bb4e5484d6
+
+	measure 'Optimization Action Color' =
+
+			VAR PriorityValue =
+			    SELECTEDVALUE(
+			        'mart_optimization'[priority]
+			    )
+			RETURN
+			    SWITCH(
+			        PriorityValue,
+			        "Critical", "#C62828",
+			        "High",     "#F9A825",
+			        "Medium",   "#2F75B5",
+			        "Low",      "#9E9E9E",
+			        "#2F75B5"
+			    )
+		lineageTag: ba8ea33c-ef4b-4e98-979a-b628193e6bb6
+
+	measure 'Commitment Metric Color' =
+
+			VAR SelectedMetric =
+			    SELECTEDVALUE('Commitment Metric'[Metric])
+			VAR MetricValue =
+			    [Commitment Metric Value]
+			RETURN
+			    SWITCH(
+			        TRUE(),
+
+			        SelectedMetric = "Coverage" &&
+			            MetricValue >= 0.80, "#2E7D32",
+			        SelectedMetric = "Coverage" &&
+			            MetricValue >= 0.60, "#F9A825",
+			        SelectedMetric = "Coverage", "#C62828",
+
+			        SelectedMetric = "Utilization" &&
+			            MetricValue >= 0.80, "#2E7D32",
+			        SelectedMetric = "Utilization" &&
+			            MetricValue >= 0.60, "#F9A825",
+			        SelectedMetric = "Utilization", "#C62828",
+
+			        SelectedMetric = "Waste" &&
+			            MetricValue <= 0.05, "#2E7D32",
+			        SelectedMetric = "Waste" &&
+			            MetricValue <= 0.10, "#F9A825",
+			        SelectedMetric = "Waste", "#C62828",
+
+			        "#9E9E9E"
+			    )
+		displayFolder: Optimization
+		lineageTag: 58bc9786-0933-4e2f-90be-6ce99cbebacb
+
+	measure 'Annualized Realized Savings' =
+
+			[Realized Savings] * 12
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Executive
+		lineageTag: cbcc7d11-657f-44cf-ac62-ab1158a15a05
+
+	measure 'Unit Economics Cost' =
+
+			VAR SelectedProvider =
+			    SELECTEDVALUE ( 'dim_provider'[provider_name] )
+
+			VAR HasOneProvider =
+			    HASONEVALUE ( 'dim_provider'[provider_name] )
+
+			VAR IsSupportedProvider =
+			    SelectedProvider = "AWS"
+			        || SelectedProvider = "GCP"
+
+			VAR ProviderScope =
+			    IF (
+			        HasOneProvider && IsSupportedProvider,
+			        SelectedProvider,
+			        "ALL_CLOUD"
+			    )
+
+			RETURN
+			    IF (
+			        HasOneProvider && NOT ( IsSupportedProvider ),
+			        BLANK (),
+			        CALCULATE (
+			            SUM ( 'mart_unit_economics'[total_allocated_cost] ),
+			            REMOVEFILTERS ( 'mart_unit_economics'[provider_name] ),
+			            TREATAS (
+			                { ProviderScope },
+			                'mart_unit_economics'[provider_name]
+			            )
+			        )
+			    )
+		lineageTag: 82f63513-c347-4e0a-9ef3-041f3fa10a3a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Forecast Context Label' =
+
+			VAR VersionMonth =
+			    [Forecast Version Date]
+
+			VAR FirstTargetMonth =
+			    MIN(
+			        'fct_forecast_version'[target_month]
+			    )
+
+			VAR LastTargetMonth =
+			    MAX(
+			        'fct_forecast_version'[target_month]
+			    )
+
+			VAR TargetPeriodText =
+			    SWITCH(
+			        TRUE(),
+
+			        ISBLANK(FirstTargetMonth),
+			            "No actualized target period",
+
+			        FirstTargetMonth = LastTargetMonth,
+			            FORMAT(
+			                FirstTargetMonth,
+			                "mmm yyyy"
+			            ),
+
+			        FORMAT(
+			            FirstTargetMonth,
+			            "mmm yyyy"
+			        )
+			            & " to "
+			            & FORMAT(
+			                LastTargetMonth,
+			                "mmm yyyy"
+			            )
+			    )
+
+			RETURN
+			    IF(
+			        ISBLANK(VersionMonth),
+			        "Select a forecast version",
+			        "Backtest: "
+			            & FORMAT(
+			                VersionMonth,
+			                "mmm yyyy"
+			            )
+			            & " forecast version | Target period: "
+			            & TargetPeriodText
+			    )
+		lineageTag: 0c735066-8447-46cc-97c2-62964fa1504b
+
+	measure 'Forecast MAPE %' =
+
+			VAR ActualizedMonths =
+			    FILTER(
+			        ADDCOLUMNS(
+			            VALUES(
+			                'fct_forecast_version'[target_month]
+			            ),
+			            "@Actual",
+			                CALCULATE(
+			                    [Actual Cost by Target Month]
+			                ),
+			            "@Forecast",
+			                CALCULATE(
+			                    [Forecast Cost by Target Month]
+			                )
+			        ),
+			        NOT ISBLANK([@Actual])
+			            && NOT ISBLANK([@Forecast])
+			            && [@Actual] <> 0
+			    )
+			RETURN
+			    AVERAGEX(
+			        ActualizedMonths,
+			        DIVIDE(
+			            ABS([@Actual] - [@Forecast]),
+			            ABS([@Actual])
+			        )
+			    )
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: QA
+		lineageTag: e9c4d179-fedd-4d82-8343-3e747fe8caaa
+
+	measure 'Selected Forecast Target Month' =
+
+			CALCULATE(
+			    SELECTEDVALUE(
+			        'fct_forecast_version'[target_month]
+			    ),
+			    REMOVEFILTERS('dim_application'),
+			    REMOVEFILTERS('dim_department'),
+			    REMOVEFILTERS('dim_provider')
+			)
+		formatString: mmmm yyyy
+		lineageTag: 805c9f52-4567-435c-9a28-42fcfac64903
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	measure 'Approved Budget — Target Month' =
+
+			VAR TargetMonth =
+			    [Selected Forecast Target Month]
+			RETURN
+			    IF(
+			        ISBLANK(TargetMonth),
+			        BLANK(),
+			        CALCULATE(
+			            [Total Approved Budget],
+			            REMOVEFILTERS('dim_date'),
+			            TREATAS(
+			                { TargetMonth },
+			                'dim_date'[month_start_date]
+			            )
+			        )
+			    )
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Budget
+		lineageTag: 7350d19d-76f5-4407-b616-3daf8465ef0d
+
+	measure 'Budget Variance — Target Month' =
+
+			VAR ActualCost =
+			    [Forecast Actual Cost]
+
+			VAR TargetMonthBudget =
+			    [Approved Budget — Target Month]
+
+			RETURN
+			    IF(
+			        ISBLANK(ActualCost)
+			            || ISBLANK(TargetMonthBudget),
+			        BLANK(),
+			        ActualCost - TargetMonthBudget
+			    )
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Budget
+		lineageTag: 062dc4e7-27db-4a3c-82b0-d9c789504f6d
+
+	measure 'Forecast Cost — Target Month' =
+
+			VAR TargetMonth =
+			    [Selected Forecast Target Month]
+
+			VAR SelectedApplications =
+			    VALUES(
+			        'dim_application'[application_name]
+			    )
+
+			VAR SelectedDepartments =
+			    VALUES(
+			        'dim_department'[department_name]
+			    )
+
+			VAR SelectedProviders =
+			    FILTER(
+			        VALUES('dim_provider'[provider_name]),
+			        'dim_provider'[provider_name] IN { "AWS", "GCP" }
+			    )
+
+			RETURN
+			    IF(
+			        ISBLANK(TargetMonth),
+			        BLANK(),
+			        CALCULATE(
+			            SUM(
+			                'fct_forecast_version'[forecast_cost]
+			            ),
+
+			            REMOVEFILTERS(
+			                'fct_forecast_version'[application_name]
+			            ),
+			            REMOVEFILTERS(
+			                'fct_forecast_version'[department_name]
+			            ),
+			            REMOVEFILTERS(
+			                'fct_forecast_version'[provider_name]
+			            ),
+
+			            TREATAS(
+			                { TargetMonth },
+			                'fct_forecast_version'[target_month]
+			            ),
+			            TREATAS(
+			                SelectedApplications,
+			                'fct_forecast_version'[application_name]
+			            ),
+			            TREATAS(
+			                SelectedDepartments,
+			                'fct_forecast_version'[department_name]
+			            ),
+			            TREATAS(
+			                SelectedProviders,
+			                'fct_forecast_version'[provider_name]
+			            )
+			        )
+			    )
+		lineageTag: 4df9b24a-1633-4f77-8386-eb02eacef47a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Actual Cost — Target Month' =
+
+			VAR TargetMonth =
+			    [Selected Forecast Target Month]
+
+			RETURN
+			    IF(
+			        ISBLANK(TargetMonth),
+			        BLANK(),
+			        CALCULATE(
+			            [Total Actual Cost],
+			            REMOVEFILTERS('dim_date'),
+			            TREATAS(
+			                { TargetMonth },
+			                'dim_date'[month_start_date]
+			            )
+			        )
+			    )
+		isHidden
+		displayFolder: Forecast
+		lineageTag: 69b8635c-78cd-4d62-9181-2775e0679a34
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Forecast Error - Target Month' =
+
+			VAR ActualCost =
+			    [Actual Cost — Target Month]
+			VAR ForecastCost =
+			    [Forecast Cost — Target Month]
+			RETURN
+			    IF(
+			        ISBLANK(ActualCost) || ISBLANK(ForecastCost),
+			        BLANK(),
+			        ActualCost - ForecastCost
+			    )
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 34680af1-0d6b-4d75-8540-e2b1c5081723
+
+	measure 'Forecast Error % — Target Month' =
+
+			VAR ActualCost =
+			    [Actual Cost — Target Month]
+
+			VAR ForecastCost =
+			    [Forecast Cost — Target Month]
+
+			RETURN
+			    IF(
+			        ISBLANK(ActualCost)
+			            || ISBLANK(ForecastCost)
+			            || ActualCost = 0,
+			        BLANK(),
+			        DIVIDE(
+			            ActualCost - ForecastCost,
+			            ActualCost
+			        )
+			    )
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 827ad6ae-275e-4892-b6fe-0ec4dea6fe2d
+
+	measure 'Forecast Error Color' =
+
+			VAR ErrorAmount =
+			    [Forecast Error - Target Month]
+
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        ISBLANK(ErrorAmount), "#9E9E9E",
+			        ErrorAmount > 0,      "#C62828",
+			        ErrorAmount < 0,      "#F9A825",
+			        "#9E9E9E"
+			    )
+		displayFolder: Forecast
+		lineageTag: 351f724d-47d6-4e12-9cb1-b3f4f08143d4
+
+	measure 'Forecast Error by Target Month' =
+
+			VAR ActualCost =
+			    [Actual Cost by Target Month]
+
+			VAR ForecastCost =
+			    [Forecast Cost by Target Month]
+
+			RETURN
+			    IF(
+			        ISBLANK(ActualCost)
+			            || ISBLANK(ForecastCost),
+			        BLANK(),
+			        ActualCost - ForecastCost
+			    )
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: ca37b6fe-9faa-4cac-b2e7-70c10a580149
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Forecast Cost by Target Month' =
+
+			VAR TargetMonth =
+			    SELECTEDVALUE(
+			        'dim_date'[month_start_date]
+			    )
+
+			VAR ForecastVersionMonth =
+			    EDATE(
+			        TargetMonth,
+			        -1
+			    )
+
+			VAR SelectedApplications =
+			    VALUES(
+			        'dim_application'[application_name]
+			    )
+
+			VAR SelectedDepartments =
+			    VALUES(
+			        'dim_department'[department_name]
+			    )
+
+			VAR SelectedProviders =
+			    FILTER(
+			        VALUES(
+			            'dim_provider'[provider_name]
+			        ),
+			        'dim_provider'[provider_name] IN { "AWS", "GCP" }
+			    )
+
+			RETURN
+			    IF(
+			        ISBLANK(TargetMonth),
+			        BLANK(),
+			        CALCULATE(
+			            SUM(
+			                'fct_forecast_version'[forecast_cost]
+			            ),
+
+			            REMOVEFILTERS('dim_date'),
+
+			            REMOVEFILTERS(
+			                'fct_forecast_version'[forecast_version_month]
+			            ),
+			            REMOVEFILTERS(
+			                'fct_forecast_version'[target_month]
+			            ),
+			            REMOVEFILTERS(
+			                'fct_forecast_version'[application_name]
+			            ),
+			            REMOVEFILTERS(
+			                'fct_forecast_version'[department_name]
+			            ),
+			            REMOVEFILTERS(
+			                'fct_forecast_version'[provider_name]
+			            ),
+
+			            TREATAS(
+			                { ForecastVersionMonth },
+			                'fct_forecast_version'[forecast_version_month]
+			            ),
+			            TREATAS(
+			                { TargetMonth },
+			                'fct_forecast_version'[target_month]
+			            ),
+			            TREATAS(
+			                SelectedApplications,
+			                'fct_forecast_version'[application_name]
+			            ),
+			            TREATAS(
+			                SelectedDepartments,
+			                'fct_forecast_version'[department_name]
+			            ),
+			            TREATAS(
+			                SelectedProviders,
+			                'fct_forecast_version'[provider_name]
+			            )
+			        )
+			    )
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: ac0d7e80-f23d-445e-aa01-bde40d87f279
+
+	measure 'Forecast Error Month Color' =
+
+			VAR ErrorPct =
+			    ABS(
+			        [Forecast Error % — Target Month]
+			    )
+
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        ISBLANK(ErrorPct), "#9E9E9E",
+			        ErrorPct <= 0.05,  "#2E7D32",
+			        ErrorPct <= 0.15,  "#F9A825",
+			        "#C62828"
+			    )
+		lineageTag: 363eab94-a7e9-48ff-9227-1d63bb034b9f
+
+	column Placeholder
+		dataType: int64
+		formatString: 0
+		lineageTag: 1113570e-8841-4816-a52c-4fa4cf345f13
+		summarizeBy: sum
+		sourceColumn: Placeholder
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _Measures = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WMlSKjQUA", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Placeholder = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Placeholder", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table

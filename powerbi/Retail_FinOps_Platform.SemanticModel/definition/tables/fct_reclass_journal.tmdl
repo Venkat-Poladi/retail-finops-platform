@@ -1,0 +1,329 @@
+table fct_reclass_journal
+	isHidden
+	lineageTag: fa263cac-bdb2-42aa-a922-0e282259a8b5
+
+	column journal_id
+		dataType: string
+		isHidden
+		lineageTag: db6e4873-97f5-4d2e-8c93-0996475a3961
+		summarizeBy: none
+		sourceColumn: journal_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column journal_line_id
+		dataType: string
+		isHidden
+		lineageTag: 384bcd32-acf3-4022-a36d-fa146cff22d6
+		summarizeBy: none
+		sourceColumn: journal_line_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column journal_month
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		lineageTag: 5b1f51c6-a294-4993-a10e-53d7a491f786
+		summarizeBy: none
+		sourceColumn: journal_month
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column allocation_id
+		dataType: string
+		isHidden
+		lineageTag: 16f57eb9-ddaa-443c-ac1e-145bcea4bb68
+		summarizeBy: none
+		sourceColumn: allocation_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column record_id
+		dataType: string
+		isHidden
+		lineageTag: 9ef47181-5054-4b3a-a082-ab51d8cd4ba9
+		summarizeBy: none
+		sourceColumn: record_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_record_id
+		dataType: string
+		isHidden
+		lineageTag: 976c87c8-cd9d-4f98-8e18-c3d4b5186e11
+		summarizeBy: none
+		sourceColumn: source_record_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column pipeline_run_id
+		dataType: string
+		isHidden
+		lineageTag: e3db06a3-8341-4191-9158-b48c6d204302
+		summarizeBy: none
+		sourceColumn: pipeline_run_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_system
+		dataType: string
+		isHidden
+		lineageTag: 5ede0e29-b42b-4b1b-9a6f-912552cb76c0
+		summarizeBy: none
+		sourceColumn: source_system
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_file
+		dataType: string
+		isHidden
+		lineageTag: 66de7329-f380-4ffd-81b2-57544890a0d9
+		summarizeBy: none
+		sourceColumn: source_file
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column provider_name
+		dataType: string
+		isHidden
+		lineageTag: 9641bd27-2d2b-486b-b33c-02c91f34a0b8
+		summarizeBy: none
+		sourceColumn: provider_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column billing_account_id
+		dataType: string
+		isHidden
+		lineageTag: 638fa77b-4b6f-437c-8b4c-6488e697aaaf
+		summarizeBy: none
+		sourceColumn: billing_account_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column sub_account_id
+		dataType: string
+		isHidden
+		lineageTag: 412fbea2-0b77-40fb-89c9-53f77b70f66f
+		summarizeBy: none
+		sourceColumn: sub_account_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_id
+		dataType: string
+		isHidden
+		lineageTag: 8d91509b-6296-439c-aa28-dcfe1422b0f5
+		summarizeBy: none
+		sourceColumn: project_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column posting_cost_center
+		dataType: string
+		isHidden
+		lineageTag: 2d313632-430f-4ad6-a0fc-f9e94d3073bc
+		summarizeBy: none
+		sourceColumn: posting_cost_center
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column counterparty_cost_center
+		dataType: string
+		isHidden
+		lineageTag: 2e5c3584-91ea-41f9-8371-a32f7beb2e7b
+		summarizeBy: none
+		sourceColumn: counterparty_cost_center
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column application_name
+		dataType: string
+		isHidden
+		lineageTag: e734681b-e9c8-4313-b5d4-2e715f7d4bbe
+		summarizeBy: none
+		sourceColumn: application_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column department_name
+		dataType: string
+		isHidden
+		lineageTag: 857817c1-c32f-4a99-b4f0-be187fb02c40
+		summarizeBy: none
+		sourceColumn: department_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column environment_name
+		dataType: string
+		isHidden
+		lineageTag: 54123121-b202-4fb1-bb1f-f76495679516
+		summarizeBy: none
+		sourceColumn: environment_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column owner_name
+		dataType: string
+		isHidden
+		lineageTag: ed56ff45-b538-4b1b-b3fc-92ee934eba62
+		summarizeBy: none
+		sourceColumn: owner_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column journal_line_type
+		dataType: string
+		isHidden
+		lineageTag: c9df108f-9560-4266-a533-18643beaf2b8
+		summarizeBy: none
+		sourceColumn: journal_line_type
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column journal_amount
+		dataType: double
+		isHidden
+		lineageTag: 24ade182-581a-4704-ad41-01122e936d15
+		summarizeBy: sum
+		sourceColumn: journal_amount
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column billing_currency
+		dataType: string
+		isHidden
+		lineageTag: afd37451-fcd4-4c79-915a-782544fadc6d
+		summarizeBy: none
+		sourceColumn: billing_currency
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column journal_reason
+		dataType: string
+		isHidden
+		lineageTag: 7f9e71db-d155-4c6b-826d-3e87a19a8a11
+		summarizeBy: none
+		sourceColumn: journal_reason
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column journal_status
+		dataType: string
+		isHidden
+		lineageTag: 689309fd-72be-48ca-bc98-b90aa201dfc5
+		summarizeBy: none
+		sourceColumn: journal_status
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column data_refresh_timestamp
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: a5d439f6-99b4-4cab-bc3e-c41ffeae0e9f
+		summarizeBy: none
+		sourceColumn: data_refresh_timestamp
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Billing Account Key' =
+
+			VAR Provider =
+			    TRIM(
+			        COALESCE(
+			            'fct_reclass_journal'[provider_name],
+			            ""
+			        )
+			    )
+			VAR BillingAccount =
+			    TRIM(
+			        COALESCE(
+			            'fct_reclass_journal'[billing_account_id],
+			            ""
+			        )
+			    )
+			RETURN
+			    UPPER(IF(Provider = "", "Unknown", Provider))
+			        & "|"
+			        & LOWER(IF(BillingAccount = "", "Unknown", BillingAccount))
+		isHidden
+		lineageTag: 3ddeacea-6c03-4596-a767-03c652ac7dcc
+		summarizeBy: none
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fct_reclass_journal = m
+		mode: import
+		source =
+				let
+				    Source = GoogleBigQuery.Database([Implementation="2.0"]),
+				    #"finops-learning-lab_Database" = Source{[Name="finops-learning-lab",Kind="Database"]}[Data],
+				    retail_finops_mart_Schema = #"finops-learning-lab_Database"{[Name="retail_finops_mart",Kind="Schema"]}[Data],
+				    fct_reclass_journal_Table = retail_finops_mart_Schema{[Name="fct_reclass_journal",Kind="Table"]}[Data]
+				in
+				    fct_reclass_journal_Table
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table

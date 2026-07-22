@@ -1,0 +1,371 @@
+table mart_commitment_discount_analysis
+	isHidden
+	lineageTag: 865a5694-c0d6-4b9c-9dc6-3b3b0d1026bc
+
+	column commitment_portfolio_key
+		dataType: string
+		isHidden
+		lineageTag: ce91a9a6-dc64-4388-ad9c-376ae33aca6e
+		summarizeBy: none
+		sourceColumn: commitment_portfolio_key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column provider_name
+		dataType: string
+		isHidden
+		lineageTag: c112d573-56fe-4354-a1ba-e2258044cf7c
+		summarizeBy: none
+		sourceColumn: provider_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column billing_account_id
+		dataType: string
+		isHidden
+		lineageTag: 33bf5740-3b62-4b2b-98e5-1f815b507e03
+		summarizeBy: none
+		sourceColumn: billing_account_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column sub_account_id
+		dataType: string
+		isHidden
+		lineageTag: f50503d7-d76f-4d46-8ea6-f299695b9a02
+		summarizeBy: none
+		sourceColumn: sub_account_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_id
+		dataType: string
+		isHidden
+		lineageTag: 008c6233-a967-4975-9a88-12bb15e619be
+		summarizeBy: none
+		sourceColumn: project_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column application_name
+		dataType: string
+		isHidden
+		lineageTag: afa19ef8-41af-4e3b-a163-06695b496a95
+		summarizeBy: none
+		sourceColumn: application_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column department_name
+		dataType: string
+		isHidden
+		lineageTag: 3dd02bfc-8b80-4673-8abb-0bb11c19d574
+		summarizeBy: none
+		sourceColumn: department_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column environment_name
+		dataType: string
+		isHidden
+		lineageTag: f018906d-b9cd-47c9-9925-04d7a3827e73
+		summarizeBy: none
+		sourceColumn: environment_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column cost_center
+		dataType: string
+		isHidden
+		lineageTag: 0957c060-0e09-4d7c-9799-a517cc65d517
+		summarizeBy: none
+		sourceColumn: cost_center
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column owner_name
+		dataType: string
+		isHidden
+		lineageTag: d0226f54-007a-4f12-9654-e066eb870533
+		summarizeBy: none
+		sourceColumn: owner_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column billing_currency
+		dataType: string
+		isHidden
+		lineageTag: 94638df1-2d73-459c-aead-3ab09b26c0d6
+		summarizeBy: none
+		sourceColumn: billing_currency
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column baseline_start_date
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		lineageTag: 61990651-3145-423b-b3c3-bec86d79dc07
+		summarizeBy: none
+		sourceColumn: baseline_start_date
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column baseline_end_date
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		lineageTag: 37eb4067-7697-4273-af8a-01c470c1e168
+		summarizeBy: none
+		sourceColumn: baseline_end_date
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column analysis_date
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		lineageTag: 5e4c8f5f-047e-4f31-a741-1f379c0f2f08
+		summarizeBy: none
+		sourceColumn: analysis_date
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column baseline_month_count
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 9adbc8e4-208f-4dfa-8e02-852e22cd11f7
+		summarizeBy: sum
+		sourceColumn: baseline_month_count
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_record_count
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 50149d44-1000-4b7f-8f14-905757a53390
+		summarizeBy: sum
+		sourceColumn: source_record_count
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column monthly_commitment_eligible_cost
+		dataType: double
+		isHidden
+		lineageTag: 1259087e-d745-47b4-9491-eaea33674d9b
+		summarizeBy: sum
+		sourceColumn: monthly_commitment_eligible_cost
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column monthly_commitment_covered_cost
+		dataType: double
+		isHidden
+		lineageTag: da858bb0-a6d0-45d6-bf8c-c77d5e76cad4
+		summarizeBy: sum
+		sourceColumn: monthly_commitment_covered_cost
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column monthly_on_demand_cost
+		dataType: double
+		isHidden
+		lineageTag: fcb7f8ee-1f3c-421d-be2a-50d0c60f0bb7
+		summarizeBy: sum
+		sourceColumn: monthly_on_demand_cost
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column monthly_commitment_purchase_cost
+		dataType: double
+		isHidden
+		lineageTag: 0b50e772-53b0-4ce0-8aac-2e9be398781c
+		summarizeBy: sum
+		sourceColumn: monthly_commitment_purchase_cost
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column monthly_underutilized_commitment_cost
+		dataType: double
+		isHidden
+		lineageTag: 60cb35b3-7745-4964-b9fa-7d798a00e6ca
+		summarizeBy: sum
+		sourceColumn: monthly_underutilized_commitment_cost
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column commitment_coverage_pct
+		dataType: double
+		isHidden
+		lineageTag: 036736e9-ef0d-437a-b8a9-98f2e3920cef
+		summarizeBy: sum
+		sourceColumn: commitment_coverage_pct
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column commitment_utilization_pct
+		dataType: double
+		isHidden
+		lineageTag: 38f85f4d-2107-4cc7-bc8d-d8b133bb7ca0
+		summarizeBy: sum
+		sourceColumn: commitment_utilization_pct
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column commitment_discount_types
+		dataType: string
+		isHidden
+		lineageTag: 12c8e49c-1205-428a-ab60-b32a54bb2331
+		summarizeBy: none
+		sourceColumn: commitment_discount_types
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column commitment_discount_statuses
+		dataType: string
+		isHidden
+		lineageTag: ccfdc4ba-f705-4af4-b3bb-7ffe9d5f11cd
+		summarizeBy: none
+		sourceColumn: commitment_discount_statuses
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column provider_commitment_program
+		dataType: string
+		isHidden
+		lineageTag: acbf021b-f098-44a1-af6c-cfcd0e37f40a
+		summarizeBy: none
+		sourceColumn: provider_commitment_program
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column data_refresh_timestamp
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: 6490d24b-e8de-4f94-8967-eb85dd3ce3ca
+		summarizeBy: none
+		sourceColumn: data_refresh_timestamp
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Billing Account Key' =
+
+			VAR Provider =
+			    TRIM(
+			        COALESCE(
+			            'mart_commitment_discount_analysis'[provider_name],
+			            ""
+			        )
+			    )
+			VAR BillingAccount =
+			    TRIM(
+			        COALESCE(
+			            'mart_commitment_discount_analysis'[billing_account_id],
+			            ""
+			        )
+			    )
+			RETURN
+			    UPPER(IF(Provider = "", "Unknown", Provider))
+			        & "|"
+			        & LOWER(IF(BillingAccount = "", "Unknown", BillingAccount))
+		isHidden
+		lineageTag: e8b861c0-1e07-45c0-88a3-8b67be93e8a3
+		summarizeBy: none
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition mart_commitment_discount_analysis = m
+		mode: import
+		source =
+				let
+				    Source = GoogleBigQuery.Database([Implementation="2.0"]),
+				    #"finops-learning-lab_Database" = Source{[Name="finops-learning-lab",Kind="Database"]}[Data],
+				    retail_finops_mart_Schema = #"finops-learning-lab_Database"{[Name="retail_finops_mart",Kind="Schema"]}[Data],
+				    mart_commitment_discount_analysis_Table = retail_finops_mart_Schema{[Name="mart_commitment_discount_analysis",Kind="Table"]}[Data]
+				in
+				    mart_commitment_discount_analysis_Table
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table

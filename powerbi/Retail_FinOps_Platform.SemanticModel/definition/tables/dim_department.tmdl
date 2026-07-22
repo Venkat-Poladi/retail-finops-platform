@@ -1,0 +1,42 @@
+table dim_department
+	lineageTag: 7c423ccf-c4db-41e8-8c29-8f54e59505f4
+
+	column department_key
+		dataType: string
+		lineageTag: 86b0a5ea-7099-4c0b-af36-ac3ef44284e7
+		summarizeBy: none
+		sourceColumn: department_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column department_name
+		dataType: string
+		lineageTag: fefd3452-8ad0-4ceb-b70f-f49544e3192c
+		summarizeBy: none
+		sourceColumn: department_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_unknown
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 1cef64c3-e660-4918-9e02-2637a2b8b231
+		summarizeBy: none
+		sourceColumn: is_unknown
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_department = m
+		mode: import
+		source =
+				let
+				    Source = GoogleBigQuery.Database([Implementation="2.0"]),
+				    #"finops-learning-lab_Database" = Source{[Name="finops-learning-lab",Kind="Database"]}[Data],
+				    retail_finops_core_Schema = #"finops-learning-lab_Database"{[Name="retail_finops_core",Kind="Schema"]}[Data],
+				    dim_department_Table = retail_finops_core_Schema{[Name="dim_department",Kind="Table"]}[Data]
+				in
+				    dim_department_Table
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table

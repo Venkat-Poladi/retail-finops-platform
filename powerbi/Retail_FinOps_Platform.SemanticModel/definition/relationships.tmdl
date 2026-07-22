@@ -1,0 +1,428 @@
+relationship e80f07ae-6a07-e441-1edb-8f7c0fc971ad
+	fromColumn: mart_monthly_actuals.billing_month
+	toColumn: dim_date.full_date
+
+relationship ab033735-7382-2b5e-10d6-27460a453053
+	fromColumn: mart_monthly_actuals.provider_name
+	toColumn: dim_provider.provider_name
+
+relationship dfb1e82b-0824-de11-8763-9e548e10d817
+	fromColumn: mart_monthly_actuals.application_name
+	toColumn: dim_application.application_name
+
+relationship bc8415b4-2db0-aaa9-e36f-1a916c0801df
+	fromColumn: mart_monthly_actuals.department_name
+	toColumn: dim_department.department_name
+
+relationship 8d062770-c960-f86b-1e9f-f87dad4962ea
+	fromColumn: mart_monthly_actuals.environment_name
+	toColumn: dim_environment.environment_name
+
+relationship a5ffcb58-5993-2803-a638-ec4e2a7f6351
+	fromColumn: mart_budget_variance.billing_month
+	toColumn: dim_date.full_date
+
+relationship 237fdaba-9dff-fc15-9751-e5c82a0ff155
+	fromColumn: mart_budget.budget_month
+	toColumn: dim_date.full_date
+
+relationship 810faf5d-6edc-95c4-2bf7-8fc498903222
+	fromColumn: mart_budget.provider_name
+	toColumn: dim_provider.provider_name
+
+relationship 560c4517-1d55-dc0d-7c58-008c56b6bc89
+	fromColumn: mart_budget.application_name
+	toColumn: dim_application.application_name
+
+relationship 10675e7a-7c71-ae17-c8ed-cc867693b47c
+	fromColumn: mart_budget.department_name
+	toColumn: dim_department.department_name
+
+relationship 9202f566-d864-3d94-497d-9de30cb07b74
+	fromColumn: mart_budget.environment_name
+	toColumn: dim_environment.environment_name
+
+relationship afc1f1bc-d9f4-ba97-7f74-c524cbe80a45
+	fromColumn: mart_budget_variance.provider_name
+	toColumn: dim_provider.provider_name
+
+relationship 7eb2db30-c05e-9bbc-51f5-221b863ad969
+	fromColumn: mart_budget_variance.application_name
+	toColumn: dim_application.application_name
+
+relationship 8f473bc8-0339-b1c7-e065-2d8e4c6b68dd
+	fromColumn: mart_budget_variance.department_name
+	toColumn: dim_department.department_name
+
+relationship 24563c88-e2f1-7607-d3a2-ceafcfd999b2
+	fromColumn: mart_budget_variance.environment_name
+	toColumn: dim_environment.environment_name
+
+relationship bbb2f96f-6107-596c-2048-4f79331467c7
+	fromColumn: fct_cost_allocation.billing_month
+	toColumn: dim_date.full_date
+
+relationship 1eb9757e-a2eb-ac9c-3e1c-7ddf66067a26
+	fromColumn: fct_cost_allocation.provider_name
+	toColumn: dim_provider.provider_name
+
+relationship b378480e-c03a-9974-03b2-7ed6703ea14d
+	fromColumn: fct_cost_allocation.target_department_name
+	toColumn: dim_department.department_name
+
+relationship 2201e65f-fa1f-24d8-0f10-cd1d9349474a
+	fromColumn: fct_cost_allocation.target_application_name
+	toColumn: dim_application.application_name
+
+relationship 2abc52d0-2bbd-0e45-53c7-db03b298bbc9
+	fromColumn: fct_cost_allocation.target_environment_name
+	toColumn: dim_environment.environment_name
+
+relationship a95bb7e3-c198-de02-3208-d8ceaf6d2e13
+	fromColumn: fct_cloud_cost.'Service Key'
+	toColumn: dim_service.service_key
+
+relationship 0c8b2466-c889-bdc2-3806-dabe3c71c248
+	fromColumn: fct_cloud_cost.'Billing Account Key'
+	toColumn: dim_billing_account.billing_account_key
+
+relationship 8ad34905-e1b0-6b57-4777-1fbb1fa6d407
+	fromColumn: fct_cost_anomaly.anomaly_date
+	toColumn: dim_date.full_date
+
+relationship d7440fc4-a378-d06b-ab65-1044d722432f
+	fromColumn: fct_cost_anomaly.provider_name
+	toColumn: dim_provider.provider_name
+
+relationship 61afae49-5324-9f78-22ce-e769cd7d83d6
+	fromColumn: fct_cost_anomaly.application_name
+	toColumn: dim_application.application_name
+
+relationship 6c4b322b-310a-77f8-0875-e67932a340ae
+	fromColumn: fct_cost_anomaly.department_name
+	toColumn: dim_department.department_name
+
+relationship 167d5281-a3e7-7c75-7d52-77f08c2be3c0
+	fromColumn: fct_cost_anomaly.environment_name
+	toColumn: dim_environment.environment_name
+
+relationship 6a8cd286-824b-8ae5-4f46-14440f8c7f9a
+	fromColumn: fct_cost_anomaly.'Service Key'
+	toColumn: dim_service.service_key
+
+relationship 96cd3b45-c38f-12d2-ce10-a35190809ac8
+	fromColumn: fct_cost_anomaly.'Billing Account Key'
+	toColumn: dim_billing_account.billing_account_key
+
+relationship 373d99f3-3da8-892a-004e-688751de3b90
+	fromColumn: mart_optimization.provider_name
+	toColumn: dim_provider.provider_name
+
+relationship e4f1f00f-fb51-6835-dacc-a82d083f5046
+	fromColumn: mart_optimization.application_name
+	toColumn: dim_application.application_name
+
+relationship ef9cdae3-3016-bd34-bde8-48fc1c62c52c
+	fromColumn: mart_optimization.'Billing Account Key'
+	toColumn: dim_billing_account.billing_account_key
+
+relationship a3d8ae48-bb60-bbfc-8857-3bc1d238fb6a
+	fromColumn: mart_unit_economics.application_name
+	toColumn: dim_application.application_name
+
+relationship eb8f4a67-89c4-b1ce-a1e9-6860013d38a4
+	fromColumn: mart_unit_economics.department_name
+	toColumn: dim_department.department_name
+
+relationship 20788c77-9dd2-013c-c120-663efcf1a44c
+	fromColumn: mart_unit_economics.unit_economics_month
+	toColumn: dim_date.full_date
+
+relationship c074ba56-0651-7fe1-6b6c-99a95d25a3ac
+	fromColumn: mart_business_activity_monthly.activity_month
+	toColumn: dim_date.full_date
+
+relationship b11e4d46-d87c-87fb-b092-aee6c3787624
+	fromColumn: mart_business_activity_monthly.application_name
+	toColumn: dim_application.application_name
+
+relationship ec3afc65-0e58-3016-91a6-3ea09b6f9250
+	fromColumn: mart_business_activity_monthly.department_name
+	toColumn: dim_department.department_name
+
+relationship 40409c84-0537-4a42-7fe3-0fa2b8a3cbb7
+	fromColumn: mart_business_activity_monthly.environment_name
+	toColumn: dim_environment.environment_name
+
+relationship 50d8cc62-9c17-741d-4492-5c9995e2626b
+	fromColumn: mart_unit_economics_summary.unit_economics_month
+	toColumn: dim_date.full_date
+
+relationship 87a218c1-0b47-61d4-1f38-279f5a07e211
+	fromColumn: mart_unit_economics_trend.department_name
+	toColumn: dim_department.department_name
+
+relationship ac5335ca-6cdb-b3df-897a-4182b6d32f35
+	fromColumn: mart_unit_economics_trend.unit_economics_month
+	toColumn: dim_date.full_date
+
+relationship 7b339743-9784-b338-d5a6-a77b8e0499b7
+	fromColumn: mart_unit_economics_trend.application_name
+	toColumn: dim_application.application_name
+
+relationship 585f5c05-cbf3-13e2-30d9-704de3d7523b
+	fromColumn: mart_variance_drivers.billing_month
+	toColumn: dim_date.full_date
+
+relationship 9b60e4fe-e086-7477-e155-530244a17e93
+	fromColumn: mart_variance_drivers.provider_name
+	toColumn: dim_provider.provider_name
+
+relationship 82facd79-35e1-f6d2-21be-65845621b812
+	fromColumn: mart_variance_drivers.application_name
+	toColumn: dim_application.application_name
+
+relationship e25a33cf-0573-43e9-2f7f-72187a77466a
+	fromColumn: mart_variance_drivers.department_name
+	toColumn: dim_department.department_name
+
+relationship 9ffc561d-2287-1135-355c-b494ac818fcb
+	fromColumn: mart_variance_drivers.environment_name
+	toColumn: dim_environment.environment_name
+
+relationship 9e597228-cae4-712d-00e3-02e51e57f112
+	fromColumn: mart_variance_drivers.'Billing Account Key'
+	toColumn: dim_service.service_key
+
+relationship 5595c9d7-7cc5-e0a1-0948-2d6f1ff107a0
+	fromColumn: fct_forecast_version.target_month
+	toColumn: dim_date.full_date
+
+relationship abfc1f94-0f05-6c89-d7f1-4a476b0d2b18
+	fromColumn: fct_forecast_version.application_name
+	toColumn: dim_application.application_name
+
+relationship e464b74d-2bb0-c35d-5636-b8c8f0ee9e3a
+	fromColumn: fct_forecast_version.department_name
+	toColumn: dim_department.department_name
+
+relationship 9fdf4a49-9ac3-ade3-8a5a-c7c0b3e10395
+	fromColumn: fct_forecast_version.environment_name
+	toColumn: dim_environment.environment_name
+
+relationship 1c5b5ec5-e083-c9af-b59b-5a87b9253f60
+	fromColumn: fct_forecast_version.provider_name
+	toColumn: dim_provider.provider_name
+
+relationship b4e3b353-9969-984c-d650-17615bea0484
+	fromColumn: fct_cloud_accrual.close_month
+	toColumn: dim_date.full_date
+
+relationship 6f6c1b3f-11f0-e14d-dd63-50223cc15b72
+	isActive: false
+	fromColumn: fct_cloud_accrual.accrual_posting_date
+	toColumn: dim_date.full_date
+
+relationship 5859a67e-4143-2f83-5c2c-cb71fff4c792
+	isActive: false
+	fromColumn: fct_cloud_accrual.expected_reversal_date
+	toColumn: dim_date.full_date
+
+relationship 5e2f8a7f-d405-2ceb-0c6e-135fcf2accb5
+	fromColumn: fct_cloud_accrual.application_name
+	toColumn: dim_application.application_name
+
+relationship a81a7762-0ae0-a56a-5d32-f71cff5b4095
+	fromColumn: fct_cloud_accrual.department_name
+	toColumn: dim_department.department_name
+
+relationship cf4d9222-2519-4e38-2529-d2e20490f556
+	fromColumn: fct_cloud_accrual.environment_name
+	toColumn: dim_environment.environment_name
+
+relationship 5cbfffc0-31b4-c60f-dc89-e40e4571fb14
+	fromColumn: fct_cloud_accrual.provider_name
+	toColumn: dim_provider.provider_name
+
+relationship 330db54c-19e0-75cf-dbdc-7cc5e7cc36e8
+	fromColumn: fct_cloud_accrual.'Billing Account Key'
+	toColumn: dim_billing_account.billing_account_key
+
+relationship e44e0874-a9d8-91c7-5600-d120ff2be213
+	fromColumn: fct_accrual_reversal.reversal_month
+	toColumn: dim_date.full_date
+
+relationship 33f684af-2476-b8fd-9015-75ccb332d774
+	isActive: false
+	fromColumn: fct_accrual_reversal.reversal_posting_date
+	toColumn: dim_date.full_date
+
+relationship 3698189b-f9a8-3a8a-3b84-7ec97846090e
+	fromColumn: fct_accrual_reversal.provider_name
+	toColumn: dim_provider.provider_name
+
+relationship b53e5112-cb90-ee79-3eb7-7b546b2744c8
+	fromColumn: fct_accrual_reversal.'Billing Account Key'
+	toColumn: dim_billing_account.billing_account_key
+
+relationship fb009c12-2735-6d58-0be5-cc9767a8fc18
+	fromColumn: fct_accrual_reversal.application_name
+	toColumn: dim_application.application_name
+
+relationship b8d27e01-ef43-4f68-4d66-4375d941f05e
+	fromColumn: fct_accrual_reversal.department_name
+	toColumn: dim_department.department_name
+
+relationship f9b04752-f6dd-184c-cd23-398dbe205347
+	fromColumn: fct_accrual_reversal.environment_name
+	toColumn: dim_environment.environment_name
+
+relationship b374406e-8a7b-bdcf-6abe-943bafcc113b
+	fromColumn: fct_reclass_journal.journal_month
+	toColumn: dim_date.full_date
+
+relationship e0d4ec6f-ffcb-80c3-f986-9a76df2bfd68
+	fromColumn: fct_reclass_journal.provider_name
+	toColumn: dim_provider.provider_name
+
+relationship 4a808e01-7650-ff29-3aea-8710ab223c37
+	fromColumn: fct_reclass_journal.'Billing Account Key'
+	toColumn: dim_billing_account.billing_account_key
+
+relationship d39340f9-bd24-71d3-3a17-3b25a3e594a2
+	fromColumn: fct_reclass_journal.department_name
+	toColumn: dim_department.department_name
+
+relationship 14cb7093-7df0-d15c-1ed7-c2b7233c4c1f
+	fromColumn: fct_reclass_journal.application_name
+	toColumn: dim_application.application_name
+
+relationship 80e7bc56-8ad6-83ad-d768-638b42fcd0e2
+	fromColumn: fct_reclass_journal.environment_name
+	toColumn: dim_environment.environment_name
+
+relationship 0f00c515-fcce-3192-9b59-7169b44013f4
+	fromColumn: fct_chargeback_journal.journal_month
+	toColumn: dim_date.full_date
+
+relationship c8ba748b-47ca-5a9d-29d1-d37d60a30104
+	fromColumn: fct_chargeback_journal.provider_name
+	toColumn: dim_provider.provider_name
+
+relationship a695757b-e699-974e-8073-74d51b1b8251
+	fromColumn: fct_chargeback_journal.'Billing Account Key'
+	toColumn: dim_billing_account.billing_account_key
+
+relationship 42ecbcd7-0509-80dd-b32b-d052fa9a0fc6
+	fromColumn: fct_chargeback_journal.application_name
+	toColumn: dim_application.application_name
+
+relationship 7edcdf8b-d123-1ca3-646d-188f31ab87ae
+	fromColumn: fct_chargeback_journal.department_name
+	toColumn: dim_department.department_name
+
+relationship 8de28063-e753-830d-50e8-13369d8d1a33
+	fromColumn: fct_chargeback_journal.environment_name
+	toColumn: dim_environment.environment_name
+
+relationship e8c28d10-cc07-d72d-16fc-afaebbc31173
+	fromColumn: mart_close_checklist.close_month
+	toColumn: dim_date.full_date
+
+relationship fb1a34b8-5d19-8a11-7430-52fe3b39a7a5
+	isActive: false
+	fromColumn: mart_close_checklist.due_date
+	toColumn: dim_date.full_date
+
+relationship d1acaa33-790b-c86a-684e-11adc87f5c43
+	fromColumn: mart_anomaly_summary.anomaly_month
+	toColumn: dim_date.full_date
+
+relationship 1a143a6d-5d3c-acd2-be7f-482371e6742c
+	fromColumn: mart_anomaly_summary.provider_name
+	toColumn: dim_provider.provider_name
+
+relationship 2b146932-87c0-e3af-99de-9eef109d73ac
+	fromColumn: mart_commitment_discount_analysis.analysis_date
+	toColumn: dim_date.full_date
+
+relationship e179a47d-c7fc-0603-4e15-078921ae7f93
+	isActive: false
+	fromColumn: mart_commitment_discount_analysis.baseline_start_date
+	toColumn: dim_date.full_date
+
+relationship 9477c76f-adf9-6d3f-1b93-fd6ccf7dd42e
+	isActive: false
+	fromColumn: mart_commitment_discount_analysis.baseline_end_date
+	toColumn: dim_date.full_date
+
+relationship de7dfd3b-d4e7-e5c9-b850-520f65d52fbd
+	fromColumn: mart_commitment_discount_analysis.provider_name
+	toColumn: dim_provider.provider_name
+
+relationship a78a9f74-9763-4739-e636-fabecc2219ae
+	fromColumn: mart_commitment_discount_analysis.'Billing Account Key'
+	toColumn: dim_billing_account.billing_account_key
+
+relationship 91c7680e-7113-d998-010f-02dd765a52cf
+	fromColumn: mart_commitment_discount_analysis.application_name
+	toColumn: dim_application.application_name
+
+relationship e5cbede6-4599-26be-8084-8048e647f2ee
+	fromColumn: mart_commitment_discount_analysis.department_name
+	toColumn: dim_department.department_name
+
+relationship 0c74c372-e1e6-78c9-bff2-6e0c75a3544d
+	fromColumn: mart_commitment_discount_analysis.environment_name
+	toColumn: dim_environment.environment_name
+
+relationship 6e1ecdcf-099f-1cd0-4a27-1f0ef1a2a3a5
+	fromColumn: fct_cloud_cost.provider_name
+	toColumn: dim_provider.provider_name
+
+relationship 8f913bc2-cc08-5e9d-3a8d-17927ce9d31a
+	fromColumn: fct_cloud_cost.environment_name
+	toColumn: dim_environment.environment_name
+
+relationship 06094afc-4509-8369-13e3-5ca2e5e0ddbe
+	fromColumn: fct_cloud_cost.application_name
+	toColumn: dim_application.application_name
+
+relationship 976532be-d364-2719-d983-99c348f1054a
+	fromColumn: fct_cloud_cost.'Charge Date'
+	toColumn: dim_date.full_date
+
+relationship aa5ecfe2-f772-bd14-3bad-78c515d4f918
+	fromColumn: fct_cloud_cost.department_name
+	toColumn: dim_department.department_name
+
+relationship 12f9ba50-f170-de9d-4932-369cb2ead746
+	isActive: false
+	fromColumn: fct_forecast_version.forecast_version_month
+	toColumn: dim_date.full_date
+
+relationship fcb93265-7333-b377-6f9f-d9dc9710a487
+	fromColumn: mart_optimization.environment_name
+	toColumn: dim_environment.environment_name
+
+relationship 7347c154-0b64-870c-af3e-3c77460a101e
+	fromColumn: mart_optimization.department_name
+	toColumn: dim_department.department_name
+
+relationship 506971c9-98d9-5fba-87bc-cc3fdea6b93d
+	fromColumn: mart_optimization.'Service Key'
+	toColumn: dim_service.service_key
+
+relationship 36e34197-0966-dd22-52c6-814d8bb864f3
+	fromColumn: mart_optimization.target_date
+	toColumn: dim_date.full_date
+
+relationship c959394a-95f2-2f67-2374-3b3efc533ce4
+	isActive: false
+	fromColumn: mart_optimization.implementation_date
+	toColumn: dim_date.full_date
+
+relationship 3de75428-f494-f61f-2175-8d5f037af6d2
+	isActive: false
+	fromColumn: mart_optimization.validation_date
+	toColumn: dim_date.full_date

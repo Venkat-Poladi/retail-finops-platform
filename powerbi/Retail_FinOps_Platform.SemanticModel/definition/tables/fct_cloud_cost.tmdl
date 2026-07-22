@@ -1,0 +1,586 @@
+table fct_cloud_cost
+	lineageTag: c7b4f8bf-0522-49fd-b870-4af723bb1e54
+
+	column record_id
+		dataType: string
+		lineageTag: dbfd95d7-18d5-4880-a784-0a9210faaae9
+		summarizeBy: none
+		sourceColumn: record_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column parent_record_id
+		dataType: string
+		lineageTag: bdb4087d-07bb-494d-95db-1d3a8a64a551
+		summarizeBy: none
+		sourceColumn: parent_record_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_record_id
+		dataType: string
+		lineageTag: 73e9656e-8aa9-4b68-845c-78eb136a70a3
+		summarizeBy: none
+		sourceColumn: source_record_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column pipeline_run_id
+		dataType: string
+		lineageTag: f6740bab-233e-488e-9c16-82c52467c624
+		summarizeBy: none
+		sourceColumn: pipeline_run_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_system
+		dataType: string
+		lineageTag: 558ada9b-3e33-4da8-bbcd-6bb6fca2ffc2
+		summarizeBy: none
+		sourceColumn: source_system
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_file
+		dataType: string
+		lineageTag: b1fecc1a-be07-4617-8cc3-bd50409eb105
+		summarizeBy: none
+		sourceColumn: source_file
+
+		annotation SummarizationSetBy = Automatic
+
+	column ingestion_timestamp
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: d03c529f-13a1-41ec-990c-326740aa8a5d
+		summarizeBy: none
+		sourceColumn: ingestion_timestamp
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_synthetic
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: dda18c45-f3c7-4854-9851-efb29eab0efc
+		summarizeBy: none
+		sourceColumn: is_synthetic
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_late_arriving
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: f40f091b-55af-45ae-8dd9-7dc8e22d84f3
+		summarizeBy: none
+		sourceColumn: is_late_arriving
+
+		annotation SummarizationSetBy = Automatic
+
+	column data_status
+		dataType: string
+		lineageTag: 7fdf7b0e-8ccf-41c3-9f66-f98c5e00aeb0
+		summarizeBy: none
+		sourceColumn: data_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column billing_period_start
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 7444ce9a-05e1-4aa9-8479-15e7a15fa8c7
+		summarizeBy: none
+		sourceColumn: billing_period_start
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column billing_period_end
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 9e43c121-341a-46cc-95f2-6ae0ae383b49
+		summarizeBy: none
+		sourceColumn: billing_period_end
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column charge_period_start
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 0a1ab395-0d77-4fd3-ab0d-7e6baf8c4959
+		summarizeBy: none
+		sourceColumn: charge_period_start
+
+		annotation SummarizationSetBy = Automatic
+
+	column charge_period_end
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: fb79258b-a248-49da-9f59-790f4f32289b
+		summarizeBy: none
+		sourceColumn: charge_period_end
+
+		annotation SummarizationSetBy = Automatic
+
+	column invoice_id
+		dataType: string
+		lineageTag: 27606bdb-6ed6-4d61-a7e5-ec36b0cedb08
+		summarizeBy: none
+		sourceColumn: invoice_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column billing_currency
+		dataType: string
+		lineageTag: d27628d3-d770-46cc-8306-022cf95c7ddf
+		summarizeBy: none
+		sourceColumn: billing_currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column provider_name
+		dataType: string
+		lineageTag: 43396e62-9206-4e04-b59e-c24a82a69509
+		summarizeBy: none
+		sourceColumn: provider_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column billing_account_id
+		dataType: string
+		lineageTag: 2a0ca682-d319-4c28-85ef-cfa23e1e55a2
+		summarizeBy: none
+		sourceColumn: billing_account_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column billing_account_name
+		dataType: string
+		lineageTag: bdeb1139-b12a-4b03-ab66-9af15ee77aa5
+		summarizeBy: none
+		sourceColumn: billing_account_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column sub_account_id
+		dataType: string
+		lineageTag: 6f243bf3-e5c3-4eb6-bf2c-015673fa3119
+		summarizeBy: none
+		sourceColumn: sub_account_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column sub_account_name
+		dataType: string
+		lineageTag: e228b688-7165-46ec-934b-33a8c63843a0
+		summarizeBy: none
+		sourceColumn: sub_account_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column sub_account_type
+		dataType: string
+		lineageTag: 98c5bb2a-aaad-42a2-bb59-c270d2addbbf
+		summarizeBy: none
+		sourceColumn: sub_account_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_id
+		dataType: string
+		lineageTag: ed30901c-aa58-49ed-a5d7-46a31ce640d3
+		summarizeBy: none
+		sourceColumn: project_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column application_name
+		dataType: string
+		lineageTag: 872e60ba-5b5d-4af0-85b2-3efcbe399782
+		summarizeBy: none
+		sourceColumn: application_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column department_name
+		dataType: string
+		lineageTag: d049d9b8-0ae8-46bf-84dc-950cfb99a8fb
+		summarizeBy: none
+		sourceColumn: department_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column environment_name
+		dataType: string
+		lineageTag: 79699cba-83a8-4992-b342-781641e4b847
+		summarizeBy: none
+		sourceColumn: environment_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column cost_center
+		dataType: string
+		lineageTag: 2b544ea3-2778-4052-aeeb-54d703d40189
+		summarizeBy: none
+		sourceColumn: cost_center
+
+		annotation SummarizationSetBy = Automatic
+
+	column owner_name
+		dataType: string
+		lineageTag: 173019ff-2081-48cc-a67d-ee93d56bea07
+		summarizeBy: none
+		sourceColumn: owner_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column service_category
+		dataType: string
+		lineageTag: c2f505de-7fb2-49a0-a0a1-75880de2b2f2
+		summarizeBy: none
+		sourceColumn: service_category
+
+		annotation SummarizationSetBy = Automatic
+
+	column service_name
+		dataType: string
+		lineageTag: 9841e6dc-c37e-4be0-a157-d5cb7b9f9c28
+		summarizeBy: none
+		sourceColumn: service_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column sku_id
+		dataType: string
+		lineageTag: 370473d4-2e26-4a2f-9179-5819a8d0fc73
+		summarizeBy: none
+		sourceColumn: sku_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column sku_name
+		dataType: string
+		lineageTag: 2b999cf0-3331-4e82-8f67-da100831ceba
+		summarizeBy: none
+		sourceColumn: sku_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column resource_id
+		dataType: string
+		lineageTag: 1c81363f-4885-41ff-bf0d-a319939245bc
+		summarizeBy: none
+		sourceColumn: resource_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column resource_name
+		dataType: string
+		lineageTag: 5d475a58-6e88-4d33-bafe-8f235e7997d7
+		summarizeBy: none
+		sourceColumn: resource_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column region_name
+		dataType: string
+		lineageTag: d94597ae-be73-4eda-9c67-1158f5c5467f
+		summarizeBy: none
+		sourceColumn: region_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column availability_zone
+		dataType: string
+		lineageTag: 4acf6180-e34d-45fa-9605-266e235a38ad
+		summarizeBy: none
+		sourceColumn: availability_zone
+
+		annotation SummarizationSetBy = Automatic
+
+	column charge_category
+		dataType: string
+		lineageTag: db59f4bc-97bc-494c-8e53-fea294fa00ec
+		summarizeBy: none
+		sourceColumn: charge_category
+
+		annotation SummarizationSetBy = Automatic
+
+	column charge_class
+		dataType: string
+		lineageTag: 4a1b7722-790a-4c7c-9546-7a5d39627a60
+		summarizeBy: none
+		sourceColumn: charge_class
+
+		annotation SummarizationSetBy = Automatic
+
+	column charge_frequency
+		dataType: string
+		lineageTag: cccb34e3-4f45-4405-ab97-eb9e3cf08afd
+		summarizeBy: none
+		sourceColumn: charge_frequency
+
+		annotation SummarizationSetBy = Automatic
+
+	column pricing_category
+		dataType: string
+		lineageTag: 3d463c4d-a7df-4492-af96-29acee9f7bcc
+		summarizeBy: none
+		sourceColumn: pricing_category
+
+		annotation SummarizationSetBy = Automatic
+
+	column commitment_discount_id
+		dataType: string
+		lineageTag: 68f639fc-35cf-46dd-9d88-74ec5c657b29
+		summarizeBy: none
+		sourceColumn: commitment_discount_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column commitment_discount_type
+		dataType: string
+		lineageTag: cbac59ec-dc77-4be6-b16a-49bc1a61cfae
+		summarizeBy: none
+		sourceColumn: commitment_discount_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column commitment_discount_status
+		dataType: string
+		lineageTag: 0d0cc191-b8bf-4f0c-8498-ba9161ae58d6
+		summarizeBy: none
+		sourceColumn: commitment_discount_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column consumed_quantity
+		dataType: double
+		lineageTag: 8dded1be-ba84-46ac-bb77-b3f8d928402a
+		summarizeBy: sum
+		sourceColumn: consumed_quantity
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column consumed_unit
+		dataType: string
+		lineageTag: 68f830e1-e821-4cec-9f82-b8b2a94f48b3
+		summarizeBy: none
+		sourceColumn: consumed_unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column list_cost
+		dataType: double
+		lineageTag: c0962d72-e202-41ca-9588-cbfdd4a8f785
+		summarizeBy: sum
+		sourceColumn: list_cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column contracted_cost
+		dataType: double
+		lineageTag: aec484ed-0509-435f-8439-bf6a73214082
+		summarizeBy: sum
+		sourceColumn: contracted_cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column billed_cost
+		dataType: double
+		lineageTag: 9f423f23-831a-4150-94ed-2644a49269e2
+		summarizeBy: sum
+		sourceColumn: billed_cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column effective_cost
+		dataType: double
+		lineageTag: c1c44809-2274-4f7a-9174-59b92635a073
+		summarizeBy: sum
+		sourceColumn: effective_cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column allocated_cost
+		dataType: double
+		lineageTag: 78f5fb21-88f6-46dc-b806-ce1dcfd22cce
+		summarizeBy: sum
+		sourceColumn: allocated_cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column allocation_status
+		dataType: string
+		lineageTag: 294a771b-bb2d-4dd5-afe3-3ab3d10b03aa
+		summarizeBy: none
+		sourceColumn: allocation_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_duplicate
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 27f4104b-3ea0-47e4-99f1-cb3d8474c178
+		summarizeBy: none
+		sourceColumn: is_duplicate
+
+		annotation SummarizationSetBy = Automatic
+
+	column duplicate_rank
+		dataType: int64
+		formatString: 0
+		lineageTag: 9fee02bd-0c70-4912-a486-739b12874d6c
+		summarizeBy: sum
+		sourceColumn: duplicate_rank
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_canonical_record
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: b59af639-4f66-408a-a665-5caeeecbcc57
+		summarizeBy: none
+		sourceColumn: is_canonical_record
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_valid_for_financial_reporting
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: f2368dd7-ae8d-4657-b2e4-da57eac60b79
+		summarizeBy: none
+		sourceColumn: is_valid_for_financial_reporting
+
+		annotation SummarizationSetBy = Automatic
+
+	column data_quality_reason
+		dataType: string
+		lineageTag: 0c371409-ea61-4ea6-bbfe-dc5634c0e828
+		summarizeBy: none
+		sourceColumn: data_quality_reason
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Charge Date'
+		type: calculated
+		lineageTag: a03f9011-259f-4f5a-abc2-6bbd16bbf386
+		summarizeBy: none
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Column
+		type: calculated
+		lineageTag: 1a9351e6-61c1-4ff9-997b-ebdb97b091d9
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation 43dbc3e8-3a1c-4b6f-9923-b49ff7d6691c = True
+
+	column 'Service Key' =
+
+			VAR Provider =
+			    TRIM(
+			        COALESCE(
+			            'fct_cloud_cost'[provider_name],
+			            ""
+			        )
+			    )
+			VAR Service =
+			    TRIM(
+			        COALESCE(
+			            'fct_cloud_cost'[service_name],
+			            ""
+			        )
+			    )
+			RETURN
+			    UPPER(
+			        IF(
+			            Provider = "",
+			            "Unknown",
+			            Provider
+			        )
+			    )
+			        & "|"
+			        & LOWER(
+			            IF(
+			                Service = "",
+			                "Unknown",
+			                Service
+			            )
+			        )
+		lineageTag: 7777a1c1-2707-4b70-96ae-1e88475dd80a
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Billing Account Key' =
+
+			VAR Provider =
+			    TRIM(
+			        COALESCE(
+			            'fct_cloud_cost'[provider_name],
+			            ""
+			        )
+			    )
+			VAR BillingAccount =
+			    TRIM(
+			        COALESCE(
+			            'fct_cloud_cost'[billing_account_id],
+			            ""
+			        )
+			    )
+			RETURN
+			    UPPER(
+			        IF(
+			            Provider = "",
+			            "Unknown",
+			            Provider
+			        )
+			    )
+			        & "|"
+			        & LOWER(
+			            IF(
+			                BillingAccount = "",
+			                "Unknown",
+			                BillingAccount
+			            )
+			        )
+		lineageTag: 6021ebaa-9985-486d-acdf-379910063c2d
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fct_cloud_cost = m
+		mode: import
+		source =
+				let
+				    Source = GoogleBigQuery.Database([Implementation="2.0"]),
+				    #"finops-learning-lab_Database" = Source{[Name="finops-learning-lab",Kind="Database"]}[Data],
+				    retail_finops_core_Schema = #"finops-learning-lab_Database"{[Name="retail_finops_core",Kind="Schema"]}[Data],
+				    fct_cloud_cost_Table = retail_finops_core_Schema{[Name="fct_cloud_cost",Kind="Table"]}[Data]
+				in
+				    fct_cloud_cost_Table
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table

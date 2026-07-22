@@ -1,0 +1,370 @@
+table mart_unit_economics_summary
+	isHidden
+	lineageTag: 03fbd9e3-5a9a-4be0-8fe8-4e89b6a70fa8
+
+	column unit_economics_summary_id
+		dataType: string
+		isHidden
+		lineageTag: 57bf47cd-46fe-40b9-afb1-a99c58d41a29
+		summarizeBy: none
+		sourceColumn: unit_economics_summary_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column unit_economics_month
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		lineageTag: 26dbc6e5-da76-4836-8c84-a950ac042763
+		summarizeBy: none
+		sourceColumn: unit_economics_month
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column provider_name
+		dataType: string
+		isHidden
+		lineageTag: 24b6c549-3c62-4f2f-876f-b47db794539c
+		summarizeBy: none
+		sourceColumn: provider_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column billing_currency
+		dataType: string
+		isHidden
+		lineageTag: 154c6e1c-71af-421f-8fdf-5362a62bec6b
+		summarizeBy: none
+		sourceColumn: billing_currency
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_allocated_cost
+		dataType: double
+		isHidden
+		lineageTag: 21bee367-485b-4466-8609-a225dbcf7481
+		summarizeBy: sum
+		sourceColumn: total_allocated_cost
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column production_cost
+		dataType: double
+		isHidden
+		lineageTag: 0d1970bf-28b6-42af-9acd-21b979c8d367
+		summarizeBy: sum
+		sourceColumn: production_cost
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nonproduction_cost
+		dataType: double
+		isHidden
+		lineageTag: 1de97f14-54c9-4559-9017-1b8aab53a379
+		summarizeBy: sum
+		sourceColumn: nonproduction_cost
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column unallocated_cost
+		dataType: double
+		isHidden
+		lineageTag: 747fe54c-561b-41a8-a290-7af5b4209beb
+		summarizeBy: sum
+		sourceColumn: unallocated_cost
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column transactions
+		dataType: double
+		isHidden
+		lineageTag: f05caf0a-cf0f-4e5c-97e7-ac19f3f4b239
+		summarizeBy: sum
+		sourceColumn: transactions
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column average_daily_active_customers
+		dataType: double
+		isHidden
+		lineageTag: 15cbaafa-e727-470d-a1f1-b0390b2a52db
+		summarizeBy: sum
+		sourceColumn: average_daily_active_customers
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column api_requests
+		dataType: double
+		isHidden
+		lineageTag: 9d9f0113-d889-4cd5-9f54-3b47763c6d1c
+		summarizeBy: sum
+		sourceColumn: api_requests
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column revenue
+		dataType: double
+		isHidden
+		lineageTag: 0a263f46-650a-4a68-af5c-d9cb7946711c
+		summarizeBy: sum
+		sourceColumn: revenue
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cost_per_transaction
+		dataType: double
+		isHidden
+		lineageTag: 8fbaa303-ef62-461f-90b0-62f83f711343
+		summarizeBy: sum
+		sourceColumn: cost_per_transaction
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cost_per_active_customer
+		dataType: double
+		isHidden
+		lineageTag: 136e60cd-a22f-4eac-8e5e-fd33b1fb07bc
+		summarizeBy: sum
+		sourceColumn: cost_per_active_customer
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cost_per_api_request
+		dataType: double
+		isHidden
+		lineageTag: 0cbf8166-0e67-4816-a81c-c7eeefa0d150
+		summarizeBy: sum
+		sourceColumn: cost_per_api_request
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column infrastructure_cost_pct_of_revenue
+		dataType: double
+		isHidden
+		lineageTag: 493c136c-f936-462e-ad31-82dcecfbe0b6
+		summarizeBy: sum
+		sourceColumn: infrastructure_cost_pct_of_revenue
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column prior_total_allocated_cost
+		dataType: double
+		isHidden
+		lineageTag: 9211a028-03cb-40b0-b5f6-6cb0cb9ff35d
+		summarizeBy: sum
+		sourceColumn: prior_total_allocated_cost
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column prior_transactions
+		dataType: double
+		isHidden
+		lineageTag: f41ed6bf-65a0-4639-9b95-8bf5b5bb5d7b
+		summarizeBy: sum
+		sourceColumn: prior_transactions
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column prior_cost_per_transaction
+		dataType: double
+		isHidden
+		lineageTag: f6f272b8-d135-4280-9997-7d0fee06de99
+		summarizeBy: sum
+		sourceColumn: prior_cost_per_transaction
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_cost_change_pct
+		dataType: double
+		isHidden
+		lineageTag: d9c6d652-dc93-4131-8661-0aa604135352
+		summarizeBy: sum
+		sourceColumn: total_cost_change_pct
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column transaction_change_pct
+		dataType: double
+		isHidden
+		lineageTag: f46a380e-25c9-492a-b583-f2dd993c75f6
+		summarizeBy: sum
+		sourceColumn: transaction_change_pct
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cost_per_transaction_change_pct
+		dataType: double
+		isHidden
+		lineageTag: 2f2a4262-5207-4d8c-b9c6-2f8fb2f89d92
+		summarizeBy: sum
+		sourceColumn: cost_per_transaction_change_pct
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column matched_application_count
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 8d5add5d-08c2-4c3c-a731-2dc9fa3a4a15
+		summarizeBy: sum
+		sourceColumn: matched_application_count
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column unmatched_application_count
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: f8a29bc8-0bbb-4d5b-893e-1e17f1e3bd93
+		summarizeBy: sum
+		sourceColumn: unmatched_application_count
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column financial_status
+		dataType: string
+		isHidden
+		lineageTag: b218d3f1-b16b-4d19-bffe-79c4c51d63c0
+		summarizeBy: none
+		sourceColumn: financial_status
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column executive_interpretation
+		dataType: string
+		isHidden
+		lineageTag: df5fdaf3-c1a9-4ee1-aed7-529df65fd68d
+		summarizeBy: none
+		sourceColumn: executive_interpretation
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column business_activity_disclosure
+		dataType: string
+		isHidden
+		lineageTag: 373369e9-7eee-4952-966f-10151d856fa4
+		summarizeBy: none
+		sourceColumn: business_activity_disclosure
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column data_refresh_timestamp
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: a3d90c88-925d-47ef-ab27-8156f442563a
+		summarizeBy: none
+		sourceColumn: data_refresh_timestamp
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition mart_unit_economics_summary = m
+		mode: import
+		source =
+				let
+				    Source = GoogleBigQuery.Database([Implementation="2.0"]),
+				    #"finops-learning-lab_Database" = Source{[Name="finops-learning-lab",Kind="Database"]}[Data],
+				    retail_finops_mart_Schema = #"finops-learning-lab_Database"{[Name="retail_finops_mart",Kind="Schema"]}[Data],
+				    mart_unit_economics_summary_Table = retail_finops_mart_Schema{[Name="mart_unit_economics_summary",Kind="Table"]}[Data]
+				in
+				    mart_unit_economics_summary_Table
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table

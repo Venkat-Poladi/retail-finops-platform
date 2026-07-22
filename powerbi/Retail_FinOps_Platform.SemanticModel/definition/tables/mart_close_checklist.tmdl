@@ -1,0 +1,138 @@
+table mart_close_checklist
+	isHidden
+	lineageTag: df7d7ed2-854c-485e-804a-654ca1d55224
+
+	column checklist_item_id
+		dataType: string
+		isHidden
+		lineageTag: d9fb8666-3764-494c-adad-ca764565d074
+		summarizeBy: none
+		sourceColumn: checklist_item_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column close_month
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		lineageTag: a8c81786-731a-4f48-8c3e-89f1d42ea11a
+		summarizeBy: none
+		sourceColumn: close_month
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column task_sequence
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 2bb32e4d-bc50-450f-aa1d-ae2ae65d0ab5
+		summarizeBy: sum
+		sourceColumn: task_sequence
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column task_id
+		dataType: string
+		isHidden
+		lineageTag: f881f9c9-3e1b-41a2-9e3c-f3642dcbb055
+		summarizeBy: none
+		sourceColumn: task_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column task_name
+		dataType: string
+		isHidden
+		lineageTag: f98ce90f-d862-4480-b3b0-8fa89f14c580
+		summarizeBy: none
+		sourceColumn: task_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column owner
+		dataType: string
+		isHidden
+		lineageTag: dc96b9bc-1747-40a0-811e-272cbce4dc60
+		summarizeBy: none
+		sourceColumn: owner
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column due_date
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		lineageTag: da3d3ef1-dcc0-4007-8dad-967703510b5f
+		summarizeBy: none
+		sourceColumn: due_date
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column status
+		dataType: string
+		isHidden
+		lineageTag: cac326fe-6bdd-443d-ab19-1d9f8d9696b1
+		summarizeBy: none
+		sourceColumn: status
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column evidence_object
+		dataType: string
+		isHidden
+		lineageTag: 94b2713f-e813-4294-a869-06718c34de66
+		summarizeBy: none
+		sourceColumn: evidence_object
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column data_refresh_timestamp
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: d94a5c02-1147-4718-a973-bb92f2b07223
+		summarizeBy: none
+		sourceColumn: data_refresh_timestamp
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition mart_close_checklist = m
+		mode: import
+		source =
+				let
+				    Source = GoogleBigQuery.Database([Implementation="2.0"]),
+				    #"finops-learning-lab_Database" = Source{[Name="finops-learning-lab",Kind="Database"]}[Data],
+				    retail_finops_mart_Schema = #"finops-learning-lab_Database"{[Name="retail_finops_mart",Kind="Schema"]}[Data],
+				    mart_close_checklist_Table = retail_finops_mart_Schema{[Name="mart_close_checklist",Kind="Table"]}[Data]
+				in
+				    mart_close_checklist_Table
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table

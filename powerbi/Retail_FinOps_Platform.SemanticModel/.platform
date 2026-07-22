@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Retail_FinOps_Platform"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "fcd79b65-3bdc-4781-8a15-09e805614282"
+  }
+}

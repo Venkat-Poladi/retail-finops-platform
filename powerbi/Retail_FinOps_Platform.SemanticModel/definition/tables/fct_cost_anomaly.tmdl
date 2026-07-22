@@ -1,0 +1,578 @@
+table fct_cost_anomaly
+	isHidden
+	lineageTag: fb180934-503c-4fd7-b45f-ca2ab9128dbb
+
+	column anomaly_id
+		dataType: string
+		isHidden
+		lineageTag: 1918bdbc-7d1f-44b3-a29f-472f2069a0c5
+		summarizeBy: none
+		sourceColumn: anomaly_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column anomaly_score_id
+		dataType: string
+		isHidden
+		lineageTag: edd6787c-e0e0-4b4e-bfab-c362a9e45f57
+		summarizeBy: none
+		sourceColumn: anomaly_score_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column cost_series_id
+		dataType: string
+		isHidden
+		lineageTag: c8dfb1a1-d985-430d-8196-52b0b118fe96
+		summarizeBy: none
+		sourceColumn: cost_series_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column anomaly_date
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		lineageTag: 912cd69e-20d8-432b-a68b-3e9819014711
+		summarizeBy: none
+		sourceColumn: anomaly_date
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column provider_name
+		dataType: string
+		isHidden
+		lineageTag: 23016799-7bc3-4984-846a-09a0cd6e0e18
+		summarizeBy: none
+		sourceColumn: provider_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column billing_account_id
+		dataType: string
+		isHidden
+		lineageTag: 73cbcfd8-30aa-4cc5-a5a8-7893e9670f89
+		summarizeBy: none
+		sourceColumn: billing_account_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column sub_account_id
+		dataType: string
+		isHidden
+		lineageTag: bef55283-8c8f-4c58-aae9-7983e91cbadc
+		summarizeBy: none
+		sourceColumn: sub_account_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_id
+		dataType: string
+		isHidden
+		lineageTag: 1189438d-2907-4f3a-b66e-844b0c0ae107
+		summarizeBy: none
+		sourceColumn: project_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column application_name
+		dataType: string
+		isHidden
+		lineageTag: ea6e191b-617d-40cb-997b-ebdc8d26acfd
+		summarizeBy: none
+		sourceColumn: application_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column department_name
+		dataType: string
+		isHidden
+		lineageTag: 53cba79d-9f2b-43cb-bfdd-e5ff2e2cc71d
+		summarizeBy: none
+		sourceColumn: department_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column environment_name
+		dataType: string
+		isHidden
+		lineageTag: 12e2fe67-d359-489a-a3f4-93ca36599028
+		summarizeBy: none
+		sourceColumn: environment_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column cost_center
+		dataType: string
+		isHidden
+		lineageTag: 69deac08-459b-4040-a8e4-a88d05855e4a
+		summarizeBy: none
+		sourceColumn: cost_center
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column owner_name
+		dataType: string
+		isHidden
+		lineageTag: c3d7f161-33dd-43e7-8f8f-2225d4252975
+		summarizeBy: none
+		sourceColumn: owner_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column service_category
+		dataType: string
+		isHidden
+		lineageTag: 64d1cded-34f8-4f77-9fd1-04b74758578e
+		summarizeBy: none
+		sourceColumn: service_category
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column service_name
+		dataType: string
+		isHidden
+		lineageTag: 16fe3529-3aa0-4879-9c85-06b5f8e2f27b
+		summarizeBy: none
+		sourceColumn: service_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column resource_id
+		dataType: string
+		isHidden
+		lineageTag: 7f3a3089-36bb-43cf-8904-beb85808e14b
+		summarizeBy: none
+		sourceColumn: resource_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column resource_name
+		dataType: string
+		isHidden
+		lineageTag: 5c5caf37-e234-4a22-91a3-47d56b7ef8b8
+		summarizeBy: none
+		sourceColumn: resource_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column region_name
+		dataType: string
+		isHidden
+		lineageTag: 1b02e9ad-fc2b-4e6a-b051-7c6eeb6b9d97
+		summarizeBy: none
+		sourceColumn: region_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column billing_currency
+		dataType: string
+		isHidden
+		lineageTag: 31339874-d7ec-4a47-8ab0-d6db9279fc32
+		summarizeBy: none
+		sourceColumn: billing_currency
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column baseline_cost
+		dataType: double
+		isHidden
+		lineageTag: fcb71684-67f3-408f-86f9-1f9883e5ffc9
+		summarizeBy: sum
+		sourceColumn: baseline_cost
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column actual_cost
+		dataType: double
+		isHidden
+		lineageTag: 8df7a71b-a034-49cc-b7e1-2e06a43da5ac
+		summarizeBy: sum
+		sourceColumn: actual_cost
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column absolute_variance
+		dataType: double
+		isHidden
+		lineageTag: 0ced2dec-23a6-45f6-aa7c-abe2c4a7738b
+		summarizeBy: sum
+		sourceColumn: absolute_variance
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column relative_variance
+		dataType: double
+		isHidden
+		lineageTag: 1a33d42c-5894-45d5-be42-8d49d445e65c
+		summarizeBy: sum
+		sourceColumn: relative_variance
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column anomaly_severity
+		dataType: string
+		isHidden
+		lineageTag: 9df4339c-7348-442f-8c44-37f2228ee2e5
+		summarizeBy: none
+		sourceColumn: anomaly_severity
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column anomaly_direction
+		dataType: string
+		isHidden
+		lineageTag: f9687196-8c3e-45ad-9bb5-f260c4a221fb
+		summarizeBy: none
+		sourceColumn: anomaly_direction
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column baseline_observation_count
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 688a9ebd-5928-4856-9ebc-ebd60f8d4535
+		summarizeBy: sum
+		sourceColumn: baseline_observation_count
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column trailing_14d_median_cost
+		dataType: double
+		isHidden
+		lineageTag: a934214f-337d-44bc-8cc3-d1d4d90e8016
+		summarizeBy: sum
+		sourceColumn: trailing_14d_median_cost
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column same_weekday_history_count
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: e667e1f2-717c-4b6e-af02-6bf571b1ca8c
+		summarizeBy: sum
+		sourceColumn: same_weekday_history_count
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column same_weekday_median_cost
+		dataType: double
+		isHidden
+		lineageTag: 1e383ce1-58ef-4b06-acc3-5963fb016e21
+		summarizeBy: sum
+		sourceColumn: same_weekday_median_cost
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column baseline_method
+		dataType: string
+		isHidden
+		lineageTag: bdc2db7b-9c8f-4d9d-a2a6-38aeddcdee54
+		summarizeBy: none
+		sourceColumn: baseline_method
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column warning_relative_threshold
+		dataType: double
+		isHidden
+		lineageTag: baa27739-5a7e-4efe-b88e-eb841e5ae26d
+		summarizeBy: sum
+		sourceColumn: warning_relative_threshold
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column warning_absolute_threshold
+		dataType: double
+		isHidden
+		lineageTag: 57d569b2-b331-49ad-8ccb-51ab2359a28f
+		summarizeBy: sum
+		sourceColumn: warning_absolute_threshold
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column critical_relative_threshold
+		dataType: double
+		isHidden
+		lineageTag: 1d666c84-6fd6-4fc5-852b-e593b271e40b
+		summarizeBy: sum
+		sourceColumn: critical_relative_threshold
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column critical_absolute_threshold
+		dataType: double
+		isHidden
+		lineageTag: fafacf92-87b7-494e-aa62-7e2f4a05428e
+		summarizeBy: sum
+		sourceColumn: critical_absolute_threshold
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column source_row_count
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 26caa14e-b6ed-4d7b-a5b0-ac44e48e0167
+		summarizeBy: sum
+		sourceColumn: source_row_count
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_record_count
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: e7a734ed-4ba4-41fd-bd5b-762912090631
+		summarizeBy: sum
+		sourceColumn: source_record_count
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column recommended_action
+		dataType: string
+		isHidden
+		lineageTag: 77e3af31-c5e8-492b-8369-49ddfcda6c96
+		summarizeBy: none
+		sourceColumn: recommended_action
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column investigation_priority
+		dataType: string
+		isHidden
+		lineageTag: 86289e98-e52d-4ef4-a383-5c61573c8c74
+		summarizeBy: none
+		sourceColumn: investigation_priority
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column review_status
+		dataType: string
+		isHidden
+		lineageTag: 4b7843de-a9ec-4b3e-803d-6d87a51eecfb
+		summarizeBy: none
+		sourceColumn: review_status
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column target_review_date
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		lineageTag: 4edde713-6366-4855-8972-acf2d4f2fc20
+		summarizeBy: none
+		sourceColumn: target_review_date
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column is_material
+		dataType: boolean
+		isHidden
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 8cc4a73d-597d-4d87-9042-c8263ca11be3
+		summarizeBy: none
+		sourceColumn: is_material
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column data_refresh_timestamp
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: 72103e39-262b-44ac-a1b2-2071e3f1dce6
+		summarizeBy: none
+		sourceColumn: data_refresh_timestamp
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Billing Account Key' =
+
+			VAR Provider =
+			    TRIM(
+			        COALESCE(
+			            'fct_cost_anomaly'[provider_name],
+			            ""
+			        )
+			    )
+			VAR BillingAccount =
+			    TRIM(
+			        COALESCE(
+			            'fct_cost_anomaly'[billing_account_id],
+			            ""
+			        )
+			    )
+			RETURN
+			    UPPER(
+			        IF(Provider = "", "Unknown", Provider)
+			    )
+			        & "|"
+			        & LOWER(
+			            IF(BillingAccount = "", "Unknown", BillingAccount)
+			        )
+		isHidden
+		lineageTag: 22332e81-9dd6-4a7f-8a4c-f9c08fa3a6e5
+		summarizeBy: none
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Key' =
+
+			VAR Provider =
+			    TRIM(
+			        COALESCE(
+			            'fct_cost_anomaly'[provider_name],
+			            ""
+			        )
+			    )
+			VAR Service =
+			    TRIM(
+			        COALESCE(
+			            'fct_cost_anomaly'[service_name],
+			            ""
+			        )
+			    )
+			RETURN
+			    UPPER(
+			        IF(Provider = "", "Unknown", Provider)
+			    )
+			        & "|"
+			        & LOWER(
+			            IF(Service = "", "Unknown", Service)
+			        )
+		isHidden
+		lineageTag: c1587e0f-8812-416c-a1ce-4c5336009c58
+		summarizeBy: none
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fct_cost_anomaly = m
+		mode: import
+		source =
+				let
+				    Source = GoogleBigQuery.Database([Implementation="2.0"]),
+				    #"finops-learning-lab_Database" = Source{[Name="finops-learning-lab",Kind="Database"]}[Data],
+				    retail_finops_mart_Schema = #"finops-learning-lab_Database"{[Name="retail_finops_mart",Kind="Schema"]}[Data],
+				    fct_cost_anomaly_Table = retail_finops_mart_Schema{[Name="fct_cost_anomaly",Kind="Table"]}[Data]
+				in
+				    fct_cost_anomaly_Table
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table

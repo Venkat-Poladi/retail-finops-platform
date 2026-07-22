@@ -1,0 +1,75 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "68cfe20301a2910c8951",
+  "position": {
+    "x": 985.61277324847958,
+    "y": 575.32639189621727,
+    "z": 17000,
+    "height": 100.25795033044001,
+    "width": 271.46768089472988,
+    "tabOrder": 18000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Financial Data Quality Status"
+                }
+              },
+              "queryRef": "_Measures.Financial Data Quality Status",
+              "nativeQueryRef": "Financial Data Quality Status"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "value": [
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Commitment Metric"
+                        }
+                      },
+                      "Property": "Financial Data Quality Status Color"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 0
+                }
+              }
+            ],
+            "metadata": "_Measures.Financial Data Quality Status"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

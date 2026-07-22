@@ -1,0 +1,141 @@
+table mart_savings_funnel
+	isHidden
+	lineageTag: b8dad865-fdc9-4564-872b-fcb25573a175
+
+	column stage_order
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: f20d9981-76f4-44e2-a7f4-1fd6a8b2535e
+		summarizeBy: sum
+		sourceColumn: stage_order
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column savings_stage
+		dataType: string
+		isHidden
+		lineageTag: 15c35841-5f2f-4553-ae08-2fcbc6669681
+		summarizeBy: none
+		sourceColumn: savings_stage
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column recommendation_count
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: c494463b-5f60-4b86-8c6e-99d8d135869b
+		summarizeBy: sum
+		sourceColumn: recommendation_count
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column monthly_savings
+		dataType: double
+		isHidden
+		lineageTag: 617733f9-4abd-4eed-8dbc-2cddfa0e1413
+		summarizeBy: sum
+		sourceColumn: monthly_savings
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column annualized_savings
+		dataType: double
+		isHidden
+		lineageTag: 3b385c92-faaa-40ba-81d0-a408ee2dd8f1
+		summarizeBy: sum
+		sourceColumn: annualized_savings
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column target_monthly_savings
+		dataType: double
+		isHidden
+		lineageTag: 59bd7a78-d2ee-4327-9663-16f01fb9efe9
+		summarizeBy: sum
+		sourceColumn: target_monthly_savings
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column variance_to_target
+		dataType: double
+		isHidden
+		lineageTag: f93e5e89-aa35-4b19-add9-c866c0c1df7f
+		summarizeBy: sum
+		sourceColumn: variance_to_target
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column target_result
+		dataType: string
+		isHidden
+		lineageTag: cc424a15-3da8-4624-b433-7f71c326b949
+		summarizeBy: none
+		sourceColumn: target_result
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column savings_value_type
+		dataType: string
+		isHidden
+		lineageTag: 834ad9d2-12e0-480b-b126-81b6207a222d
+		summarizeBy: none
+		sourceColumn: savings_value_type
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column data_refresh_timestamp
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: 2e291606-f3c0-40f5-a289-db9a96d0f944
+		summarizeBy: none
+		sourceColumn: data_refresh_timestamp
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition mart_savings_funnel = m
+		mode: import
+		source =
+				let
+				    Source = GoogleBigQuery.Database([Implementation="2.0"]),
+				    #"finops-learning-lab_Database" = Source{[Name="finops-learning-lab",Kind="Database"]}[Data],
+				    retail_finops_mart_Schema = #"finops-learning-lab_Database"{[Name="retail_finops_mart",Kind="Schema"]}[Data],
+				    mart_savings_funnel_Table = retail_finops_mart_Schema{[Name="mart_savings_funnel",Kind="Table"]}[Data]
+				in
+				    mart_savings_funnel_Table
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table

@@ -1,0 +1,299 @@
+table fct_forecast_version
+	isHidden
+	lineageTag: b7c53daa-f432-450a-808b-19e0f4f41eb7
+
+	column forecast_version_id
+		dataType: string
+		isHidden
+		lineageTag: 5e42bd0f-679a-4cc1-92c9-bd194134b996
+		summarizeBy: none
+		sourceColumn: forecast_version_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column forecast_version_month
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		lineageTag: f6b89231-36f7-4216-8b3b-96a2dc936709
+		summarizeBy: none
+		sourceColumn: forecast_version_month
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column target_month
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		lineageTag: 8c45664c-61c7-4b3a-82f4-1eb0b22dd537
+		summarizeBy: none
+		sourceColumn: target_month
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column provider_name
+		dataType: string
+		isHidden
+		lineageTag: 435e2270-3f44-43fb-a862-e03ad0986a4b
+		summarizeBy: none
+		sourceColumn: provider_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column application_name
+		dataType: string
+		isHidden
+		lineageTag: 957ef152-0cd4-4691-a0a8-2607c1d596ea
+		summarizeBy: none
+		sourceColumn: application_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column department_name
+		dataType: string
+		isHidden
+		lineageTag: 68c73284-01c1-49fe-ab2c-8bb5b77ad49a
+		summarizeBy: none
+		sourceColumn: department_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column environment_name
+		dataType: string
+		isHidden
+		lineageTag: d842594c-6aba-4e7e-9e49-5cbf9e78d936
+		summarizeBy: none
+		sourceColumn: environment_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column cost_center
+		dataType: string
+		isHidden
+		lineageTag: d726ff67-5dff-4408-9eea-f3516b5e5ff2
+		summarizeBy: none
+		sourceColumn: cost_center
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column owner_name
+		dataType: string
+		isHidden
+		lineageTag: a2e8e4e7-a5a8-4bf3-8b2c-745d4f90d3b8
+		summarizeBy: none
+		sourceColumn: owner_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column billing_currency
+		dataType: string
+		isHidden
+		lineageTag: a8e25271-6be3-4fce-906f-8a86d3196629
+		summarizeBy: none
+		sourceColumn: billing_currency
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column current_run_rate_cost
+		dataType: double
+		isHidden
+		lineageTag: dd19716b-b3ca-4f4d-b955-b5ecd825077f
+		summarizeBy: sum
+		sourceColumn: current_run_rate_cost
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column historical_average_cost
+		dataType: double
+		isHidden
+		lineageTag: 40de40e1-51ea-4763-bcf7-0225eab07442
+		summarizeBy: sum
+		sourceColumn: historical_average_cost
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column historical_month_count
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 656145e3-ef93-4dfc-9b33-70707792b70c
+		summarizeBy: sum
+		sourceColumn: historical_month_count
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column run_rate_weight
+		dataType: double
+		isHidden
+		lineageTag: 8a3a1e57-0bff-440d-876f-16b0cec67897
+		summarizeBy: sum
+		sourceColumn: run_rate_weight
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column historical_weight
+		dataType: double
+		isHidden
+		lineageTag: b6722940-3553-4291-b307-bee6f811d0b8
+		summarizeBy: sum
+		sourceColumn: historical_weight
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column forecast_cost
+		dataType: double
+		isHidden
+		lineageTag: ebec484d-b626-4334-a4bc-d55e74e35757
+		summarizeBy: sum
+		sourceColumn: forecast_cost
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column actual_cost
+		dataType: double
+		isHidden
+		lineageTag: d90db068-63b9-45bc-b6a3-fa3b79426fa9
+		summarizeBy: sum
+		sourceColumn: actual_cost
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column forecast_error
+		dataType: double
+		isHidden
+		lineageTag: 00e62f56-f1ab-4854-915f-11599ae29255
+		summarizeBy: sum
+		sourceColumn: forecast_error
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column absolute_percentage_error
+		dataType: double
+		isHidden
+		lineageTag: 2cabbaf5-f1fd-4721-b1f3-ebec0313dedd
+		summarizeBy: sum
+		sourceColumn: absolute_percentage_error
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column forecast_methodology
+		dataType: string
+		isHidden
+		lineageTag: 4d348ba9-5e24-4995-b815-873f1bde8009
+		summarizeBy: none
+		sourceColumn: forecast_methodology
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column forecast_horizon_months
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 4b9cd2e9-4d23-4289-b3cb-cbe91615f9b1
+		summarizeBy: sum
+		sourceColumn: forecast_horizon_months
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_modeled
+		dataType: boolean
+		isHidden
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 9c0b402b-9f89-4bb6-bf13-eace93c11f6f
+		summarizeBy: none
+		sourceColumn: is_modeled
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column data_refresh_timestamp
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: c44608c4-11aa-45fc-ad78-270a9554f1cb
+		summarizeBy: none
+		sourceColumn: data_refresh_timestamp
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fct_forecast_version = m
+		mode: import
+		source =
+				let
+				    Source = GoogleBigQuery.Database([Implementation="2.0"]),
+				    #"finops-learning-lab_Database" = Source{[Name="finops-learning-lab",Kind="Database"]}[Data],
+				    retail_finops_mart_Schema = #"finops-learning-lab_Database"{[Name="retail_finops_mart",Kind="Schema"]}[Data],
+				    fct_forecast_version_Table = retail_finops_mart_Schema{[Name="fct_forecast_version",Kind="Table"]}[Data]
+				in
+				    fct_forecast_version_Table
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table

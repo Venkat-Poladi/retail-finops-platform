@@ -1,0 +1,65 @@
+table 'Variance Driver'
+	lineageTag: 37035759-66f1-41b2-9e9e-742bc321a3af
+
+	measure 'Open Close Task Color' =
+
+			VAR OpenTasks =
+			    [Open Close Task Count]
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        ISBLANK(OpenTasks), "#9E9E9E",
+			        OpenTasks = 0,      "#2E7D32",
+			        OpenTasks <= 3,     "#F9A825",
+			        "#C62828"
+			    )
+		lineageTag: cbc58e06-6b5c-40f3-974e-3d710faec84d
+
+	measure 'Savings Lifecycle Stage' =
+
+			DATATABLE(
+			    "Stage", STRING,
+			    "Sort Order", INTEGER,
+			    {
+			        { "Identified", 1 },
+			        { "Approved", 2 },
+			        { "Implemented", 3 },
+			        { "Realized", 4 }
+			    }
+			)
+		lineageTag: c35d4e92-7859-4448-a472-9a96f1c754f3
+
+	column Driver
+		lineageTag: 7de4c679-9ce0-4d2a-a43a-d358d7dab203
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Driver]
+		sortByColumn: 'Sort Order'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sort Order'
+		formatString: 0
+		lineageTag: cdb3c8a7-5df7-453f-ac79-539365c51550
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Sort Order]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Variance Driver' = calculated
+		mode: import
+		source =
+
+				DATATABLE(
+				    "Driver", STRING,
+				    "Sort Order", INTEGER,
+				    {
+				        { "Usage", 1 },
+				        { "Rate", 2 },
+				        { "Scope", 3 },
+				        { "Other", 4 }
+				    }
+				)
+
+	annotation PBI_Id = 561c71206daf43faa2368806e4e8ef74

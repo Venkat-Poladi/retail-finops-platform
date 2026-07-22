@@ -1,0 +1,321 @@
+table fct_accrual_reversal
+	isHidden
+	lineageTag: 0d057b6b-17c2-4e2c-8e80-986bac5ba24d
+
+	column reversal_id
+		dataType: string
+		isHidden
+		lineageTag: be2c867a-2b9d-4d15-a3a4-853fc724a3b3
+		summarizeBy: none
+		sourceColumn: reversal_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column accrual_id
+		dataType: string
+		isHidden
+		lineageTag: d2d45f6d-8f9d-4b8c-8ea5-724d603edabc
+		summarizeBy: none
+		sourceColumn: accrual_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column reversal_month
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		lineageTag: c9a93158-0349-45c8-ab40-d6a6063615dd
+		summarizeBy: none
+		sourceColumn: reversal_month
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column reversal_posting_date
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		lineageTag: ee8d5b39-eb48-42b0-a644-0af9ae2da716
+		summarizeBy: none
+		sourceColumn: reversal_posting_date
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column allocation_id
+		dataType: string
+		isHidden
+		lineageTag: fb6ce177-cbd6-4115-9772-0fcc7937f263
+		summarizeBy: none
+		sourceColumn: allocation_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column record_id
+		dataType: string
+		isHidden
+		lineageTag: e8c82062-5a01-4956-9a22-e45802b915c9
+		summarizeBy: none
+		sourceColumn: record_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_record_id
+		dataType: string
+		isHidden
+		lineageTag: 9430ca52-1977-4c8e-9633-95f3106f1ea4
+		summarizeBy: none
+		sourceColumn: source_record_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column pipeline_run_id
+		dataType: string
+		isHidden
+		lineageTag: 153ac078-ca20-4302-97bf-a5d1dde2d8dc
+		summarizeBy: none
+		sourceColumn: pipeline_run_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_system
+		dataType: string
+		isHidden
+		lineageTag: d1a5b3bd-6c5e-4be8-867d-80ad01ce3fae
+		summarizeBy: none
+		sourceColumn: source_system
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_file
+		dataType: string
+		isHidden
+		lineageTag: 25cf4584-c6b7-4f48-bee1-6df2a48a7204
+		summarizeBy: none
+		sourceColumn: source_file
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column provider_name
+		dataType: string
+		isHidden
+		lineageTag: 0f1f6952-ef84-444e-ab07-541b1a2f209f
+		summarizeBy: none
+		sourceColumn: provider_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column billing_account_id
+		dataType: string
+		isHidden
+		lineageTag: 609cf520-1e97-4440-8d4f-5a2dce91fc85
+		summarizeBy: none
+		sourceColumn: billing_account_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column sub_account_id
+		dataType: string
+		isHidden
+		lineageTag: 18c36cbc-44ee-4893-85b7-f944454f1373
+		summarizeBy: none
+		sourceColumn: sub_account_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_id
+		dataType: string
+		isHidden
+		lineageTag: bb0b8384-ac85-49d9-98c3-f08e38259ea8
+		summarizeBy: none
+		sourceColumn: project_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column application_name
+		dataType: string
+		isHidden
+		lineageTag: b627f732-8e53-4887-b695-1a075171ce6a
+		summarizeBy: none
+		sourceColumn: application_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column department_name
+		dataType: string
+		isHidden
+		lineageTag: d934876d-074b-4ecb-99d0-c20719f42344
+		summarizeBy: none
+		sourceColumn: department_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column environment_name
+		dataType: string
+		isHidden
+		lineageTag: db18b664-8a38-499f-8289-137ed3664c26
+		summarizeBy: none
+		sourceColumn: environment_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column cost_center
+		dataType: string
+		isHidden
+		lineageTag: 0659de4e-879c-4cc1-a3e1-1ac16d2be2a0
+		summarizeBy: none
+		sourceColumn: cost_center
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column owner_name
+		dataType: string
+		isHidden
+		lineageTag: 2b921f71-b419-4551-b6ac-07761e7ef015
+		summarizeBy: none
+		sourceColumn: owner_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column billing_currency
+		dataType: string
+		isHidden
+		lineageTag: 3249942f-137d-441f-a554-191d08ca2e1b
+		summarizeBy: none
+		sourceColumn: billing_currency
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column reversal_amount
+		dataType: double
+		isHidden
+		lineageTag: 06bf8957-5445-4c6e-913a-883a635cb716
+		summarizeBy: sum
+		sourceColumn: reversal_amount
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column reversal_reason
+		dataType: string
+		isHidden
+		lineageTag: 2b3e7b82-1cf1-4f08-8550-e4ea43ad3413
+		summarizeBy: none
+		sourceColumn: reversal_reason
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column reversal_status
+		dataType: string
+		isHidden
+		lineageTag: 50def264-535a-465b-8e2c-13e92a811048
+		summarizeBy: none
+		sourceColumn: reversal_status
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column data_refresh_timestamp
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: 4dfcc906-ac89-4a43-83b4-7f5b3a81b7d9
+		summarizeBy: none
+		sourceColumn: data_refresh_timestamp
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Billing Account Key' =
+
+			VAR Provider =
+			    TRIM(
+			        COALESCE(
+			            'fct_accrual_reversal'[provider_name],
+			            ""
+			        )
+			    )
+			VAR BillingAccount =
+			    TRIM(
+			        COALESCE(
+			            'fct_accrual_reversal'[billing_account_id],
+			            ""
+			        )
+			    )
+			RETURN
+			    UPPER(IF(Provider = "", "Unknown", Provider))
+			        & "|"
+			        & LOWER(IF(BillingAccount = "", "Unknown", BillingAccount))
+		isHidden
+		lineageTag: f74ce7ef-6554-4326-91e3-5246c5b2ab75
+		summarizeBy: none
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fct_accrual_reversal = m
+		mode: import
+		source =
+				let
+				    Source = GoogleBigQuery.Database([Implementation="2.0"]),
+				    #"finops-learning-lab_Database" = Source{[Name="finops-learning-lab",Kind="Database"]}[Data],
+				    retail_finops_mart_Schema = #"finops-learning-lab_Database"{[Name="retail_finops_mart",Kind="Schema"]}[Data],
+				    fct_accrual_reversal_Table = retail_finops_mart_Schema{[Name="fct_accrual_reversal",Kind="Table"]}[Data]
+				in
+				    fct_accrual_reversal_Table
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table

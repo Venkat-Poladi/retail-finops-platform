@@ -1,0 +1,359 @@
+table fct_cloud_accrual
+	isHidden
+	lineageTag: 81fe8a11-c73f-430f-a888-b45d5ab847cf
+
+	column accrual_id
+		dataType: string
+		isHidden
+		lineageTag: 6af1df7e-51af-4a5e-884b-5d8cb082eb03
+		summarizeBy: none
+		sourceColumn: accrual_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column close_month
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		lineageTag: 1de2380b-1039-4816-9705-dd23a659eddd
+		summarizeBy: none
+		sourceColumn: close_month
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column accrual_posting_date
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		lineageTag: 999e56d4-5847-4851-9a47-9f7e6bc56a12
+		summarizeBy: none
+		sourceColumn: accrual_posting_date
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column expected_reversal_date
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		lineageTag: 4b4622f7-3cf4-4d7a-81b8-93c6c9329568
+		summarizeBy: none
+		sourceColumn: expected_reversal_date
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column allocation_id
+		dataType: string
+		isHidden
+		lineageTag: 0f079311-70b3-4cc7-9ada-bd103037315a
+		summarizeBy: none
+		sourceColumn: allocation_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column record_id
+		dataType: string
+		isHidden
+		lineageTag: 18c4d2f3-2989-46fe-8bdc-a101620a25c3
+		summarizeBy: none
+		sourceColumn: record_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_record_id
+		dataType: string
+		isHidden
+		lineageTag: 0ac3811b-0c91-4e10-9faa-c0f60dad5567
+		summarizeBy: none
+		sourceColumn: source_record_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column pipeline_run_id
+		dataType: string
+		isHidden
+		lineageTag: fa66ce32-bee2-40ea-a0a0-64491052c020
+		summarizeBy: none
+		sourceColumn: pipeline_run_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_system
+		dataType: string
+		isHidden
+		lineageTag: ce05dbb4-731c-46a1-a142-11aaecc21e49
+		summarizeBy: none
+		sourceColumn: source_system
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_file
+		dataType: string
+		isHidden
+		lineageTag: 03633e08-b714-4631-9652-a96f9e13a590
+		summarizeBy: none
+		sourceColumn: source_file
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ingestion_timestamp
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: 6c390f88-210d-4677-adb9-9f8f1f0a3dab
+		summarizeBy: none
+		sourceColumn: ingestion_timestamp
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column provider_name
+		dataType: string
+		isHidden
+		lineageTag: 3505017e-c668-4b7a-a09c-b8ff4b9c2dcb
+		summarizeBy: none
+		sourceColumn: provider_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column billing_account_id
+		dataType: string
+		isHidden
+		lineageTag: d1633f33-68c5-4928-b766-772eb0f50e94
+		summarizeBy: none
+		sourceColumn: billing_account_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column sub_account_id
+		dataType: string
+		isHidden
+		lineageTag: a47493d9-629e-4f2b-9018-8735e482d399
+		summarizeBy: none
+		sourceColumn: sub_account_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_id
+		dataType: string
+		isHidden
+		lineageTag: 53069b51-0e49-422a-862b-15d9a24605fa
+		summarizeBy: none
+		sourceColumn: project_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column application_name
+		dataType: string
+		isHidden
+		lineageTag: a4f482cb-d57e-4007-9ce1-1e43cbbef1db
+		summarizeBy: none
+		sourceColumn: application_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column department_name
+		dataType: string
+		isHidden
+		lineageTag: 9bf25dc4-b06e-40a8-861b-4737874e4092
+		summarizeBy: none
+		sourceColumn: department_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column environment_name
+		dataType: string
+		isHidden
+		lineageTag: e18a1f72-ef57-4456-b8cb-052544e33a2b
+		summarizeBy: none
+		sourceColumn: environment_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column cost_center
+		dataType: string
+		isHidden
+		lineageTag: 67db4e15-77d6-4b18-a7d5-c78844581c55
+		summarizeBy: none
+		sourceColumn: cost_center
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column owner_name
+		dataType: string
+		isHidden
+		lineageTag: bb7d5195-4de5-418c-96ba-bccbc63accd3
+		summarizeBy: none
+		sourceColumn: owner_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column billing_currency
+		dataType: string
+		isHidden
+		lineageTag: 5c97aa57-41ae-47fb-bfe8-e68589bb0177
+		summarizeBy: none
+		sourceColumn: billing_currency
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column accrual_amount
+		dataType: double
+		isHidden
+		lineageTag: fb218619-17d2-48c1-8032-2637ee29316e
+		summarizeBy: sum
+		sourceColumn: accrual_amount
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column accrual_reason
+		dataType: string
+		isHidden
+		lineageTag: 83cd9ba2-3b09-4468-92ef-2f2986116198
+		summarizeBy: none
+		sourceColumn: accrual_reason
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column accrual_method
+		dataType: string
+		isHidden
+		lineageTag: 9ef28831-2a0a-4226-a913-9598b4e3905c
+		summarizeBy: none
+		sourceColumn: accrual_method
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_synthetic
+		dataType: boolean
+		isHidden
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 13411aeb-b591-421f-b994-4855cb8a24c0
+		summarizeBy: none
+		sourceColumn: is_synthetic
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column accrual_status
+		dataType: string
+		isHidden
+		lineageTag: 4dda346f-2ee8-4793-b772-6fcee19e2fdf
+		summarizeBy: none
+		sourceColumn: accrual_status
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column data_refresh_timestamp
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: f9e2bd51-ddc7-431d-8198-2779e7f369fc
+		summarizeBy: none
+		sourceColumn: data_refresh_timestamp
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Billing Account Key' =
+
+			VAR Provider =
+			    TRIM(
+			        COALESCE(
+			            'fct_cloud_accrual'[provider_name],
+			            ""
+			        )
+			    )
+			VAR BillingAccount =
+			    TRIM(
+			        COALESCE(
+			            'fct_cloud_accrual'[billing_account_id],
+			            ""
+			        )
+			    )
+			RETURN
+			    UPPER(IF(Provider = "", "Unknown", Provider))
+			        & "|"
+			        & LOWER(IF(BillingAccount = "", "Unknown", BillingAccount))
+		isHidden
+		lineageTag: 87e80cda-d64f-49d7-8368-367ab324aa99
+		summarizeBy: none
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fct_cloud_accrual = m
+		mode: import
+		source =
+				let
+				    Source = GoogleBigQuery.Database([Implementation="2.0"]),
+				    #"finops-learning-lab_Database" = Source{[Name="finops-learning-lab",Kind="Database"]}[Data],
+				    retail_finops_mart_Schema = #"finops-learning-lab_Database"{[Name="retail_finops_mart",Kind="Schema"]}[Data],
+				    fct_cloud_accrual_Table = retail_finops_mart_Schema{[Name="fct_cloud_accrual",Kind="Table"]}[Data]
+				in
+				    fct_cloud_accrual_Table
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table

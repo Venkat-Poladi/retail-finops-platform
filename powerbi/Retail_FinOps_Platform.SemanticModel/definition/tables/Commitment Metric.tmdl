@@ -1,0 +1,137 @@
+table 'Commitment Metric'
+	lineageTag: f300938e-2f57-44a8-86eb-c289fc12e5e1
+
+	measure 'Close Checklist Color' =
+
+			VAR CompletionPct =
+			    [Close Checklist Completion %]
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        ISBLANK(CompletionPct), "#9E9E9E",
+			        CompletionPct >= 1,     "#2E7D32",
+			        CompletionPct >= 0.90,  "#F9A825",
+			        "#C62828"
+			    )
+		lineageTag: a30a0e67-90b7-4bc2-a714-d8d49712b3ea
+
+	measure 'Anomaly Count Color' =
+
+			VAR CountValue =
+			    [Anomaly Count]
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        ISBLANK(CountValue), "#9E9E9E",
+			        CountValue = 0,      "#2E7D32",
+			        CountValue <= 3,     "#F9A825",
+			        "#C62828"
+			    )
+		lineageTag: 65d74332-3562-4d6e-a1d0-dabb350eeed6
+
+	measure 'Last Refresh Display' =
+
+			VAR RefreshTime =
+			    [Data Refresh Timestamp]
+			RETURN
+			    IF(
+			        ISBLANK(RefreshTime),
+			        "Last refreshed: unavailable",
+			        "Last refreshed: "
+			            & FORMAT(
+			                RefreshTime,
+			                "mmm d, yyyy, h:nn AM/PM"
+			            )
+			    )
+		lineageTag: 50178216-4bf6-4159-8d50-cda41e51d85c
+
+	measure 'Financial Data Quality Status Color' =
+
+			VAR StatusText =
+			    UPPER(
+			        TRIM(
+			            COALESCE(
+			                [Financial Data Quality Status],
+			                ""
+			            )
+			        )
+			    )
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        StatusText = "",                              "#9E9E9E",
+			        StatusText = "PASS",                          "#2E7D32",
+			        StatusText IN { "WARNING", "WARN", "REVIEW" }, "#F9A825",
+			        StatusText IN { "FAIL", "FAILED", "CRITICAL" }, "#C62828",
+			        "#2F75B5"
+			    )
+		lineageTag: 33b63049-534e-462c-b832-267a1b7a8317
+
+	measure 'Annualized Identified Savings' =
+
+			[Net Monthly Savings Identified] * 12
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 00e2055c-62e9-4b6c-a8de-f1d45a51e896
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Application Forecast Error $' =
+
+			[Forecast Variance]
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 044799a7-e54c-4255-9053-95936ea24e98
+
+	measure 'Application Forecast Error Absolute $' =
+
+			ABS(
+			    [Application Forecast Error $]
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 79d0a94a-9ec4-4576-8940-8bb582c981b4
+
+	measure 'Application Forecast Error Color' =
+
+			VAR ErrorAmount =
+			    [Application Forecast Error $]
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        ISBLANK(ErrorAmount), "#9E9E9E",
+			        ErrorAmount > 0,      "#C62828",
+			        ErrorAmount < 0,      "#F9A825",
+			        "#9E9E9E"
+			    )
+		lineageTag: b801fb8e-a856-4b20-a63b-f394ec7ab377
+
+	column Metric
+		lineageTag: 8758d603-7a26-4913-9528-58e195d8842e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Metric]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sort Order'
+		formatString: 0
+		lineageTag: e1188813-94ba-4935-9592-b4dffad69b47
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Sort Order]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Commitment Metric' = calculated
+		mode: import
+		source =
+
+				DATATABLE(
+				    "Metric", STRING,
+				    "Sort Order", INTEGER,
+				    {
+				        { "Coverage", 1 },
+				        { "Utilization", 2 },
+				        { "Waste", 3 }
+				    }
+				)
+
+	annotation PBI_Id = 1820a8404b804b07a3a905d140c0e1b8

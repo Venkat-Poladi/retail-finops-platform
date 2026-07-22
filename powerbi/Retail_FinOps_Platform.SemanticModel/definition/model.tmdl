@@ -1,0 +1,49 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_QueryOrder = ["fct_cost_allocation","fct_cloud_cost","fct_accrual_reversal","fct_cloud_accrual","fct_chargeback_journal","fct_cost_anomaly","fct_forecast_version","fct_reclass_journal","mart_anomaly_summary","mart_budget","mart_budget_variance","mart_business_activity_monthly","mart_close_checklist","mart_commitment_discount_analysis","mart_forecast_accuracy","mart_monthly_actuals","mart_optimization","mart_savings_funnel","mart_unit_economics","mart_unit_economics_summary","mart_unit_economics_trend","mart_variance_drivers","dim_application","dim_date","dim_provider","dim_environment","dim_department","dim_service","dim_billing_account","_Measures"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table fct_cost_allocation
+ref table fct_cloud_cost
+ref table fct_accrual_reversal
+ref table fct_cloud_accrual
+ref table fct_chargeback_journal
+ref table fct_cost_anomaly
+ref table fct_forecast_version
+ref table fct_reclass_journal
+ref table mart_anomaly_summary
+ref table mart_budget
+ref table mart_budget_variance
+ref table mart_business_activity_monthly
+ref table mart_close_checklist
+ref table mart_commitment_discount_analysis
+ref table mart_forecast_accuracy
+ref table mart_monthly_actuals
+ref table mart_optimization
+ref table mart_savings_funnel
+ref table mart_unit_economics
+ref table mart_unit_economics_summary
+ref table mart_unit_economics_trend
+ref table mart_variance_drivers
+ref table dim_application
+ref table dim_date
+ref table dim_provider
+ref table dim_environment
+ref table dim_department
+ref table dim_service
+ref table dim_billing_account
+ref table _Measures
+ref table 'Variance Driver'
+ref table 'Savings Lifecycle Stage'
+ref table 'Commitment Metric'
+
+ref cultureInfo en-US

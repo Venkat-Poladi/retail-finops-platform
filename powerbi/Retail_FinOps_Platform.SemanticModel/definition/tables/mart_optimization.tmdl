@@ -1,0 +1,661 @@
+table mart_optimization
+	lineageTag: c55d02f4-49bc-44ba-a152-2c3a5e87c410
+
+	column recommendation_id
+		dataType: string
+		lineageTag: 58fb8935-24f6-4e91-896a-2bde95d950f7
+		summarizeBy: none
+		sourceColumn: recommendation_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column rule_id
+		dataType: string
+		lineageTag: 5b485a67-1ea6-45e6-8cec-48e5182858d7
+		summarizeBy: none
+		sourceColumn: rule_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column priority
+		dataType: string
+		lineageTag: 4df617da-3438-4877-a4bf-8477125bf13d
+		summarizeBy: none
+		sourceColumn: priority
+
+		annotation SummarizationSetBy = Automatic
+
+	column provider_name
+		dataType: string
+		lineageTag: 617144fd-e539-4e40-b59a-546080384939
+		summarizeBy: none
+		sourceColumn: provider_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column billing_account_id
+		dataType: string
+		lineageTag: 7e032f52-84a2-40a5-8991-5cb5533024bd
+		summarizeBy: none
+		sourceColumn: billing_account_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column sub_account_id
+		dataType: string
+		lineageTag: 9d6b772c-1f85-44dc-90c1-6b3f51a3d644
+		summarizeBy: none
+		sourceColumn: sub_account_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_id
+		dataType: string
+		lineageTag: 96623495-3d12-4d22-befd-009f16f9203a
+		summarizeBy: none
+		sourceColumn: project_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column application_name
+		dataType: string
+		lineageTag: 14e2b643-78a8-41a3-972e-3c28543cffc6
+		summarizeBy: none
+		sourceColumn: application_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column department_name
+		dataType: string
+		lineageTag: 199ad0ab-f881-46a7-beb9-74d87938853b
+		summarizeBy: none
+		sourceColumn: department_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column environment_name
+		dataType: string
+		lineageTag: 40dec825-711d-4a44-8068-72b282de1dbf
+		summarizeBy: none
+		sourceColumn: environment_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column cost_center
+		dataType: string
+		lineageTag: 95912f70-a79f-428d-9389-d6f807e3ebb6
+		summarizeBy: none
+		sourceColumn: cost_center
+
+		annotation SummarizationSetBy = Automatic
+
+	column service_category
+		dataType: string
+		lineageTag: 5fb5dd32-84bb-42c6-bb2e-1e29330cb740
+		summarizeBy: none
+		sourceColumn: service_category
+
+		annotation SummarizationSetBy = Automatic
+
+	column service_name
+		dataType: string
+		lineageTag: bfbc3adb-a485-46b4-b88f-d88192d29f0e
+		summarizeBy: none
+		sourceColumn: service_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column resource_id
+		dataType: string
+		lineageTag: ec3f01b2-cb61-462a-8973-28c5b7441f54
+		summarizeBy: none
+		sourceColumn: resource_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column resource_name
+		dataType: string
+		lineageTag: 17ecf1f1-f4dc-4596-8b6c-60310bbd13d7
+		summarizeBy: none
+		sourceColumn: resource_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column region_name
+		dataType: string
+		lineageTag: 0a8163eb-eb96-48cf-9411-a1429d1a9571
+		summarizeBy: none
+		sourceColumn: region_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column billing_currency
+		dataType: string
+		lineageTag: 1196927b-9abd-4f7c-8090-3746fdf24ca1
+		summarizeBy: none
+		sourceColumn: billing_currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column recommendation_category
+		dataType: string
+		lineageTag: 5700f3ba-3de4-48f1-a429-e5026dd7cc41
+		summarizeBy: none
+		sourceColumn: recommendation_category
+
+		annotation SummarizationSetBy = Automatic
+
+	column recommendation
+		dataType: string
+		lineageTag: fb10b8f2-ccd8-4481-9f81-33ca9a97e1a5
+		summarizeBy: none
+		sourceColumn: recommendation
+
+		annotation SummarizationSetBy = Automatic
+
+	column baseline_cost
+		dataType: double
+		lineageTag: 7670d0f1-8f8b-4085-8697-489a31ba64dc
+		summarizeBy: sum
+		sourceColumn: baseline_cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column eligible_cost
+		dataType: double
+		lineageTag: c3b5586e-0518-4971-883f-30fe00fb9eb1
+		summarizeBy: sum
+		sourceColumn: eligible_cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column proposed_cost
+		dataType: double
+		lineageTag: 6fe5fc48-c11b-4aa1-8b3f-904ebca14100
+		summarizeBy: sum
+		sourceColumn: proposed_cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column gross_savings
+		dataType: double
+		lineageTag: 13014232-a667-480a-b18c-ce0eef3c106a
+		summarizeBy: sum
+		sourceColumn: gross_savings
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column overlap_adjustment
+		dataType: double
+		lineageTag: 11d4cefc-a0cd-4b97-91e9-6b0ec585d619
+		summarizeBy: sum
+		sourceColumn: overlap_adjustment
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column net_monthly_savings
+		dataType: double
+		lineageTag: 93214076-4cec-48d1-b188-971a75d2b519
+		summarizeBy: sum
+		sourceColumn: net_monthly_savings
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column annualized_savings
+		dataType: double
+		lineageTag: b15e3695-df13-485a-a7ea-96a33cfdf996
+		summarizeBy: sum
+		sourceColumn: annualized_savings
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column dependency_recommendation_id
+		dataType: string
+		lineageTag: eeb3113a-9e54-46e8-a4c1-978f928bd13b
+		summarizeBy: none
+		sourceColumn: dependency_recommendation_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column overlap_group_id
+		dataType: string
+		lineageTag: 95148141-ae12-456c-b229-30b6a4daa41d
+		summarizeBy: none
+		sourceColumn: overlap_group_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column calculation_order
+		dataType: int64
+		formatString: 0
+		lineageTag: 17c8ea72-30af-40de-9812-f1ddbbcafb07
+		summarizeBy: sum
+		sourceColumn: calculation_order
+
+		annotation SummarizationSetBy = Automatic
+
+	column confidence
+		dataType: string
+		lineageTag: 4d160692-841b-43bf-9b26-bc8ef07579f9
+		summarizeBy: none
+		sourceColumn: confidence
+
+		annotation SummarizationSetBy = Automatic
+
+	column effort
+		dataType: string
+		lineageTag: 2ec47fbb-39e2-4c6f-ba1d-1d44f1486ede
+		summarizeBy: none
+		sourceColumn: effort
+
+		annotation SummarizationSetBy = Automatic
+
+	column risk
+		dataType: string
+		lineageTag: 87a6fc9a-048f-415a-bb24-518fffe5b686
+		summarizeBy: none
+		sourceColumn: risk
+
+		annotation SummarizationSetBy = Automatic
+
+	column owner
+		dataType: string
+		lineageTag: fa4c9a00-a019-4eb1-8f16-4e5ff8560bc4
+		summarizeBy: none
+		sourceColumn: owner
+
+		annotation SummarizationSetBy = Automatic
+
+	column savings_stage
+		dataType: string
+		lineageTag: 14a319b3-7b23-4711-b3d9-f1e7189657c1
+		summarizeBy: none
+		sourceColumn: savings_stage
+
+		annotation SummarizationSetBy = Automatic
+
+	column target_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: cf16ceef-d7b5-4119-92ad-18a351143f77
+		summarizeBy: none
+		sourceColumn: target_date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column implementation_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: e728b391-80e9-4a29-ada0-518b1bdf6ac2
+		summarizeBy: none
+		sourceColumn: implementation_date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column validation_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 3ed75d54-f7d7-42cc-a463-ae2a58df1078
+		summarizeBy: none
+		sourceColumn: validation_date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column realized_savings
+		dataType: double
+		lineageTag: f3511563-23d9-448e-be15-f2bb0bf22bd7
+		summarizeBy: sum
+		sourceColumn: realized_savings
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column realization_rate_pct
+		dataType: double
+		lineageTag: f47b58f6-b13d-446c-be06-d033666779fb
+		summarizeBy: sum
+		sourceColumn: realization_rate_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column baseline_population_type
+		dataType: string
+		lineageTag: 3e4b91e5-cb6a-4225-a91f-a21a20225257
+		summarizeBy: none
+		sourceColumn: baseline_population_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column baseline_start_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 152aedbe-385a-49c3-be03-586bd157fdd3
+		summarizeBy: none
+		sourceColumn: baseline_start_date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column baseline_end_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 5071d813-e94a-4505-bb5e-095219ffb3a1
+		summarizeBy: none
+		sourceColumn: baseline_end_date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column baseline_month_count
+		dataType: int64
+		formatString: 0
+		lineageTag: 3a1e42cd-6256-48a5-a59d-5dbf126ffe07
+		summarizeBy: sum
+		sourceColumn: baseline_month_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column assumption_text
+		dataType: string
+		lineageTag: 1ca5b526-af66-46ae-9ecd-f08a9a7e740f
+		summarizeBy: none
+		sourceColumn: assumption_text
+
+		annotation SummarizationSetBy = Automatic
+
+	column commitment_coverage_pct
+		dataType: double
+		lineageTag: ef0e0d9c-12e8-4ae2-a25f-c7aace84226e
+		summarizeBy: sum
+		sourceColumn: commitment_coverage_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column commitment_utilization_pct
+		dataType: double
+		lineageTag: 5fbf8809-160a-494a-b364-a8b5854ce724
+		summarizeBy: sum
+		sourceColumn: commitment_utilization_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column monthly_on_demand_cost
+		dataType: double
+		lineageTag: 1cb7064a-e998-422b-af2b-068d5a6ac0f1
+		summarizeBy: sum
+		sourceColumn: monthly_on_demand_cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column monthly_commitment_covered_cost
+		dataType: double
+		lineageTag: 04c2b9c6-8560-4aed-b47f-c49f33505a95
+		summarizeBy: sum
+		sourceColumn: monthly_commitment_covered_cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column monthly_underutilized_commitment_cost
+		dataType: double
+		lineageTag: 687be17d-0e41-4acd-9c69-475b7babc841
+		summarizeBy: sum
+		sourceColumn: monthly_underutilized_commitment_cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column source_record_count
+		dataType: int64
+		formatString: 0
+		lineageTag: 460f362a-83df-4c5d-8198-1886875f505f
+		summarizeBy: sum
+		sourceColumn: source_record_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_synthetic_baseline
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: a7323250-4e12-42b7-901d-588077ff15e9
+		summarizeBy: none
+		sourceColumn: is_synthetic_baseline
+
+		annotation SummarizationSetBy = Automatic
+
+	column savings_value_type
+		dataType: string
+		lineageTag: 41c37949-7e19-4482-9e04-46f1400817a0
+		summarizeBy: none
+		sourceColumn: savings_value_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column lifecycle_basis
+		dataType: string
+		lineageTag: 197b85df-ac87-450e-83e6-fc0f7687d1f0
+		summarizeBy: none
+		sourceColumn: lifecycle_basis
+
+		annotation SummarizationSetBy = Automatic
+
+	column lifecycle_disclosure
+		dataType: string
+		lineageTag: c9644d70-19e0-4ed3-9ecd-3e14a590d859
+		summarizeBy: none
+		sourceColumn: lifecycle_disclosure
+
+		annotation SummarizationSetBy = Automatic
+
+	column data_quality_status
+		dataType: string
+		lineageTag: b5308dc4-2f27-4ad7-9e4f-5c0474390ce4
+		summarizeBy: none
+		sourceColumn: data_quality_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column data_refresh_timestamp
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 436e1eb7-5d44-49d1-8bef-75a68ae027bd
+		summarizeBy: none
+		sourceColumn: data_refresh_timestamp
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Billing Account Key' =
+
+			VAR Provider =
+			    TRIM(
+			        COALESCE(
+			            'mart_optimization'[provider_name],
+			            ""
+			        )
+			    )
+			VAR BillingAccount =
+			    TRIM(
+			        COALESCE(
+			            'mart_optimization'[billing_account_id],
+			            ""
+			        )
+			    )
+			RETURN
+			    UPPER(
+			        IF(
+			            Provider = "",
+			            "Unknown",
+			            Provider
+			        )
+			    )
+			        & "|"
+			        & LOWER(
+			            IF(
+			                BillingAccount = "",
+			                "Unknown",
+			                BillingAccount
+			            )
+			        )
+		lineageTag: 1fcf8cb6-43e5-469f-9953-6f7f03644e60
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Key' =
+
+			VAR Provider =
+			    TRIM(
+			        COALESCE(
+			            'mart_optimization'[provider_name],
+			            ""
+			        )
+			    )
+			VAR Service =
+			    TRIM(
+			        COALESCE(
+			            'mart_optimization'[service_name],
+			            ""
+			        )
+			    )
+			RETURN
+			    UPPER(IF(Provider = "", "Unknown", Provider))
+			        & "|"
+			        & LOWER(IF(Service = "", "Unknown", Service))
+		lineageTag: 142cd39c-52c0-40d4-baa0-800e87cb926f
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Optimization Action Label' =
+
+			VAR ApplicationText =
+			    COALESCE(
+			        'mart_optimization'[application_name],
+			        "Unknown"
+			    )
+			VAR CategoryText =
+			    COALESCE(
+			        'mart_optimization'[recommendation_category],
+			        "Optimization"
+			    )
+			RETURN
+			    ApplicationText
+			        & " — "
+			        & CategoryText
+		lineageTag: da18fb65-b2a3-4488-b8f9-b98bfcca56c3
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Optimization Action Short' =
+
+			VAR RecommendationText =
+			    LOWER(
+			        COALESCE(
+			            'mart_optimization'[recommendation],
+			            ""
+			        )
+			    )
+
+			VAR ShortAction =
+			    SWITCH(
+			        TRUE(),
+
+			        CONTAINSSTRING(RecommendationText, "log retention"),
+			            "Reduce log retention",
+
+			        CONTAINSSTRING(RecommendationText, "storage lifecycle"),
+			            "Apply storage lifecycle",
+
+			        CONTAINSSTRING(RecommendationText, "unattached"),
+			            "Remove unattached storage",
+
+			        CONTAINSSTRING(RecommendationText, "idle"),
+			            "Eliminate idle resources",
+
+			        CONTAINSSTRING(RecommendationText, "rightsize"),
+			            "Rightsize compute",
+
+			        CONTAINSSTRING(RecommendationText, "nat gateway"),
+			            "Review NAT gateway usage",
+
+			        CONTAINSSTRING(RecommendationText, "commitment"),
+			            "Expand commitment coverage",
+
+			        CONTAINSSTRING(RecommendationText, "reserved"),
+			            "Increase reserved coverage",
+
+			        CONTAINSSTRING(RecommendationText, "savings plan"),
+			            "Purchase Savings Plans",
+
+			        CONTAINSSTRING(RecommendationText, "schedule"),
+			            "Schedule nonproduction shutdown",
+
+			        CONTAINSSTRING(RecommendationText, "tier"),
+			            "Move to lower-cost tier",
+
+			        COALESCE(
+			            'mart_optimization'[recommendation_category],
+			            "Review optimization"
+			        )
+			    )
+
+			RETURN
+			    COALESCE(
+			        'mart_optimization'[application_name],
+			        "Unknown application"
+			    )
+			        & " — "
+			        & ShortAction
+		lineageTag: bd9796a6-946b-4782-adef-b281eb629261
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition mart_optimization = m
+		mode: import
+		source =
+				let
+				    Source = GoogleBigQuery.Database([Implementation="2.0"]),
+				    #"finops-learning-lab_Database" = Source{[Name="finops-learning-lab",Kind="Database"]}[Data],
+				    retail_finops_mart_Schema = #"finops-learning-lab_Database"{[Name="retail_finops_mart",Kind="Schema"]}[Data],
+				    mart_optimization_Table = retail_finops_mart_Schema{[Name="mart_optimization",Kind="Table"]}[Data]
+				in
+				    mart_optimization_Table
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
