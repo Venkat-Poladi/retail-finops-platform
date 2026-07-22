@@ -1,4 +1,4 @@
-"""Tests for final packaging of the synthetic billing foundation."""
+"""Tests for final packaging of the complete Retail FinOps platform."""
 
 from pathlib import Path
 import json
@@ -7,18 +7,41 @@ import json
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def test_readme_claims_only_current_foundation() -> None:
+def test_readme_describes_current_platform_scope() -> None:
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
+    normalized = " ".join(readme.lower().split())
 
     required_phrases = {
-        "AWS CUR/Data Export-style synthetic billing",
-        "GCP BigQuery Billing Export-style nested JSONL billing",
-        "FOCUS-aligned normalization",
-        "Not yet built",
+        "deterministic synthetic data",
+        "cost allocation",
+        "forecasting",
+        "anomaly detection",
+        "optimization",
+        "unit economics",
+        "power bi",
     }
 
     for phrase in required_phrases:
-        assert phrase in readme
+        assert phrase in normalized, (
+            f"README is missing current-platform evidence: {phrase}"
+        )
+
+    assert "$188,009.96" in readme
+
+    # Excel was not used as a project output.
+    assert "excel financial model" not in normalized
+    assert "excel/" not in normalized
+
+    stale_claims = {
+        "this repository currently demonstrates the controlled synthetic billing "
+        "and normalization foundation only",
+        "power bi is the next development milestone",
+    }
+
+    for stale_claim in stale_claims:
+        assert stale_claim not in normalized, (
+            f"README still contains an outdated claim: {stale_claim}"
+        )
 
 
 def test_architecture_preserves_independent_provider_paths() -> None:
