@@ -173,6 +173,28 @@ Not yet built:
 
 This repository currently demonstrates the controlled synthetic billing and normalization foundation only.
 
-## Development integrity
+## Power BI report pages
 
-Milestones are committed only after genuine review, meaningful improvement, test execution, and output inspection on the actual commit date. Commit dates, system dates and empty commits are not manipulated to manufacture activity. See [`CONTRIBUTING.md`](CONTRIBUTING.md).
+The Power BI project is included in `/powerbi` as a PBIP source project.
+
+### 1. Executive Overview
+This page summarizes 12-month actual spend, approved budget, latest forecast, savings, and allocation coverage. It also shows provider mix, top applications driving spend, and a short leadership summary.
+
+![Executive Overview](docs/screenshots/powerbi/01_executive_overview.png)
+
+### 2. Cost Drivers & Unit Economics
+This page explains what changed in cloud cost and whether business efficiency improved. It includes transaction volume, month-over-month change, cost per transaction, unallocated cost percentage, service-level spend, and variance decomposition.
+
+![Cost Drivers & Unit Economics](docs/screenshots/powerbi/02_cost_drivers_unit_economics.png)
+
+### 3. Forecast Backtesting & Variance
+This page evaluates forecast performance using selected historical forecast versions against actualized spend. It includes target-month forecast versus actual, forecast error, provider accuracy, and monthly forecast error trends.
+
+![Forecast Backtesting & Variance](docs/screenshots/powerbi/03_forecast_backtesting_variance.png)
+
+### 4. Optimization & Controls
+This page shows optimization opportunities, savings progression from identified to realized, commitment coverage and utilization, anomaly count, close-checklist completion, outstanding accrual balance, and overall financial data quality.
+
+![Optimization & Controls](docs/screenshots/powerbi/04_optimization_controls.png)
+
+
