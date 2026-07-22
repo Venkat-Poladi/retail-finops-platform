@@ -1,4 +1,7 @@
 # Retail Co. FinOps Cost Management Platform
+> **Data disclosure:** Retail Co. is fictional, and all financial and operational results are produced from deterministic synthetic data. They do not represent a real companyâ€™s cloud spend or savings.
+The completed platform includes cost allocation, forecasting, anomaly detection,
+optimization, unit economics, and Power BI reporting.
 
 A portfolio-grade FinOps platform that converts modeled AWS and GCP billing data into trusted cost reporting, allocation, financial planning, anomaly detection, optimization recommendations, and business unit economics.
 
@@ -23,7 +26,7 @@ Configuration
 → Business activity and unit economics
 ```
 
-**Power BI status:** The semantic model and report are currently under development and are not included in this released milestone.
+**Power BI status:** The semantic model and four report pages are included in this release.
 
 ## Business problem
 
@@ -369,6 +372,30 @@ It does not currently claim:
 - automated remediation of optimization recommendations;
 - savings realized for a real company.
 
+
+## Validated results
+
+The completed platform covers cost allocation, forecasting, anomaly detection,
+optimization, unit economics, and Power BI reporting.
+
+**Reporting period:** July 1, 2025 through June 30, 2026
+
+| Metric | Validated result |
+|---|---:|
+| AWS canonical actual spend | $97,227.68 |
+| GCP canonical actual spend | $90,782.28 |
+| All-cloud canonical actual spend | $188,009.96 |
+| Approved budget | $155,599.69 |
+| Budget variance | 20.83% unfavorable |
+| Allocation coverage | 93.39% |
+| Known anomalies detected | 6 of 6 |
+| Total business transactions | 11.89 million |
+| Cost per transaction | ## Power BI report.0158 |
+| One-month-ahead forecast MAPE | 14.08% |
+| Annualized identified savings | $20,322.37 |
+| Annualized realized savings | $8,871.60 |
+| Financial reconciliation | PASS |
+| Repository tests | 56 passed |
 ## Power BI report pages
 
 The Power BI project is included in `/powerbi` as a PBIP source project.
@@ -392,6 +419,3 @@ This page evaluates forecast performance using selected historical forecast vers
 This page shows optimization opportunities, savings progression from identified to realized, commitment coverage and utilization, anomaly count, close-checklist completion, outstanding accrual balance, and overall financial data quality.
 
 ![Optimization & Controls](docs/screenshots/powerbi/04_optimization_controls.png)
-
-
-
