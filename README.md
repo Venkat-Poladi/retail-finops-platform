@@ -1,58 +1,33 @@
 # Retail Co. FinOps Cost Management Platform
-> **Data disclosure:** Retail Co. is fictional, and all financial and operational results are produced from deterministic synthetic data. They do not represent a real companyâ€™s cloud spend or savings.
-The completed platform includes cost allocation, forecasting, anomaly detection,
-optimization, unit economics, and Power BI reporting.
 
-A portfolio-grade FinOps platform that converts modeled AWS and GCP billing data into trusted cost reporting, allocation, financial planning, anomaly detection, optimization recommendations, and business unit economics.
+This project takes raw cloud billing data from AWS and GCP and turns it into something a finance or FinOps team can actually use: clean cost reporting, cost allocation to teams and apps, budgets and forecasts, anomaly detection, savings tracking, and unit economics.
 
-The project uses deterministic synthetic data for a fictional retail company. The financial results demonstrate the platform’s calculations and controls; they are not claims about a real company’s cloud spend or savings.
+Everything runs on synthetic data for a made-up retail company. The data is generated from a fixed seed, so the numbers are always the same when you run it. The results below show that the calculations and controls work—they are not real spend figures for a real business.
 
-## Current release
+## What it does
 
-**Completed scope:** Milestones 0–15
+Starting from provider billing exports, the platform walks the data through these steps:
 
-```text
-Configuration
-→ AWS and GCP billing generation
-→ Source validation
-→ FOCUS-aligned normalization
-→ Canonical cloud-cost fact
-→ Direct and shared allocation
-→ Budgeting and forecasting
-→ Variance analysis
-→ Monthly-close controls
-→ Anomaly detection
-→ Optimization and savings lifecycle
-→ Business activity and unit economics
-```
+1. Generate 12 months of AWS and GCP billing data.
+2. Validate each provider's data on its own terms.
+3. Normalize both into a shared FOCUS-aligned format.
+4. Build one canonical cloud-cost table.
+5. Allocate costs to apps, teams, environments, and cost centers, including shared platform costs.
+6. Compare actual spend against budgets and forecasts.
+7. Run the monthly close with accruals, journals, and reconciliation checks.
+8. Detect unusual spending.
+9. Find and track savings opportunities.
+10. Connect cloud cost back to business activity through unit economics.
+11. Present the results in a source-controlled Power BI report.
 
-**Power BI status:** The semantic model and four report pages are included in this release.
-
-## Business problem
-
-Retail Co. operates workloads across AWS and GCP but lacks a single trusted financial view of its cloud consumption.
-
-The company needs to:
-
-- preserve provider-specific billing behavior;
-- reconcile financial totals back to source data;
-- assign costs to accountable teams and applications;
-- allocate shared platform costs;
-- compare actual spend with budgets and forecasts;
-- explain cost changes through usage, rate, and scope;
-- detect unusual spending patterns;
-- identify and track savings opportunities;
-- evaluate commitment coverage and utilization;
-- connect cloud cost to business activity.
-
-This project builds the data and control layer needed to answer those questions.
+Every step reconciles back to the step before it, so totals never silently drift.
 
 ## Architecture
 
 ```mermaid
 flowchart LR
-    A[AWS synthetic billing] --> C[AWS source validation]
-    B[GCP synthetic billing] --> D[GCP source validation]
+    A[AWS synthetic billing] --> C[AWS validation]
+    B[GCP synthetic billing] --> D[GCP validation]
 
     C --> E[AWS FOCUS-aligned staging]
     D --> F[GCP FOCUS-aligned staging]
@@ -62,360 +37,198 @@ flowchart LR
 
     G --> H[Canonical cloud-cost fact]
 
-    H --> I[Direct and shared allocation]
+    H --> I[Cost allocation]
     H --> J[Budgeting and forecasting]
     H --> K[Anomaly detection]
     H --> L[Optimization analysis]
 
-    I --> M[Unit-economics cost base]
-    N[Retail business activity] --> M
+    I --> M[Unit economics]
+    J --> N[Variance and monthly close]
+    L --> O[Savings lifecycle]
 
-    M --> O[Unit economics]
-    J --> P[Variance and monthly-close controls]
-    L --> Q[Savings and commitment analysis]
+    H --> P[Financial and data-quality controls]
+    I --> P
+    J --> P
+    K --> P
+    L --> P
+    M --> P
 
-    H --> R[Reconciliation and data-quality controls]
-    I --> R
-    J --> R
-    K --> R
-    L --> R
-    O --> R
+    I --> Q[Power BI reporting]
+    J --> Q
+    K --> Q
+    L --> Q
+    M --> Q
 ```
 
-Detailed architecture is available in [`docs/architecture/current_architecture.md`](docs/architecture/current_architecture.md).
+Detailed architecture notes are available in [`docs/architecture/current_architecture.md`](docs/architecture/current_architecture.md).
 
-## What has been built
+## The numbers from the modeled data
 
-### Synthetic billing foundation
-
-- Twelve contiguous months of modeled retail activity
-- Deterministic, seeded data generation
-- AWS CUR/Data Export-style billing records
-- GCP BigQuery Billing Export-style nested JSONL records
-- Provider-specific accounts, projects, services, resources, SKUs, regions, and pricing
-- Credits, refunds, taxes, fees, adjustments, commitment charges, and late-arriving records
-- Traceable duplicates, invalid usage records, missing attribution, and injected cost anomalies
-
-### Validation and normalization
-
-- Independent AWS and GCP source validation
-- Provider-specific billing behavior preserved before conformance
-- FOCUS-aligned normalization
-- Separate expansion of nested GCP credits
-- Canonical-record and financial-validity indicators
-- Provider-level and all-cloud reconciliation
-- Auditable data-quality exception reporting
-
-### Cost allocation
-
-- Direct cost attribution
-- Shared-cost allocation
-- Application, department, environment, owner, and cost-center assignment
-- Allocation coverage and unallocated-cost reporting
-- Reconciliation between source cost and allocated cost
-
-### Financial planning and monthly close
-
-- Monthly actual-cost marts
-- Approved budgets
-- Versioned one-month-ahead forecasts
-- Forecast accuracy and bias measurement
-- Budget variance analysis
-- Usage, rate, and scope variance decomposition
-- Accruals and reversals
-- Reclassification journals
-- Chargeback journals
-- Monthly-close checklist and financial controls
-
-### Anomaly detection
-
-- Daily cost baselines
-- Absolute and relative variance analysis
-- Warning and critical severity thresholds
-- Traceability from anomaly summaries back to source records
-- Six deliberately injected and successfully detected anomalies
-
-### Optimization and savings management
-
-- Rightsizing and scheduling opportunities
-- Storage and operational-waste recommendations
-- Commitment coverage and utilization analysis
-- On-demand and commitment-covered cost analysis
-- Recommendation prioritization
-- Savings overlap controls
-- Savings lifecycle tracking from identified through realized
-
-### Unit economics
-
-- Monthly business-activity modeling
-- Transaction and API-request volumes
-- Active-customer and revenue metrics
-- Cost per transaction
-- Cost per active customer
-- Cost per API request
-- Monthly trends and prior-period comparisons
-
-## Current modeled results
-
-### Reporting periods
-
-- **Cloud cost:** July 1, 2025 through June 30, 2026
-- **Unit economics:** July 2025 through June 2026
-- **Forecast evaluation:** Nine actualized one-month-ahead forecasts
-
-### Financial and operational results
-
-| Metric | Modeled result |
-|---|---:|
-| AWS source rows | 18,668 |
-| GCP source rows | 17,584 |
-| AWS canonical actual spend | $97,227.68 |
-| GCP canonical actual spend | $90,782.28 |
-| All-cloud actual spend — 12 months | $188,009.96 |
-| Approved budget — 12 months | $155,599.69 |
-| Budget variance | $32,410.27 unfavorable |
-| Budget variance percentage | 20.83% unfavorable |
-| Allocation coverage | 93.39% |
-| Unallocated cost percentage | 6.61% |
-| Detected known anomalies | 6 of 6 |
+| What | Value |
+| --- | ---: |
+| AWS billing rows | 18,668 |
+| GCP billing rows | 17,584 |
+| AWS spend, 12 months | $97,227.68 |
+| GCP spend, 12 months | $90,782.28 |
+| Total cloud spend | $188,009.96 |
+| Approved budget | $155,599.69 |
+| Budget variance | $32,410.27 over budget (20.83%) |
+| Costs allocated to a team or app | 93.39% |
+| Costs left unallocated | 6.61% |
+| Known anomalies detected | 6 of 6 |
 | Commitment coverage | 33.70% |
 | Commitment utilization | 92.22% |
-| Total business transactions | 11.89 million |
-| All-cloud cost per transaction | $0.0158 |
-| Financial reconciliation status | PASS |
-| Monthly-close data-quality status | PASS |
+| Business transactions | 11.89 million |
+| Cost per transaction | $0.0158 |
+| Reconciliation checks | PASS |
+| Monthly-close checks | PASS |
 
-## Savings lifecycle
+## Savings
 
-Savings values are generated by the optimization rules and tracked through four operational stages.
+Savings are found by the optimization rules and then tracked through four stages, from first identified to realized.
 
-| Savings stage | Monthly result | Annualized result | Annual target | Status |
-|---|---:|---:|---:|---|
-| Identified | $1,693.53 | $20,322.37 | $15,000+ | Favorable |
-| Approved | $1,030.69 | $12,368.26 | $12,000+ | Favorable |
-| Implemented | $869.76 | $10,437.17 | $9,000+ | Favorable |
-| Realized | $739.30 | $8,871.60 | $7,500+ | Favorable |
+| Stage | Per month | Per year |
+| --- | ---: | ---: |
+| Identified | $1,693.53 | $20,322.37 |
+| Approved | $1,030.69 | $12,368.26 |
+| Implemented | $869.76 | $10,437.17 |
+| Realized | $739.30 | $8,871.60 |
 
-Identified opportunities equal approximately **10.81% of annual cloud spend**, while annualized realized savings equal approximately **4.72%**.
+Identified savings are about 10.81% of annual cloud spend. Realized savings are about 4.72%. Since the company is fictional, these are modeled outcomes, not money saved for anyone.
 
-Because Retail Co. is fictional, these are modeled opportunities and modeled lifecycle outcomes—not claims that money was saved for a real organization.
+## Forecasting
 
-## Forecast performance
+The platform makes a one-month-ahead forecast each month and then checks it against what actually happened.
 
-| Forecast metric | Result |
-|---|---:|
+| Measure | Result |
+| --- | ---: |
 | One-month-ahead MAPE | 14.08% |
-| Forecast WAPE | 12.67% |
+| WAPE | 12.67% |
 | Forecast bias | -0.77% |
-| Aggregate actual-versus-forecast variance | 0.78% |
-| MAPE target | Below 10% |
-| Target status | TARGET_MISSED |
+| Total actual-versus-forecast variance | 0.78% |
 
-The aggregate forecast is close to actual spend because monthly overforecasts and underforecasts partially offset each other. However, the one-month-ahead MAPE remains above the target.
+Across the full year, forecast spend lands within 0.78% of actual spend because months forecast too high partly cancel months forecast too low. Looking month by month, the average error is 14.08% (MAPE). The near-zero bias means the forecast is not consistently high or low—the error is mainly in the size of the monthly swings, not the direction.
 
-The honest conclusion is that forecasting has improved from the modeled starting position but still requires refinement.
+## Power BI report
 
-## Key design decisions
-
-### Provider billing hierarchies remain separate
-
-AWS payer accounts and usage accounts are not treated as direct equivalents of GCP projects.
-
-- AWS payer and usage-account fields remain distinct.
-- GCP billing accounts and projects remain distinct.
-- Common dimensions are created only after provider-specific processing.
-
-### Provider charge classifications are preserved
-
-AWS line-item types and GCP cost and credit types remain available for auditability.
-
-They are mapped into common charge categories only after the original provider classifications have been retained.
-
-### GCP nested records are handled safely
-
-GCP labels and credits remain nested in the source representation.
-
-Credits are expanded separately from labels to prevent cross-join multiplication and financial overstatement.
-
-### Source defects remain auditable
-
-Duplicates, invalid usage, missing attribution, and late-arriving records are preserved and flagged rather than silently deleted.
-
-Canonical and financial-validity fields control which records contribute to financial reporting.
-
-### Fact tables do not filter each other
-
-The analytical design uses shared dimensions and controlled marts instead of direct fact-to-fact relationships.
-
-This prevents duplicate financial totals when tables have different grains.
-
-## BigQuery datasets
-
-| Dataset | Purpose |
-|---|---|
-| `retail_finops_raw` | Provider landing tables and ingestion controls |
-| `retail_finops_staging` | Provider normalization and FOCUS-aligned conformance |
-| `retail_finops_core` | Canonical cloud-cost fact and shared dimensions |
-| `retail_finops_mart` | Allocation, planning, anomaly, optimization, and unit-economics marts |
-| `retail_finops_control` | Reconciliation and data-quality control outputs |
-
-## Repository structure
-
-```text
-config/                Business dimensions, mappings, prices, and assumptions
-generator/             Deterministic AWS, GCP, and business-activity generation
-validation/            Provider-specific validation and exception reporting
-normalization/         Local FOCUS-aligned normalization utilities
-
-sql/raw/               BigQuery landing-layer definitions
-sql/staging/           AWS and GCP normalization and conformed staging
-sql/core/              Canonical cloud-cost fact
-sql/allocation/        Direct and shared allocation logic
-sql/planning/          Actuals, budgets, forecasts, variance, and monthly close
-sql/anomaly/           Cost-series preparation, scoring, and anomaly marts
-sql/optimization/      Recommendations, savings, and commitment analysis
-sql/unit_economics/    Business-activity and unit-economics marts
-sql/controls/          Reconciliation, quality, and financial controls
-
-scripts/                BigQuery milestone runners and repository utilities
-tests/                  Automated configuration, generator, and validation tests
-data/                   Deterministic synthetic source data and control outputs
-docs/                   Architecture, methodology, and supporting documentation
-```
-
-## Run locally
-
-### 1. Create and activate the Python environment
-
-```powershell
-python -m venv .venv
-.venv\Scripts\Activate.ps1
-pip install -r requirements.txt
-```
-
-### 2. Generate the AWS and GCP source data
-
-```powershell
-python -m generator.aws_billing_generator
-python -m generator.gcp_billing_generator
-```
-
-### 3. Validate the generated source files
-
-```powershell
-python -m validation.run_source_validation
-```
-
-### 4. Run local normalization and reconciliation
-
-```powershell
-python -m normalization.run_focus_normalization
-```
-
-### 5. Run automated tests
-
-```powershell
-python -m pytest
-```
-
-### 6. Run repository-quality checks
-
-```powershell
-python scripts\repository_quality_check.py
-```
-
-BigQuery transformations are executed through the milestone-specific PowerShell runners in the `scripts/` directory. Each runner executes its SQL dependencies and associated controls in order.
-
-## Control philosophy
-
-The project follows several financial-control principles:
-
-- Source totals must reconcile to normalized totals.
-- Normalized totals must reconcile to the canonical cost fact.
-- Allocation must not create or destroy cost.
-- Journals must balance.
-- Reversals must link to their original accruals.
-- Variance decomposition must reconcile to the total cost change.
-- Savings stages must follow the correct lifecycle order.
-- Known anomalies must remain detectable.
-- Unit-economics cost and business-activity periods must align.
-- Failed controls stop milestone completion.
-
-## Power BI status
-
-The Power BI semantic model and report are the next development milestone.
-
-The planned source-controlled Power BI project includes:
-
-- TMDL semantic-model definitions
-- DAX measures
-- Dimension-to-fact relationships
-- Executive reporting
-- Financial planning and variance analysis
-- Optimization and savings reporting
-- Unit economics and control reporting
-- A dedicated measure-QA page
-
-Power BI results will be committed only after model reconciliation, measure validation, and visual QA are complete.
-
-## Scope boundary
-
-This repository demonstrates enterprise-grade billing structures, FinOps workflows, and financial controls using deterministic synthetic data.
-
-It does not currently claim:
-
-- enterprise spend volume;
-- live production billing ingestion;
-- production scheduling or orchestration;
-- production identity and secret management;
-- operational service-level objectives;
-- automated remediation of optimization recommendations;
-- savings realized for a real company.
-
-
-## Validated results
-
-The completed platform covers cost allocation, forecasting, anomaly detection,
-optimization, unit economics, and Power BI reporting.
-
-**Reporting period:** July 1, 2025 through June 30, 2026
-
-| Metric | Validated result |
-|---|---:|
-| AWS canonical actual spend | $97,227.68 |
-| GCP canonical actual spend | $90,782.28 |
-| All-cloud canonical actual spend | $188,009.96 |
-| Approved budget | $155,599.69 |
-| Budget variance | 20.83% unfavorable |
-| Allocation coverage | 93.39% |
-| Known anomalies detected | 6 of 6 |
-| Total business transactions | 11.89 million |
-| Cost per transaction | ## Power BI report.0158 |
-| One-month-ahead forecast MAPE | 14.08% |
-| Annualized identified savings | $20,322.37 |
-| Annualized realized savings | $8,871.60 |
-| Financial reconciliation | PASS |
-| Repository tests | 56 passed |
-## Power BI report pages
-
-The Power BI project is included in `/powerbi` as a PBIP source project.
+The [`powerbi/`](powerbi/) folder contains the full Power BI project as PBIP source: the semantic model, DAX measures, relationships, and four report pages.
 
 ### 1. Executive Overview
-This page summarizes 12-month actual spend, approved budget, latest forecast, savings, and allocation coverage. It also shows provider mix, top applications driving spend, and a short leadership summary.
+
+Shows total spend, approved budget, forecast, savings, allocation coverage, provider mix, top applications, and a short management-focused summary.
 
 ![Executive Overview](docs/screenshots/powerbi/01_executive_overview.png)
 
 ### 2. Cost Drivers & Unit Economics
-This page explains what changed in cloud cost and whether business efficiency improved. It includes transaction volume, month-over-month change, cost per transaction, unallocated cost percentage, service-level spend, and variance decomposition.
+
+Explains what changed in cloud cost and whether business efficiency improved. It includes service-level spend, month-over-month movement, variance decomposition, transaction volume, and cost per transaction.
 
 ![Cost Drivers & Unit Economics](docs/screenshots/powerbi/02_cost_drivers_unit_economics.png)
 
 ### 3. Forecast Backtesting & Variance
-This page evaluates forecast performance using selected historical forecast versions against actualized spend. It includes target-month forecast versus actual, forecast error, provider accuracy, and monthly forecast error trends.
+
+Compares historical forecast versions with actual spend and shows forecast error, provider accuracy, and monthly forecast trends.
 
 ![Forecast Backtesting & Variance](docs/screenshots/powerbi/03_forecast_backtesting_variance.png)
 
 ### 4. Optimization & Controls
-This page shows optimization opportunities, savings progression from identified to realized, commitment coverage and utilization, anomaly count, close-checklist completion, outstanding accrual balance, and overall financial data quality.
+
+Shows optimization opportunities, the savings lifecycle, commitment coverage and utilization, anomaly detection, monthly-close checks, and financial data quality.
 
 ![Optimization & Controls](docs/screenshots/powerbi/04_optimization_controls.png)
+
+## How it is built
+
+The data moves through five BigQuery datasets:
+
+| Dataset | What lives here |
+| --- | --- |
+| `retail_finops_raw` | Landing tables straight from the providers |
+| `retail_finops_staging` | Normalization and FOCUS conformance |
+| `retail_finops_core` | The canonical cost fact and shared dimensions |
+| `retail_finops_mart` | Allocation, planning, anomaly, optimization, and unit economics |
+| `retail_finops_control` | Reconciliation and quality checks |
+
+Repository folders:
+
+```text
+config/          Business dimensions, pricing, mappings, and assumptions
+generator/       Builds the AWS, GCP, and business-activity data
+validation/      Checks each provider's source data
+normalization/   FOCUS-aligned normalization for local validation
+sql/             BigQuery logic grouped by platform stage
+scripts/         BigQuery runners and repository checks
+tests/           Automated tests
+data/            Generated synthetic data and control outputs
+powerbi/         Power BI model and report as PBIP source
+docs/            Architecture, screenshots, and methodology notes
+```
+
+## A few design choices worth knowing
+
+**AWS and GCP are kept separate until it is safe to combine them.** AWS payer and usage accounts are not the same as GCP billing accounts and projects, so they stay distinct through validation and normalization. Shared dimensions are created only after each provider is processed on its own terms.
+
+**Bad records are flagged, not deleted.** Duplicates, invalid usage, missing owners, and late-arriving records are kept and marked. Flags decide which records count toward financial reporting, so nothing disappears without a trace.
+
+**GCP nested data is handled carefully.** GCP credits are expanded separately from labels so a record cannot be multiplied and overstate cost.
+
+**Fact tables do not join directly to each other.** They share dimensions instead. This stops the same dollars from being counted twice when tables are stored at different levels of detail.
+
+## Run it locally
+
+You will need Python.
+
+### Windows PowerShell
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements-dev.txt
+```
+
+### macOS or Linux
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements-dev.txt
+```
+
+Generate the data, validate it, normalize it, and run the repository checks:
+
+```bash
+python -m generator.aws_billing_generator
+python -m generator.gcp_billing_generator
+python -m validation.run_source_validation
+python -m normalization.run_focus_normalization
+python scripts/run_repo_ci.py
+```
+
+The BigQuery steps run through the PowerShell scripts in `scripts/`. Windows users can run them directly. On macOS or Linux, install PowerShell 7 and run the same scripts with `pwsh`.
+
+```bash
+pwsh ./scripts/run_bigquery_allocation.ps1
+```
+
+## The controls behind it
+
+The platform is built so mistakes get caught instead of shipped:
+
+- Source totals have to match normalized totals.
+- Normalized totals have to match the canonical cost table.
+- Allocation cannot add or lose a dollar.
+- Every journal has to balance.
+- Every reversal has to point back to its original accrual.
+- Variance has to add up to the actual cost change.
+- Savings have to move through the stages in order.
+- Known anomalies have to stay detectable.
+- Unit-economics cost and activity periods have to line up.
+- Failed checks stop milestone completion.
+
+## What this is and is not
+
+This project demonstrates real-world billing structures, FinOps workflows, and financial controls using deterministic synthetic data.
+
+It does not claim to be live production billing, real enterprise spend, production scheduling, production identity or secret management, or savings actually banked by a real company.
+
+See [`CONTRIBUTING.md`](CONTRIBUTING.md) for how the project is developed and reviewed. Commits are made only after the work and its controls have run—there are no empty commits or fake dates used to pad activity.

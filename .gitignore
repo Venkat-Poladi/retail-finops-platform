@@ -39,3 +39,9 @@ output/*
 **/.pbi/cache.abf
 *.bak
 ~$*
+
+# Regenerable synthetic and derived outputs
+data/focus_staging/
+data/schema_hardening/
+data/synthetic_enterprise_usage/aws/aws_billing.csv
+data/synthetic_enterprise_usage/gcp/gcp_billing.jsonl
