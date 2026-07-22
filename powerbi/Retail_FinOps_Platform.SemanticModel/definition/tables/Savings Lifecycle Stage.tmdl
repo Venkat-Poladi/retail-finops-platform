@@ -1,0 +1,41 @@
+table 'Savings Lifecycle Stage'
+	lineageTag: de8b7c8a-7d4e-4caf-8830-939e8da1ecf3
+
+	measure 'Measure 3'
+		lineageTag: c66b7a61-303b-4ba0-8b0b-caca16d3cad1
+
+		annotation 43dbc3e8-3a1c-4b6f-9923-b49ff7d6691c = True
+
+	column Stage
+		lineageTag: 9832a4ad-ef28-4cb1-af77-fdc75c8f6b88
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Stage]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sort Order'
+		formatString: 0
+		lineageTag: ceac0623-6330-442a-9bce-f731dbad5704
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Sort Order]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Savings Lifecycle Stage' = calculated
+		mode: import
+		source =
+
+				DATATABLE(
+				    "Stage", STRING,
+				    "Sort Order", INTEGER,
+				    {
+				        { "Identified", 1 },
+				        { "Approved", 2 },
+				        { "Implemented", 3 },
+				        { "Realized", 4 }
+				    }
+				)
+
+	annotation PBI_Id = 74f85da4b9f04f898c8da93a9ca8197b

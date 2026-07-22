@@ -1,0 +1,221 @@
+table mart_budget
+	isHidden
+	lineageTag: 97995872-6461-428d-b421-6594d4b1e588
+
+	column budget_record_id
+		dataType: string
+		isHidden
+		lineageTag: ba6979cb-9918-478c-b7b3-fa9b91954edd
+		summarizeBy: none
+		sourceColumn: budget_record_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column budget_version
+		dataType: string
+		isHidden
+		lineageTag: 87448326-44ea-45ca-b17e-4c5ba3b28a4c
+		summarizeBy: none
+		sourceColumn: budget_version
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column budget_month
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		lineageTag: 48d85959-1cbf-4acb-a961-a606729a6dc7
+		summarizeBy: none
+		sourceColumn: budget_month
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column provider_name
+		dataType: string
+		isHidden
+		lineageTag: 7ceb3296-e0ae-4757-ac9d-15955c8ae2a8
+		summarizeBy: none
+		sourceColumn: provider_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column application_name
+		dataType: string
+		isHidden
+		lineageTag: f12d4764-50ec-4411-ad38-4c4f6b1019a7
+		summarizeBy: none
+		sourceColumn: application_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column department_name
+		dataType: string
+		isHidden
+		lineageTag: 053cadcc-aa88-49dc-97cf-5d5169d11d73
+		summarizeBy: none
+		sourceColumn: department_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column environment_name
+		dataType: string
+		isHidden
+		lineageTag: 88efe417-d201-46be-ac00-b0bb395075be
+		summarizeBy: none
+		sourceColumn: environment_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column cost_center
+		dataType: string
+		isHidden
+		lineageTag: cd672862-d898-4b85-9303-681098e15bf8
+		summarizeBy: none
+		sourceColumn: cost_center
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column owner_name
+		dataType: string
+		isHidden
+		lineageTag: 620c66f1-588c-4dbc-aacf-62c9d6c36211
+		summarizeBy: none
+		sourceColumn: owner_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column billing_currency
+		dataType: string
+		isHidden
+		lineageTag: a5d6d4af-9845-45b4-b900-1c29da230ae5
+		summarizeBy: none
+		sourceColumn: billing_currency
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column baseline_month
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		lineageTag: bcf9c91f-afcb-4285-8770-ead0c728e523
+		summarizeBy: none
+		sourceColumn: baseline_month
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column baseline_cost
+		dataType: double
+		isHidden
+		lineageTag: 0d921227-05d7-4228-bdb3-fc162df1fbb1
+		summarizeBy: sum
+		sourceColumn: baseline_cost
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column modeled_monthly_growth_rate
+		dataType: double
+		isHidden
+		lineageTag: 1d8477b7-6423-4db9-aeb1-e38db1bb9dd9
+		summarizeBy: sum
+		sourceColumn: modeled_monthly_growth_rate
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column approved_budget_cost
+		dataType: double
+		isHidden
+		lineageTag: 305633d9-e26f-47c9-b065-e630f07c91c4
+		summarizeBy: sum
+		sourceColumn: approved_budget_cost
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column budget_methodology
+		dataType: string
+		isHidden
+		lineageTag: 0de943be-e176-4505-8eb9-93c751b40e95
+		summarizeBy: none
+		sourceColumn: budget_methodology
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_modeled
+		dataType: boolean
+		isHidden
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 740148f9-afcd-4449-8d57-9061ed3b2cab
+		summarizeBy: none
+		sourceColumn: is_modeled
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column data_refresh_timestamp
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: 7c12f860-154b-440b-815d-1ad19e5db738
+		summarizeBy: none
+		sourceColumn: data_refresh_timestamp
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition mart_budget = m
+		mode: import
+		source =
+				let
+				    Source = GoogleBigQuery.Database([Implementation="2.0"]),
+				    #"finops-learning-lab_Database" = Source{[Name="finops-learning-lab",Kind="Database"]}[Data],
+				    retail_finops_mart_Schema = #"finops-learning-lab_Database"{[Name="retail_finops_mart",Kind="Schema"]}[Data],
+				    mart_budget_Table = retail_finops_mart_Schema{[Name="mart_budget",Kind="Table"]}[Data]
+				in
+				    mart_budget_Table
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table

@@ -1,0 +1,58 @@
+table dim_billing_account
+	lineageTag: 184567df-014d-447d-bde4-0a99017e2458
+
+	column billing_account_key
+		dataType: string
+		lineageTag: aa96a34c-011a-4cf3-9d2b-de1941c54ca8
+		summarizeBy: none
+		sourceColumn: billing_account_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column provider_name
+		dataType: string
+		lineageTag: 5cb71a58-064e-40c5-a2a0-54a735c4a161
+		summarizeBy: none
+		sourceColumn: provider_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column billing_account_id
+		dataType: string
+		lineageTag: 08e79fcd-f0fc-458b-af1d-7816aee8dfb5
+		summarizeBy: none
+		sourceColumn: billing_account_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column billing_account_name
+		dataType: string
+		lineageTag: fe3b6310-e24d-4793-ade2-be4cc94870ae
+		summarizeBy: none
+		sourceColumn: billing_account_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_unknown
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 3502d56a-fdd7-4498-8a78-4a807404c62c
+		summarizeBy: none
+		sourceColumn: is_unknown
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_billing_account = m
+		mode: import
+		source =
+				let
+				    Source = GoogleBigQuery.Database([Implementation="2.0"]),
+				    #"finops-learning-lab_Database" = Source{[Name="finops-learning-lab",Kind="Database"]}[Data],
+				    retail_finops_core_Schema = #"finops-learning-lab_Database"{[Name="retail_finops_core",Kind="Schema"]}[Data],
+				    dim_billing_account_Table = retail_finops_core_Schema{[Name="dim_billing_account",Kind="Table"]}[Data]
+				in
+				    dim_billing_account_Table
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table

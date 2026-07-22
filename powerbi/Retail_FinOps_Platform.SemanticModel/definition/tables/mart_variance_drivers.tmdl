@@ -1,0 +1,352 @@
+table mart_variance_drivers
+	isHidden
+	lineageTag: 3c5d928b-5b25-417c-a8e2-dbfc0dc1f8dd
+
+	column billing_month
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		lineageTag: 7bb228cf-effc-4706-a8db-533fa093b9d9
+		summarizeBy: none
+		sourceColumn: billing_month
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column provider_name
+		dataType: string
+		isHidden
+		lineageTag: da5c4dd1-a01f-4220-8cdd-9cec92da19a7
+		summarizeBy: none
+		sourceColumn: provider_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column application_name
+		dataType: string
+		isHidden
+		lineageTag: 5c140204-a673-40a6-b621-9fea1a727f91
+		summarizeBy: none
+		sourceColumn: application_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column department_name
+		dataType: string
+		isHidden
+		lineageTag: dbf1824f-829a-4ccf-ba93-bd42d01e90c1
+		summarizeBy: none
+		sourceColumn: department_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column environment_name
+		dataType: string
+		isHidden
+		lineageTag: 5a593fe6-47ee-4982-862b-0552280d3066
+		summarizeBy: none
+		sourceColumn: environment_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column cost_center
+		dataType: string
+		isHidden
+		lineageTag: b61a0ed5-c1c7-4c36-aafa-4b1a2ec36e38
+		summarizeBy: none
+		sourceColumn: cost_center
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column service_name
+		dataType: string
+		isHidden
+		lineageTag: 66d88c47-05da-4fc6-9177-59e09d046eb8
+		summarizeBy: none
+		sourceColumn: service_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column sku_id
+		dataType: string
+		isHidden
+		lineageTag: 2862383c-4326-4127-aa96-297a4c46663c
+		summarizeBy: none
+		sourceColumn: sku_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column sku_name
+		dataType: string
+		isHidden
+		lineageTag: 89182171-1f7c-44de-92fa-e617b3df4439
+		summarizeBy: none
+		sourceColumn: sku_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column charge_category
+		dataType: string
+		isHidden
+		lineageTag: 869e17d3-e9ec-444b-928a-63398221e194
+		summarizeBy: none
+		sourceColumn: charge_category
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column billing_currency
+		dataType: string
+		isHidden
+		lineageTag: 9fde0427-e61f-4d91-8fb8-4a57419c8002
+		summarizeBy: none
+		sourceColumn: billing_currency
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column prior_quantity
+		dataType: double
+		isHidden
+		lineageTag: 3c7b50d0-3308-4078-b8aa-2bf279515d20
+		summarizeBy: sum
+		sourceColumn: prior_quantity
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column current_quantity
+		dataType: double
+		isHidden
+		lineageTag: 1e5cf5fd-71b9-46e8-bff7-6dffbb8c53a8
+		summarizeBy: sum
+		sourceColumn: current_quantity
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column prior_effective_rate
+		dataType: double
+		isHidden
+		lineageTag: 0fdf7bd6-2d7c-4239-93fe-51bd99edd9a0
+		summarizeBy: sum
+		sourceColumn: prior_effective_rate
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column current_effective_rate
+		dataType: double
+		isHidden
+		lineageTag: edb74a55-d01a-45b6-8619-2143b97b5c9a
+		summarizeBy: sum
+		sourceColumn: current_effective_rate
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column prior_cost
+		dataType: double
+		isHidden
+		lineageTag: 0c4e3277-7bc9-4e3a-b182-e55a516309f6
+		summarizeBy: sum
+		sourceColumn: prior_cost
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column current_cost
+		dataType: double
+		isHidden
+		lineageTag: b7879683-e767-445a-8a41-57d33f732ef3
+		summarizeBy: sum
+		sourceColumn: current_cost
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_cost_change
+		dataType: double
+		isHidden
+		lineageTag: edab6777-4bc4-4c73-a9a6-eac24eac334f
+		summarizeBy: sum
+		sourceColumn: total_cost_change
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column usage_effect
+		dataType: double
+		isHidden
+		lineageTag: 073b50c9-7e8e-48aa-8429-f762b7ce3291
+		summarizeBy: sum
+		sourceColumn: usage_effect
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column rate_effect
+		dataType: double
+		isHidden
+		lineageTag: 5ece144d-434c-47e1-b80d-082906daeff5
+		summarizeBy: sum
+		sourceColumn: rate_effect
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column scope_effect
+		dataType: double
+		isHidden
+		lineageTag: bd4615d2-13eb-472e-99be-07f7ae9336ea
+		summarizeBy: sum
+		sourceColumn: scope_effect
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column decomposition_variance
+		dataType: double
+		isHidden
+		lineageTag: edf57fb1-390b-40b3-afb6-8a425a658d44
+		summarizeBy: sum
+		sourceColumn: decomposition_variance
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column scope_classification
+		dataType: string
+		isHidden
+		lineageTag: be48a36a-c0cb-43e6-b19a-dfe57b9406fc
+		summarizeBy: none
+		sourceColumn: scope_classification
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column decomposition_status
+		dataType: string
+		isHidden
+		lineageTag: 9faedbb4-0815-4bcd-86c4-646ccd446c99
+		summarizeBy: none
+		sourceColumn: decomposition_status
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column data_refresh_timestamp
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: c2ab7d73-0724-43ab-ab59-a89dc22dcd41
+		summarizeBy: none
+		sourceColumn: data_refresh_timestamp
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Billing Account Key' =
+
+			VAR Provider =
+			    TRIM(
+			        COALESCE(
+			            'fct_cloud_accrual'[provider_name],
+			            ""
+			        )
+			    )
+			VAR BillingAccount =
+			    TRIM(
+			        COALESCE(
+			            'fct_cloud_accrual'[billing_account_id],
+			            ""
+			        )
+			    )
+			RETURN
+			    UPPER(IF(Provider = "", "Unknown", Provider))
+			        & "|"
+			        & LOWER(IF(BillingAccount = "", "Unknown", BillingAccount))
+		dataType: string
+		isHidden
+		lineageTag: d8f9a950-3bb6-4909-88fe-20184eac283f
+		summarizeBy: none
+
+		changedProperty = DataType
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition mart_variance_drivers = m
+		mode: import
+		source =
+				let
+				    Source = GoogleBigQuery.Database([Implementation="2.0"]),
+				    #"finops-learning-lab_Database" = Source{[Name="finops-learning-lab",Kind="Database"]}[Data],
+				    retail_finops_mart_Schema = #"finops-learning-lab_Database"{[Name="retail_finops_mart",Kind="Schema"]}[Data],
+				    mart_variance_drivers_Table = retail_finops_mart_Schema{[Name="mart_variance_drivers",Kind="Table"]}[Data]
+				in
+				    mart_variance_drivers_Table
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table

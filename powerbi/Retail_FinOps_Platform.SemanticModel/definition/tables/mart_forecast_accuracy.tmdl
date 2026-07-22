@@ -1,0 +1,156 @@
+table mart_forecast_accuracy
+	isHidden
+	lineageTag: b9e67248-c93a-487a-beb8-1150db030ad8
+
+	column provider_name
+		dataType: string
+		isHidden
+		lineageTag: 6f178b64-72a0-4146-a9e4-bee7b5081de4
+		summarizeBy: none
+		sourceColumn: provider_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column forecast_observation_count
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 1bf2d8f4-d4c8-4e2a-9d29-49f15b8fd9f8
+		summarizeBy: sum
+		sourceColumn: forecast_observation_count
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column mape_observation_count
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 85b4d7bf-f66f-45ec-a77a-3edc493246ea
+		summarizeBy: sum
+		sourceColumn: mape_observation_count
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column forecast_mape
+		dataType: double
+		isHidden
+		lineageTag: f6b33b6a-e87d-4071-b98d-6d0a358a8284
+		summarizeBy: sum
+		sourceColumn: forecast_mape
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column forecast_bias_pct
+		dataType: double
+		isHidden
+		lineageTag: b4d0ebf2-d494-4550-b328-ae850d122160
+		summarizeBy: sum
+		sourceColumn: forecast_bias_pct
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_forecast_cost
+		dataType: double
+		isHidden
+		lineageTag: b0e5e254-9e9b-47d1-bbe0-c93103aa45c8
+		summarizeBy: sum
+		sourceColumn: total_forecast_cost
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_actual_cost
+		dataType: double
+		isHidden
+		lineageTag: 57747158-aed5-402f-a273-07ca663f6a1f
+		summarizeBy: sum
+		sourceColumn: total_actual_cost
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_forecast_error
+		dataType: double
+		isHidden
+		lineageTag: ba2300ec-49b8-4c82-b418-8b5d870c236c
+		summarizeBy: sum
+		sourceColumn: total_forecast_error
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column target_mape
+		dataType: double
+		isHidden
+		lineageTag: 3cf96b1d-72ba-443b-ac39-9d87c2dd8bd9
+		summarizeBy: sum
+		sourceColumn: target_mape
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column mape_target_status
+		dataType: string
+		isHidden
+		lineageTag: 56008868-052e-498a-85f6-7f6ce2e6d4b8
+		summarizeBy: none
+		sourceColumn: mape_target_status
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column data_refresh_timestamp
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: 02cc905c-b902-4ed7-890c-e28da9eb5264
+		summarizeBy: none
+		sourceColumn: data_refresh_timestamp
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition mart_forecast_accuracy = m
+		mode: import
+		source =
+				let
+				    Source = GoogleBigQuery.Database([Implementation="2.0"]),
+				    #"finops-learning-lab_Database" = Source{[Name="finops-learning-lab",Kind="Database"]}[Data],
+				    retail_finops_mart_Schema = #"finops-learning-lab_Database"{[Name="retail_finops_mart",Kind="Schema"]}[Data],
+				    mart_forecast_accuracy_Table = retail_finops_mart_Schema{[Name="mart_forecast_accuracy",Kind="Table"]}[Data]
+				in
+				    mart_forecast_accuracy_Table
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table

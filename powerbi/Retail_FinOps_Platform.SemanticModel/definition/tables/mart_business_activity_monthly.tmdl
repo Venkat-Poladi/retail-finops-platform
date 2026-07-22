@@ -1,0 +1,322 @@
+table mart_business_activity_monthly
+	isHidden
+	lineageTag: b8ad3d9f-2a62-40f1-89b1-9f8fc81d1a45
+
+	column activity_month_id
+		dataType: string
+		isHidden
+		lineageTag: 608bfb1d-eb6d-4891-a3eb-9d12e316721d
+		summarizeBy: none
+		sourceColumn: activity_month_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column activity_month
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		lineageTag: e84ec457-a1ff-4857-9f96-338dd1991c6b
+		summarizeBy: none
+		sourceColumn: activity_month
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column application_name
+		dataType: string
+		isHidden
+		lineageTag: 405b1448-154f-40b4-8c26-0e5b59dcf270
+		summarizeBy: none
+		sourceColumn: application_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column department_name
+		dataType: string
+		isHidden
+		lineageTag: 8bf8eb03-0296-4502-8e6a-26f799175d99
+		summarizeBy: none
+		sourceColumn: department_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column environment_name
+		dataType: string
+		isHidden
+		lineageTag: f2a38590-4aec-425d-b953-465eb89ae90d
+		summarizeBy: none
+		sourceColumn: environment_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column cost_center
+		dataType: string
+		isHidden
+		lineageTag: c1dcb9fc-70e4-494f-ae6c-e532f8052427
+		summarizeBy: none
+		sourceColumn: cost_center
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column owner_name
+		dataType: string
+		isHidden
+		lineageTag: ff845850-db28-4622-be1b-4347f7d5de19
+		summarizeBy: none
+		sourceColumn: owner_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column workload_ids
+		dataType: string
+		isHidden
+		lineageTag: ee280fc3-d1ef-4205-a26a-f63e7b010af7
+		summarizeBy: none
+		sourceColumn: workload_ids
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column business_drivers
+		dataType: string
+		isHidden
+		lineageTag: 24b6e9d6-01f9-4d47-b63e-cdfbccbd6dfb
+		summarizeBy: none
+		sourceColumn: business_drivers
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column workload_count
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: d83862b3-d03b-4982-8e84-6127cb6afb35
+		summarizeBy: sum
+		sourceColumn: workload_count
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column activity_day_count
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: a66b8565-9143-458c-8a82-30a6cc22af14
+		summarizeBy: sum
+		sourceColumn: activity_day_count
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_demand_index
+		dataType: double
+		isHidden
+		lineageTag: 896e2101-1c5a-47e9-94a9-d49e105d1a2e
+		summarizeBy: sum
+		sourceColumn: total_demand_index
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column traffic
+		dataType: double
+		isHidden
+		lineageTag: 235a9c67-92d3-4346-b818-bbb13f1a0b9c
+		summarizeBy: sum
+		sourceColumn: traffic
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column transactions
+		dataType: double
+		isHidden
+		lineageTag: 91525901-386e-40f0-80dc-001d4ff83775
+		summarizeBy: sum
+		sourceColumn: transactions
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column queries
+		dataType: double
+		isHidden
+		lineageTag: 86ef8bf0-17a7-428f-8556-b9cff7f00364
+		summarizeBy: sum
+		sourceColumn: queries
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column support_requests
+		dataType: double
+		isHidden
+		lineageTag: 0aedbc4a-1f4d-49cc-bd89-84894c3d84f1
+		summarizeBy: sum
+		sourceColumn: support_requests
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ai_requests
+		dataType: double
+		isHidden
+		lineageTag: 981d0e69-f28d-404c-bff9-d6e1fd5b1431
+		summarizeBy: sum
+		sourceColumn: ai_requests
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column api_requests
+		dataType: double
+		isHidden
+		lineageTag: ba01b644-dbee-4326-9466-d6a736e179d9
+		summarizeBy: sum
+		sourceColumn: api_requests
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column average_daily_active_customers
+		dataType: double
+		isHidden
+		lineageTag: 71012a1c-b482-4b03-8d4b-9f86ab0889b2
+		summarizeBy: sum
+		sourceColumn: average_daily_active_customers
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column peak_daily_active_customers
+		dataType: double
+		isHidden
+		lineageTag: 7ea3373d-cb71-4493-ad4d-157b436d9d3b
+		summarizeBy: sum
+		sourceColumn: peak_daily_active_customers
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column revenue
+		dataType: double
+		isHidden
+		lineageTag: e3b01234-674f-42f3-b328-b036a762062c
+		summarizeBy: sum
+		sourceColumn: revenue
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column is_synthetic_activity
+		dataType: boolean
+		isHidden
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: ac7908e9-5481-4e33-a3ea-1fd04415259a
+		summarizeBy: none
+		sourceColumn: is_synthetic_activity
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column activity_source
+		dataType: string
+		isHidden
+		lineageTag: ac11090d-3f13-43e1-9d95-3a1420dada1b
+		summarizeBy: none
+		sourceColumn: activity_source
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column generation_method
+		dataType: string
+		isHidden
+		lineageTag: 9496305e-63f3-471f-9387-fa4801e0c947
+		summarizeBy: none
+		sourceColumn: generation_method
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column data_refresh_timestamp
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: 7b388b1c-3ea8-4f7c-a5e3-90661787608b
+		summarizeBy: none
+		sourceColumn: data_refresh_timestamp
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition mart_business_activity_monthly = m
+		mode: import
+		source =
+				let
+				    Source = GoogleBigQuery.Database([Implementation="2.0"]),
+				    #"finops-learning-lab_Database" = Source{[Name="finops-learning-lab",Kind="Database"]}[Data],
+				    retail_finops_mart_Schema = #"finops-learning-lab_Database"{[Name="retail_finops_mart",Kind="Schema"]}[Data],
+				    mart_business_activity_monthly_Table = retail_finops_mart_Schema{[Name="mart_business_activity_monthly",Kind="Table"]}[Data]
+				in
+				    mart_business_activity_monthly_Table
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table

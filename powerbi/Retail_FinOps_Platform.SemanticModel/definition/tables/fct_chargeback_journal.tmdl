@@ -1,0 +1,362 @@
+table fct_chargeback_journal
+	isHidden
+	lineageTag: d0449c32-b195-41bb-86dc-6ec8ff8223f4
+
+	column journal_id
+		dataType: string
+		isHidden
+		lineageTag: b264edbb-1706-4902-9a20-fe1e75db5766
+		summarizeBy: none
+		sourceColumn: journal_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column journal_line_id
+		dataType: string
+		isHidden
+		lineageTag: c4f13750-a2a4-482a-9364-7018c37ae816
+		summarizeBy: none
+		sourceColumn: journal_line_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column journal_month
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		lineageTag: 4e075144-2c7b-4989-9c42-3624e84a135f
+		summarizeBy: none
+		sourceColumn: journal_month
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column allocation_id
+		dataType: string
+		isHidden
+		lineageTag: 6891471f-aab3-4f1a-bf6b-b9453006b26e
+		summarizeBy: none
+		sourceColumn: allocation_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column record_id
+		dataType: string
+		isHidden
+		lineageTag: 3357d2cf-ed37-4f6d-acc2-bf5ecacda4cd
+		summarizeBy: none
+		sourceColumn: record_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_record_id
+		dataType: string
+		isHidden
+		lineageTag: 34644ccd-5d6e-4794-9684-465fb1d22c8c
+		summarizeBy: none
+		sourceColumn: source_record_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column pipeline_run_id
+		dataType: string
+		isHidden
+		lineageTag: ae60723e-3fae-403f-906a-b13e95d8fa7c
+		summarizeBy: none
+		sourceColumn: pipeline_run_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_system
+		dataType: string
+		isHidden
+		lineageTag: b0ba3dcb-4726-4ba5-ba97-e06dcdc2814d
+		summarizeBy: none
+		sourceColumn: source_system
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_file
+		dataType: string
+		isHidden
+		lineageTag: 53176718-c945-48e4-8878-2f9823a84623
+		summarizeBy: none
+		sourceColumn: source_file
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column provider_name
+		dataType: string
+		isHidden
+		lineageTag: 25ef69a9-3bf2-4e06-ad0f-fc2d2985ceaf
+		summarizeBy: none
+		sourceColumn: provider_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column billing_account_id
+		dataType: string
+		isHidden
+		lineageTag: 468bbdc9-3430-485e-a224-cb8f50a326ba
+		summarizeBy: none
+		sourceColumn: billing_account_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column sub_account_id
+		dataType: string
+		isHidden
+		lineageTag: 6544287a-9709-46b6-bc4f-95af359302bc
+		summarizeBy: none
+		sourceColumn: sub_account_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column project_id
+		dataType: string
+		isHidden
+		lineageTag: 034882e7-9ff2-4129-b968-6c8404ae0a84
+		summarizeBy: none
+		sourceColumn: project_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column posting_account
+		dataType: string
+		isHidden
+		lineageTag: b894a0aa-365a-496c-8b72-50f74d5383ab
+		summarizeBy: none
+		sourceColumn: posting_account
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column counterparty_account
+		dataType: string
+		isHidden
+		lineageTag: 510cbabd-dcb3-422c-bc3b-b5deb179016c
+		summarizeBy: none
+		sourceColumn: counterparty_account
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column application_name
+		dataType: string
+		isHidden
+		lineageTag: 0e582315-9bc6-4939-a4e4-14f3cb85af28
+		summarizeBy: none
+		sourceColumn: application_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column department_name
+		dataType: string
+		isHidden
+		lineageTag: 3c2c6d0e-4bd7-45c3-b9b6-0bd420d2f56b
+		summarizeBy: none
+		sourceColumn: department_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column environment_name
+		dataType: string
+		isHidden
+		lineageTag: 8e657f03-e00f-4aff-bc29-893b15b0035c
+		summarizeBy: none
+		sourceColumn: environment_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column cost_center
+		dataType: string
+		isHidden
+		lineageTag: 51d42514-89f9-412c-86d9-3fc7a712e9a8
+		summarizeBy: none
+		sourceColumn: cost_center
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column owner_name
+		dataType: string
+		isHidden
+		lineageTag: 6ad8c0e3-053c-47f2-800a-9e6b439fb2e1
+		summarizeBy: none
+		sourceColumn: owner_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column allocation_method
+		dataType: string
+		isHidden
+		lineageTag: d2d5c697-b3f3-4aa5-a099-3f499502f0d4
+		summarizeBy: none
+		sourceColumn: allocation_method
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column journal_line_role
+		dataType: string
+		isHidden
+		lineageTag: d88ab7a2-d296-4a92-ac9f-bc06a44aae81
+		summarizeBy: none
+		sourceColumn: journal_line_role
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column journal_line_type
+		dataType: string
+		isHidden
+		lineageTag: f9cea371-1209-40d1-94fe-68ada3d4dd2c
+		summarizeBy: none
+		sourceColumn: journal_line_type
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column journal_amount
+		dataType: double
+		isHidden
+		lineageTag: 54615408-662f-4193-b41b-bf3bdc5f24e9
+		summarizeBy: sum
+		sourceColumn: journal_amount
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column billing_currency
+		dataType: string
+		isHidden
+		lineageTag: 25d25a0e-4db4-4823-8ea0-2ea1d742de5a
+		summarizeBy: none
+		sourceColumn: billing_currency
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column journal_reason
+		dataType: string
+		isHidden
+		lineageTag: 225426af-dab3-4927-b70d-d18e2914a32e
+		summarizeBy: none
+		sourceColumn: journal_reason
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column journal_status
+		dataType: string
+		isHidden
+		lineageTag: 16b685cc-c23c-4838-be9f-19c0c56b4a9a
+		summarizeBy: none
+		sourceColumn: journal_status
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column data_refresh_timestamp
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: 6da0dc3b-485c-4e55-b44b-a8c84f03346c
+		summarizeBy: none
+		sourceColumn: data_refresh_timestamp
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Billing Account Key' =
+
+			VAR Provider =
+			    TRIM(
+			        COALESCE(
+			            'fct_chargeback_journal'[provider_name],
+			            ""
+			        )
+			    )
+			VAR BillingAccount =
+			    TRIM(
+			        COALESCE(
+			            'fct_chargeback_journal'[billing_account_id],
+			            ""
+			        )
+			    )
+			RETURN
+			    UPPER(IF(Provider = "", "Unknown", Provider))
+			        & "|"
+			        & LOWER(IF(BillingAccount = "", "Unknown", BillingAccount))
+		isHidden
+		lineageTag: 2356792a-79b2-49cb-a360-8425bde508cd
+		summarizeBy: none
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fct_chargeback_journal = m
+		mode: import
+		source =
+				let
+				    Source = GoogleBigQuery.Database([Implementation="2.0"]),
+				    #"finops-learning-lab_Database" = Source{[Name="finops-learning-lab",Kind="Database"]}[Data],
+				    retail_finops_mart_Schema = #"finops-learning-lab_Database"{[Name="retail_finops_mart",Kind="Schema"]}[Data],
+				    fct_chargeback_journal_Table = retail_finops_mart_Schema{[Name="fct_chargeback_journal",Kind="Table"]}[Data]
+				in
+				    fct_chargeback_journal_Table
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table

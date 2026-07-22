@@ -1,0 +1,58 @@
+table dim_service
+	lineageTag: 4eb84f54-40fb-4a3a-b57c-301990ca67e3
+
+	column service_key
+		dataType: string
+		lineageTag: 70a5e5d0-8ece-4384-8e8a-9f9ffdd5b3a4
+		summarizeBy: none
+		sourceColumn: service_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column provider_name
+		dataType: string
+		lineageTag: 995427a4-04d0-4750-8c9e-d2824ce10edd
+		summarizeBy: none
+		sourceColumn: provider_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column service_name
+		dataType: string
+		lineageTag: 64e09d6f-3fdf-4ea9-aaed-0de3200b1f92
+		summarizeBy: none
+		sourceColumn: service_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column service_category
+		dataType: string
+		lineageTag: 2e240f15-5fa6-479c-8523-bd51fd690cf8
+		summarizeBy: none
+		sourceColumn: service_category
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_unknown
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: aa58bdc2-27d6-46be-9ade-0f5a9d352494
+		summarizeBy: none
+		sourceColumn: is_unknown
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_service = m
+		mode: import
+		source =
+				let
+				    Source = GoogleBigQuery.Database([Implementation="2.0"]),
+				    #"finops-learning-lab_Database" = Source{[Name="finops-learning-lab",Kind="Database"]}[Data],
+				    retail_finops_core_Schema = #"finops-learning-lab_Database"{[Name="retail_finops_core",Kind="Schema"]}[Data],
+				    dim_service_Table = retail_finops_core_Schema{[Name="dim_service",Kind="Table"]}[Data]
+				in
+				    dim_service_Table
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table

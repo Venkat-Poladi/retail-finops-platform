@@ -1,0 +1,238 @@
+table mart_monthly_actuals
+	isHidden
+	lineageTag: d1ef2efa-2c0f-448d-a818-5c5d6817d469
+
+	column billing_month
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		lineageTag: 20056db8-ad22-47c2-a621-7c8a63e5cda7
+		summarizeBy: none
+		sourceColumn: billing_month
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column provider_name
+		dataType: string
+		isHidden
+		lineageTag: 8cd8a146-09d0-4180-b0a6-68ee037185b3
+		summarizeBy: none
+		sourceColumn: provider_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column application_name
+		dataType: string
+		isHidden
+		lineageTag: fbc593d2-b0e5-40d3-9e22-246eabc6f8ff
+		summarizeBy: none
+		sourceColumn: application_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column department_name
+		dataType: string
+		isHidden
+		lineageTag: 54c88a5b-221b-4185-a288-a48e6344cb1f
+		summarizeBy: none
+		sourceColumn: department_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column environment_name
+		dataType: string
+		isHidden
+		lineageTag: 6a1f67a8-1e38-40f1-a614-ced09031c3cb
+		summarizeBy: none
+		sourceColumn: environment_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column cost_center
+		dataType: string
+		isHidden
+		lineageTag: 8bc1ce5a-650a-42d7-b4a8-432434d14426
+		summarizeBy: none
+		sourceColumn: cost_center
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column owner_name
+		dataType: string
+		isHidden
+		lineageTag: a6113068-9395-4b1b-b111-83a0e17591aa
+		summarizeBy: none
+		sourceColumn: owner_name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column billing_currency
+		dataType: string
+		isHidden
+		lineageTag: aa6251aa-446f-4863-aef2-1b42ce929718
+		summarizeBy: none
+		sourceColumn: billing_currency
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column allocation_row_count
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: dd01ad0f-3829-4ad7-95d9-168d1ad0c8f9
+		summarizeBy: sum
+		sourceColumn: allocation_row_count
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_record_count
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 2f58e980-4b3b-44fc-bb98-5630ddfa334e
+		summarizeBy: sum
+		sourceColumn: source_record_count
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column actual_cost
+		dataType: double
+		isHidden
+		lineageTag: 796b4b1c-2c17-43ef-9ded-bad50028f56d
+		summarizeBy: sum
+		sourceColumn: actual_cost
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column positive_usage_cost
+		dataType: double
+		isHidden
+		lineageTag: 6d4ee09b-db82-40e9-ad5d-b83f4561dd27
+		summarizeBy: sum
+		sourceColumn: positive_usage_cost
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column direct_cost
+		dataType: double
+		isHidden
+		lineageTag: 07e85a27-1ee1-446d-ae3f-51a51c951219
+		summarizeBy: sum
+		sourceColumn: direct_cost
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column shared_allocated_cost
+		dataType: double
+		isHidden
+		lineageTag: 670b3bab-1d04-408e-b6ea-4aa07c0fa4d8
+		summarizeBy: sum
+		sourceColumn: shared_allocated_cost
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column unallocated_cost
+		dataType: double
+		isHidden
+		lineageTag: 3aaf06e1-91e9-4f18-bc9b-4d9798c431af
+		summarizeBy: sum
+		sourceColumn: unallocated_cost
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column late_arriving_cost
+		dataType: double
+		isHidden
+		lineageTag: 61e1d9cc-239b-490e-95ca-0f905c0a5dc9
+		summarizeBy: sum
+		sourceColumn: late_arriving_cost
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column synthetic_cost
+		dataType: double
+		isHidden
+		lineageTag: 867110ae-cbe5-4ebf-95cd-e296ee10b966
+		summarizeBy: sum
+		sourceColumn: synthetic_cost
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column data_refresh_timestamp
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: bf73df87-1cd7-42e7-952a-ece839fc742c
+		summarizeBy: none
+		sourceColumn: data_refresh_timestamp
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition mart_monthly_actuals = m
+		mode: import
+		source =
+				let
+				    Source = GoogleBigQuery.Database([Implementation="2.0"]),
+				    #"finops-learning-lab_Database" = Source{[Name="finops-learning-lab",Kind="Database"]}[Data],
+				    retail_finops_mart_Schema = #"finops-learning-lab_Database"{[Name="retail_finops_mart",Kind="Schema"]}[Data],
+				    mart_monthly_actuals_Table = retail_finops_mart_Schema{[Name="mart_monthly_actuals",Kind="Table"]}[Data]
+				in
+				    mart_monthly_actuals_Table
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
